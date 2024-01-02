@@ -9,12 +9,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     {{ content_for_header }}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{'application.css' |  asset_url |  stylesheet_tag}}
 
     <script src="{{ 'application.js' | asset_url }}" defer></script>
   </head>
-  <body>
+  <body >
     <main role="main">
       {{ content_for_layout }}
+    
     </main>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
   </body>
 </html>
