@@ -1,11 +1,11 @@
-<div class="grid grid-cols-5 grid-rows-5">
-<div class=" col-span-4 row-span-3 py-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 grid-rows-5 gap-1">
+<div class=" col-span-1 md:col-span-2 lg:col-span-4 row-span-3 pt-8">
 
   {% paginate blog.articles by section.settings.number_of_blog_posts %}
 
     <h1 class="text-center text-3xl">{{ blog.title }}</h1>
 
-    <div class="max-w-7xl ">
+    <div class="max-w-9xl mx-auto ">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 px-3">
         {% for article in blog.articles %}
           <div class="w-full py-6 px-3">
@@ -33,8 +33,8 @@
                 
              
                 <div class="flex items-center">
-                  <hr class="w-6 h-0.5 bg-black">
-                  <a href="{{ article.url }}" class="font-medium text-black hover:text-blue-800 my-4 block px-2">{{ section.settings.blog_read_more }}</a>
+                  <hr class="w-9 h-0.5 bg-black">
+                  <a href="{{ article.url }}" class="font-medium text-black  my-4 block px-2">{{ section.settings.blog_read_more }}</a>
                 </div>
                 
                
@@ -51,9 +51,9 @@
     </div>
     
 
-    <div class="max-w-7xl">
+    <div class="max-w-9xl">
       {% if paginate.pages > 1 %}
-        <nav role="navigation" class="flex justify-center items-center my-8">
+        <nav role="navigation" class="flex justify-center items-center mt-1">
           {% if paginate.previous %}
             <a href="{{ paginate.previous.url }}">
               <svg
@@ -81,7 +81,7 @@
     </div>
   {% endpaginate %}
 </div>
-<div class=" row-span-3 col-start-5 mt-14 ">
+<div class=" row-span-3 col-span-1 md:col-span-1 lg:col-start-5 lg:mt-14 md:mt-0  ml-5 ">
   <div class="text-2xl py-8">
     Recent Posts
   </div>
@@ -101,6 +101,37 @@
       <a href="{{ post.url }}">{{ post.published_at | date: "%B %d, %Y" }}</a>
     </p>
   {% endfor %}
+  {% if blog.tags.size > 0 %}
+    <div class="">
+      <p class="text-bold">Tags By</p>
+      <div class="text-center">
+       
+        <ul class="flex gap-2 items-center list-none pt-2">
+          
+          <li>
+          
+            <button class="text-black py-1 px-2 border-2  font-semibold rounded">
+              <a href="{{ blog.url }}" class="button">
+                {{ 'All ' }}
+              </a>
+            </button>
+            
+          </li>
+          {% for tag in blog.all_tags %}
+            <li>
+              <button class="text-black py-1 px-2 border-2  font-semibold rounded">
+                <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="button">
+                {{ tag }}
+              </a>
+              </button>
+              
+              
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
   
 
 
@@ -125,7 +156,7 @@
         "min": 1,
         "max": 6,
         "label": "Blog posts per page",
-        "default": 3
+        "default": 2
       }
     ]
   }
