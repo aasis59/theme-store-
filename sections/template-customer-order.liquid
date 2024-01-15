@@ -2,18 +2,19 @@
   <h1 class="">{{ 'customer.account.title' | t }}</h1>
   <a href="{{ routes.account_url }}" class="block">{{ 'customer.account.return' | t }}</a>
 
-  <div class="mt-4">
-    <div>
+  <div class="" >
+    <div class="">
       <h2>{{ 'customer.order.title' | t: name: order.name }}</h2>
       {%- assign order_date = order.created_at | time_tag: format: 'date_at_time' -%}
       <p>{{ 'customer.order.date_html' | t: date: order_date }}</p>
       {%- if order.cancelled -%}
-        {%- assign cancelled_at = order.cancelled_at | time_tag: format: 'date_at_time' -%}
-        <p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
-        <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
+      {%- assign cancelled_at = order.cancelled_at | time_tag: format: 'date_at_time' -%}
+      <p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
+      <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
       {%- endif -%}
-
-      <table class="order-details w-full table-auto border-collapse border-b-[0.01rem]">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 grid-rows-5 gap-4 mt-4" >
+        <div class="col-span-1 md:col-span-2 lg:col-span-3 row-span-1 md:row-span-2">
+      <table class=" ">
         <caption class="">
           {{ 'customer.order.title' | t: name: order.name }}
         </caption>
@@ -295,26 +296,30 @@
           </tr>
         </tfoot>
       </table>
-    </div>
+     </div>
+    
 
-    <div>
-      <div>
-        <h2>{{ 'customer.order.billing_address' | t }}</h2>
-        <p>
-          <strong>{{ 'customer.order.payment_status' | t }}:</strong>
-          {{ order.financial_status_label }}
-        </p>
-        {{ order.billing_address | format_address }}
-      </div>
 
-      <div>
-        <h2>{{ 'customer.order.shipping_address' | t }}</h2>
-        <p>
-          <strong>{{ 'customer.order.fulfillment_status' | t }}:</strong>
-          {{ order.fulfillment_status_label }}
-        </p>
-        {{ order.shipping_address | format_address }}
+        <div class="col-span-1 md:col-start-2 md:row-span-2 lg:col-start-4 lg:row-span-3">
+          <div>
+            <h2>{{ 'customer.order.billing_address' | t }}</h2>
+            <p>
+              <strong>{{ 'customer.order.payment_status' | t }}:</strong>
+              {{ order.financial_status_label }}
+            </p>
+            {{ order.billing_address | format_address }}
+          </div>
+
+          <div>
+            <h2>{{ 'customer.order.shipping_address' | t }}</h2>
+            <p>
+              <strong>{{ 'customer.order.fulfillment_status' | t }}:</strong>
+              {{ order.fulfillment_status_label }}
+            </p>
+            {{ order.shipping_address | format_address }}
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
