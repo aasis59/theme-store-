@@ -45,7 +45,7 @@
                   {%- endif -%}
                   {%- assign property_size = line_item.properties | size -%}
                   {%- unless line_item.selling_plan_allocation == null and property_size == 0 -%}
-                    <div class="properties">
+                    <div class="">
                       {%- unless line_item.product.has_only_default_variant -%}
                         <span>
                           {{ line_item.variant.title }}
@@ -87,7 +87,7 @@
                   {%- endif -%}
 
                   {%- if line_item.fulfillment -%}
-                    <div class="fulfillment">
+                    <div class="">
                       {%- assign created_at = line_item.fulfillment.created_at | time_tag: format: 'date' -%}
                       <span>{{ 'customer.order.fulfilled_at_html' | t: date: created_at }}</span>
 
@@ -122,20 +122,20 @@
                   <dl>
                     {%- if line_item.original_price != line_item.final_price -%}
                       <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                        <span class="">{{ 'products.product.price.regular_price' | t }}</span>
                       </dt>
-                      <dd class="regular-price">
+                      <dd class="">
                         <s>{{ line_item.original_price | money }}</s>
                       </dd>
                       <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+                        <span class="">{{ 'products.product.price.sale_price' | t }}</span>
                       </dt>
                       <dd>
                         <span>{{ line_item.final_price | money }}</span>
                       </dd>
                     {%- else -%}
                       <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                        <span class="">{{ 'products.product.price.regular_price' | t }}</span>
                       </dt>
                       <dd>
                         {{ line_item.original_price | money }}
@@ -143,13 +143,13 @@
                     {%- endif -%}
                     {%- if line_item.unit_price_measurement -%}
                       <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
+                        <span class="">{{ 'products.product.price.unit_price' | t }}</span>
                       </dt>
-                      <dd class="unit-price">
+                      <dd class="">
                         <span>
                           {%- capture unit_price_separator -%}
                             <span aria-hidden="true">/</span
-                            ><span class="visually-hidden">{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+                            ><span class="">{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
                           {%- endcapture -%}
                           {%- capture unit_price_base_unit -%}
                             {%- if line_item.unit_price_measurement.reference_value != 1 -%}
@@ -183,13 +183,13 @@
                 {%- if line_item.original_line_price != line_item.final_line_price -%}
                   <dl>
                     <dt>
-                      <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                      <span class="">{{ 'products.product.price.regular_price' | t }}</span>
                     </dt>
-                    <dd class="regular-price">
+                    <dd class="">
                       <s>{{ line_item.original_line_price | money }}</s>
                     </dd>
                     <dt>
-                      <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+                      <span class="">{{ 'products.product.price.sale_price' | t }}</span>
                     </dt>
                     <dd>
                       <span>{{ line_item.final_line_price | money }}</span>
