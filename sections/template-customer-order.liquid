@@ -12,13 +12,11 @@
       <p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
       <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
       {%- endif -%}
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-        <div class="col-span-1 md:col-span-2 lg:col-span-3 row-span-1 md:row-span-2 relative overflow-x-auto">
-          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-            <caption class="">
-              {{ 'customer.order.title' | t: name: order.name }}
-            </caption>
-            <thead role="rowgroup text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-8  ">
+        <div class="md:col-span-3 lg:col-span-3 md:row-span-2 lg:row-span-2 relative overflow-x-auto">
+          <table class="w-full text-sm text-left rtl:text-right  ">
+            
+            <thead role="rowgroup text-xs text-black uppercase ">
               <tr role="row" class="border border-solid border-gray-500">
                 <th id="ColumnProduct" class="px-6 py-3" scope="col" role="columnheader">{{ 'customer.order.product' | t
                   }}</th>
@@ -194,10 +192,11 @@
             <tfoot role="rowgroup" class=" border border-solid border-gray-500">
               <tr role="row" >
                 <td id="RowSubtotal" role="rowheader" scope="row" colspan="4"  >
-                 <strong> {{ 'customer.order.subtotal' | t }} </strong>
+                  <strong> {{ 'customer.order.subtotal' | t }}  </strong>
+                 
                 </td>
-                <td headers="RowSubtotal" role="cell" data-label="{{ 'customer.order.subtotal' | t }}">
-                  {{ order.line_items_subtotal_price | money }}
+                <td headers="RowSubtotal" role="cell" data-label="{{ 'customer.order.subtotal' | t }}" class="px-6">
+                 <strong> {{ order.line_items_subtotal_price | money }} </strong>
                 </td>
               </tr>
               {%- if order.cart_level_discount_applications != blank -%}
@@ -251,7 +250,10 @@
               <tr role="row">
                 <td id="RowDuties" role="rowheader" scope="row" colspan="4">{{ 'customer.order.total_duties' | t }}</td>
                 <td headers="RowDuties" role="cell" data-label="{{ 'customer.order.total_duties' | t }}">
-                  {{ order.total_duties | money }}
+                 
+                  {{ order.total_duties | money }} 
+
+                
                 </td>
               </tr>
               {%- endif -%}
@@ -267,9 +269,9 @@
               </tr>
               {%- endif -%}
               <tr role="row">
-                <td id="RowTotal" role="rowheader" scope="row" colspan="3" class="font-bold text-xl"> {{ 'customer.order.total' | t }}</td>
-                <td headers="RowTotal" role="cell" colspan="2" data-label="{{ 'customer.order.total' | t }}">
-                  <strong>{{ order.total_net_amount | money_with_currency }} </strong>
+                <td id="RowTotal" role="rowheader" scope="row" colspan="4" class="font-bold text-xl"> {{ 'customer.order.total' | t }}</td>
+                <td headers="RowTotal" role="cell" colspan="2" data-label="{{ 'customer.order.total' | t }}" class="px-6">
+                  <strong >{{ order.total_net_amount | money_with_currency }} </strong>
                 </td>
               </tr>
             </tfoot>
@@ -278,9 +280,9 @@
 
 
 
-        <div class="col-span-1 md:col-start-2 md:row-span-2 lg:col-start-4 lg:row-span-3">
-          <div>
-            <h2>{{ 'customer.order.billing_address' | t }}</h2>
+        <div class="md:col-span-2 lg:col-span-2 md:row-span-2 lg:col-start-4 lg:row-span-2">
+          <div class="mb-4">
+            <h2 class="text-3xl font-bold mb-2">{{ 'customer.order.billing_address' | t }}</h2>
             <p>
               <strong>{{ 'customer.order.payment_status' | t }}:</strong>
               {{ order.financial_status_label }}
@@ -289,7 +291,7 @@
           </div>
 
           <div>
-            <h2>{{ 'customer.order.shipping_address' | t }}</h2>
+            <h2 class="text-3xl font-bold mb-2"">{{ 'customer.order.shipping_address' | t }}</h2>
             <p>
               <strong>{{ 'customer.order.fulfillment_status' | t }}:</strong>
               {{ order.fulfillment_status_label }}
