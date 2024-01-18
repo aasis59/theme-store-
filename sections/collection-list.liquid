@@ -1,38 +1,61 @@
 <div class="px-4 py-4">
-    
 
-        <div class="">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-               
-                {% for collection in collections limit:section.settings.number_of_products_per_page %}
-                    
-                    {% render 'product-card', product_product: collection %}
-                {% else %}
-                    <p>There are no collections</p>
-                {% endfor %}
-            </div>
+
+    <div class="">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+            {% for collection in collections limit:section.settings.number_of_products_per_page %}
+
+            {% render 'product-card', product_product: collection %}
+            {% else %}
+            <p>There are no collections</p>
+            {% endfor %}
         </div>
-        
+    </div>
 
-        
-    
+
+
+
 </div>
 
 {% schema %}
 {
-    "name": "Collection-List",
-    "settings": [
-        {
-            "type": "number",
-            "id": "number_of_products_per_page",
-            "default": 6,
-            "label": "Number of products per page"
-        }
-    ],
-    "presets": [
-    {
-      "name": "Collection-list"
+"name": "Collection-List",
+"settings": [
+{
+"type": "number",
+"id": "number_of_products_per_page",
+"default": 4,
+"label": "Number of collection"
+},
+
+{
+"type": "collection",
+"label": "Collection 1",
+"id": "collection_1"
+},
+{
+"type": "collection",
+"label": "Collection 2",
+"id": "collection_2"
+},
+{
+"type": "collection",
+"label": "Collection 3",
+"id": "collection_3"
+},
+{
+"type": "collection",
+"label": "Collection 4",
+"id": "collection_4"
 }
-      ]
+],
+
+
+"presets": [
+{
+"name": "Collection-list"
+}
+]
 }
 {% endschema %}
