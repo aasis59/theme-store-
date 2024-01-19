@@ -1,5 +1,6 @@
+
 <div class="w-full py-6 px-3  ">
-    <div class="relative group">
+    <div class="relative group ">
         <a href="{{ product_product.url }}">
             {% if product_product.featured_image %}
                 <div class="h-auto">
@@ -13,9 +14,39 @@
         
         <div class="flex flex-col p-4 absolute bottom-0 left-[-30px]  ">
             <p class="text-gray-500 text-lg mb-1 ">{{ product_product.products_count }} products</p>
-            <a href="{{ product_product.url }}" class=" text-3xl font-bold">{{ product_product.title }}</a>
-            <div class=" w-0 h-[3px] bg-black transform -translate-y-1/2 opacity-0 transition-opacity duration-300 ease-in transition-width duration-1000 ease-in group-hover:opacity-100 group-hover:w-full"></div>
+            <a href="{{ product_product.url }}"  class=" text-3xl font-bold we ">{{ product_product.title }}</a>
+          
         </div>
         
     </div>
 </div>
+<style>
+
+    .we {
+      text-decoration: none;
+      position: relative;
+      transition: color 0.7s;
+    }
+
+    .we::after {
+        
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      height: 1px;
+      width: 0;
+      background-color:black;
+      transition: width 0.7s;
+    }
+
+    .group:hover .we::after {
+        
+      width: 100%;
+    }
+
+  .group:hover .we {
+      color:black;
+       
+    }
+  </style>
