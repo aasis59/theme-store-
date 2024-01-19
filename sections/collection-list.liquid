@@ -1,10 +1,10 @@
-<div class="px-4 py-4">
+<div class="px-4 py-6">
 
 
     <div class="">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-1 sm:gap-4">
 
-            {% for collection in collections limit:section.settings.number_of_products_per_page %}
+            {% for collection in section.settings.collection limit:section.settings.number_of_products_per_page %}
             {% render 'product-card', product_product: collection %}
             {% endfor %}
         </div>
@@ -27,25 +27,11 @@
 },
 
 {
-"type": "collection",
-"label": "Collection 1",
-"id": "collection_1"
-},
-{
-"type": "collection",
-"label": "Collection 2",
-"id": "collection_2"
-},
-{
-"type": "collection",
-"label": "Collection 3",
-"id": "collection_3"
-},
-{
-"type": "collection",
-"label": "Collection 4",
-"id": "collection_4"
+"type": "collection_list",
+"label": "Collection",
+"id": "collection"
 }
+
 ],
 
 
