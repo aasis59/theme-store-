@@ -6,6 +6,21 @@
 
             {% for collection in section.settings.collection limit:section.settings.number_of_products_per_page %}
             {% render 'product-card', product_product: collection %}
+            {%else%}
+            <div class="w-full py-2 px-2 ">
+                {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100' }}
+            </div>
+            <div class="w-full py-2 px-2 ">
+                {{ 'product-2' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100' }}
+            </div>
+            <div class="w-full py-2 px-2 ">
+                {{ 'product-3' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100' }}
+            </div>
+            <div class="w-full py-2 px-2 ">
+                {{ 'product-4' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100' }}
+            </div>
+
+
             {% endfor %}
         </div>
     </div>
