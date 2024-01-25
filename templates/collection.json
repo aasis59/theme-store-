@@ -1,8 +1,22 @@
 {
-    "sections": {
-        "template": {
-            "type": "template-collection"
-        }
+  "sections": {
+    "template": {
+      "type": "template-collection",
+      "settings": {
+      }
     },
-    "order": ["template"]
+    "collection_list_VTXMz9": {
+      "type": "collection-list",
+      "settings": {
+        "number_of_products_per_page": 4,
+        "collection": [
+
+        ]
+      }
+    }
+  },
+  "order": [
+    "template",
+    "collection_list_VTXMz9"
+  ]
 }
