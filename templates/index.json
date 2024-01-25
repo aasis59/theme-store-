@@ -1,10 +1,22 @@
 {
-    "sections": {
-        "hello": {
-            "type": "hello"
-        }
+  "sections": {
+    "hello": {
+      "type": "hello",
+      "settings": {
+      }
     },
-    "order": [
-        "hello"
-    ]
+    "collection_list_rgzncX": {
+      "type": "collection-list",
+      "settings": {
+        "number_of_products_per_page": 4,
+        "collection": [
+
+        ]
+      }
+    }
+  },
+  "order": [
+    "hello",
+    "collection_list_rgzncX"
+  ]
 }
