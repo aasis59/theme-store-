@@ -1,0 +1,8 @@
+{% assign latest_products = collections.all.products | sort: 'created_at' | reverse %}
+{% assign latest_8_products = latest_products | limit: 8 %}
+
+<div class="grid grid-cols-1 md:grid-cols-4 gap-1 sm:gap-4 px-4 py-6 ">
+  {% for product in latest_8_products %}
+    {% render 'recent-card', product_product: product %}
+  {% endfor %}
+</div>
