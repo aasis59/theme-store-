@@ -1,15 +1,22 @@
-<div class="{% if section.settings.padding == 'top and buttom' %}py-6{% elsif section.settings.padding == 'top only' %}pt-6{% elsif section.settings.padding == 'buttom only' %} pb-6{% elsif section.settings.padding == 'none' %} p-0{% endif %} {% if section.settings.contentwidth == 'Custom' %}max-w-[{{ section.settings.Customwidth }}px]mx-auto {% elsif section.settings.contentwidth == 'Full width' %}w-full{% endif %}">
-  <div
-    class=" {% if section.settings.Alignment == 'left' %}text-left{% elsif section.settings.Alignment == 'center' %}text-center{% endif %}">
+<div
+    class="{% if section.settings.padding == 'top and buttom' %}py-6{% elsif section.settings.padding == 'top only' %}pt-6{% elsif section.settings.padding == 'buttom only' %} pb-6{% elsif section.settings.padding == 'none' %} p-0{% endif %} {% if section.settings.contentwidth == 'Custom' %}custom-section {% elsif section.settings.contentwidth == 'Full width' %}w-full{% endif %}">
     <div
-        class=" font-bold {% if section.settings.headingsize == 'small' %}text-xl{% elsif section.settings.headingsize == 'middle' %}text-2xl{% elsif section.settings.headingsize == 'large' %}text-3xl{% endif %}">
-        {{ section.settings.heading }}
+        class=" {% if section.settings.Alignment == 'left' %}text-left{% elsif section.settings.Alignment == 'center' %}text-center{% endif %}">
+        <div
+            class=" font-bold {% if section.settings.headingsize == 'small' %}text-xl{% elsif section.settings.headingsize == 'middle' %}text-2xl{% elsif section.settings.headingsize == 'large' %}text-3xl{% endif %}">
+            {{ section.settings.heading }}
+        </div>
+        <div>{{section.settings.subheading}}</div>
+
     </div>
-    <div>{{section.settings.subheading}}</div>
 
 </div>
-  
-  </div>
+<style>
+  .custom-section {
+    max-width: {{ section.settings.Customwidth }}px;
+    margin: 0 auto; 
+  }
+</style>
 
 
 {% schema %}
