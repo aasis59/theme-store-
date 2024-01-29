@@ -18,7 +18,7 @@
     "contact_us_feVDbp": {
       "type": "Contact-us",
       "settings": {
-        "Alignment": "center",
+        "Alignment": "left",
         "heading": "Contact us",
         "headingsize": "middle",
         "subheading": "",
