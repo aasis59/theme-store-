@@ -18,13 +18,13 @@
     "contact_us_feVDbp": {
       "type": "Contact-us",
       "settings": {
-        "Alignment": "left",
+        "Alignment": "center",
         "heading": "Contact us",
         "headingsize": "middle",
         "subheading": "",
-        "padding": "none",
-        "contentwidth": "Custom",
-        "Customwidth": 800
+        "padding": "top and buttom",
+        "contentwidth": "Full width",
+        "Customwidth": 600
       }
     }
   },
