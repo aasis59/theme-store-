@@ -1,0 +1,130 @@
+<div class="{% if section.settings.padding == 'top and buttom' %}py-6{% elsif section.settings.padding == 'top only' %}pt-6{% elsif section.settings.padding == 'buttom only' %} pb-6{% elsif section.settings.padding == 'none' %} p-0{% endif %} {% if section.settings.contentwidth == 'Custom' %}max-w-[{{ section.settings.Customwidth }}px];mx-auto {% elsif section.settings.contentwidth == 'Full width' %}w-full{% endif %}">
+  <div
+    class=" {% if section.settings.Alignment == 'left' %}text-left{% elsif section.settings.Alignment == 'center' %}text-center{% endif %}">
+    <div
+        class=" font-bold {% if section.settings.headingsize == 'small' %}text-xl{% elsif section.settings.headingsize == 'middle' %}text-2xl{% elsif section.settings.headingsize == 'large' %}text-3xl{% endif %}">
+        {{ section.settings.heading }}
+    </div>
+    <div>{{section.settings.subheading}}</div>
+
+</div>
+  
+  </div>
+
+
+{% schema %}
+{
+"name": "Contact-Us",
+"settings": [
+{
+"type": "select",
+"id": "Alignment",
+"label": "Alignment",
+"options": [
+{
+"value": "center",
+"label": "Heading and text center"
+},
+{
+"value": "left",
+"label": "Heading and text left"
+}
+
+],
+"default": "center"
+},
+{
+"type": "text",
+"id": "heading",
+"label": "Heading",
+"default": "Contact us"
+},
+{
+"type": "select",
+"id": "headingsize",
+"label": "Heading Size",
+"options": [
+{
+"value": "small",
+"label": "small"
+},
+{
+"value": "middle",
+"label": "Middle"
+},
+{
+"value": "large",
+"label": "large"
+}
+],
+"default": "middle"
+},
+{
+"type": "richtext",
+"id": "subheading",
+"label": "Subheading"
+},
+{
+"type": "select",
+"id": "padding",
+"label": "Padding",
+"options": [
+{
+"value": "none",
+"label": "none"
+},
+{
+"value": "top and buttom",
+"label": "Top and Buttom"
+},
+{
+"value": "top only",
+"label": "Top Only"
+},
+{
+"value": "buttom only",
+"label": "Buttom Only"
+}
+
+],
+"default": "none"
+},
+{
+"type": "radio",
+"id": "contentwidth",
+"label": "Content width",
+"options": [
+{
+"value": "Full width",
+"label": "Full width"
+},
+{
+"value": "Custom",
+"label": "Custom"
+}
+],
+"default": "Custom"
+},
+
+{
+"type": "range",
+"id": "Customwidth",
+"min": 400,
+"max": 1000,
+"step":50,
+"unit": "px",
+"label": "Custom content width",
+"default": 700
+}
+
+
+],
+
+
+"presets": [
+{
+"name": "Contact-us"
+}
+]
+}
+{% endschema %}
