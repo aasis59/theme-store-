@@ -6,7 +6,8 @@
     <div class="mt-3 font-twentieth-century">{{ section.settings.subheading }}</div>
   </div>
   <div class="mt-8">
-    {%- form 'contact', class: flex flex-wrap -%}
+    {%- form 'contact', article: section, class: 'flex flex-wrap' -%}
+      
       {%- if form.posted_successfully? -%}
         <h2 class="text-green">
           posted_successfully
