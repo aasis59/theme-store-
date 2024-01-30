@@ -9,7 +9,11 @@ module.exports = {
     './templates/*.liquid'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'twentieth-century': ['Twentieth Century', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
