@@ -6,10 +6,17 @@
     <div class="mt-3 font-twentieth-century">{{ section.settings.subheading }}</div>
   </div>
   <div class="mt-8">
-    <form
-      action="/contact"
-      method="post"
-      class="flex flex-wrap ">
+    {%- form 'contact', class: flex flex-wrap -%}
+      {%- if form.posted_successfully? -%}
+        <h2 class="text-green">
+          posted_successfully
+        </h2>
+        {%- elsif form.errors -%}
+          <h2 class="text-red">
+          error
+        </h2>
+
+      {%- endif -%}
       {%- for block in section.blocks -%}
         {% case block.type %}
           {%- when 'Name' -%}
@@ -68,7 +75,7 @@
         {%- endcase -%}
       {%- endfor -%}
       
-    </form>
+    {%- endform -%}
   </div>
 </div>
 <style>
