@@ -57,6 +57,14 @@
             "buttonsize": "large",
             "fullwidth": true
           }
+        },
+        "checkbox_DP7fCx": {
+          "type": "checkbox",
+          "settings": {
+            "checkbox": "Check Box",
+            "required": false,
+            "Blockwidth": "Halfwidth"
+          }
         }
       },
       "block_order": [
@@ -64,7 +72,8 @@
         "email_CD7xLy",
         "phone_number_Xr8Xpy",
         "textarea_r88pee",
-        "submit_rQEFki"
+        "submit_rQEFki",
+        "checkbox_DP7fCx"
       ],
       "settings": {
         "Alignment": "center",
