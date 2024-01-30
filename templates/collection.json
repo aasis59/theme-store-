@@ -13,10 +13,73 @@
 
         ]
       }
+    },
+    "contact_us_Vhit7n": {
+      "type": "Contact-us",
+      "blocks": {
+        "name_eULUQD": {
+          "type": "Name",
+          "settings": {
+            "name": "Name",
+            "Blockwidth": "Full width"
+          }
+        },
+        "email_CD7xLy": {
+          "type": "Email",
+          "settings": {
+            "email": "Email",
+            "required": false,
+            "Blockwidth": "Halfwidth"
+          }
+        },
+        "phone_number_Xr8Xpy": {
+          "type": "PhoneNumber",
+          "settings": {
+            "phone": "Phone Number",
+            "required": false,
+            "Blockwidth": "Halfwidth"
+          }
+        },
+        "textarea_r88pee": {
+          "type": "Textarea",
+          "settings": {
+            "message": "Message",
+            "textarea": "Your message",
+            "required": false,
+            "height": 5,
+            "Blockwidth": "Full width"
+          }
+        },
+        "submit_rQEFki": {
+          "type": "Submit",
+          "settings": {
+            "submit": "Submit",
+            "buttonsize": "large",
+            "fullwidth": true
+          }
+        }
+      },
+      "block_order": [
+        "name_eULUQD",
+        "email_CD7xLy",
+        "phone_number_Xr8Xpy",
+        "textarea_r88pee",
+        "submit_rQEFki"
+      ],
+      "settings": {
+        "Alignment": "center",
+        "heading": "Contact us",
+        "headingsize": "meduim",
+        "subheading": "",
+        "padding": "none",
+        "contentwidth": "Custom",
+        "Customwidth": 700
+      }
     }
   },
   "order": [
     "template",
-    "collection_list_VTXMz9"
+    "collection_list_VTXMz9",
+    "contact_us_Vhit7n"
   ]
 }
