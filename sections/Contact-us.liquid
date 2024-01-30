@@ -1,9 +1,6 @@
-<div
-  class="{% if section.settings.padding == 'top and buttom' %}py-6{% elsif section.settings.padding == 'top only' %}pt-6{% elsif section.settings.padding == 'buttom only' %}pb-6{% elsif section.settings.padding == 'none' %}p-0{% endif %} {% if section.settings.contentwidth == 'Custom' %}custom-section{% elsif section.settings.contentwidth == 'Full width' %}w-full{% endif %}">
-  <div
-    class="{% if section.settings.Alignment == 'left' %}text-left{% elsif section.settings.Alignment == 'center' %}text-center{% endif %}">
-    <div
-      class="font-bold font-twentieth-century {% if section.settings.headingsize == 'small' %}text-xl{% elsif section.settings.headingsize == 'meduim' %}text-2xl{% elsif section.settings.headingsize == 'large' %}text-3xl{% endif %}">
+<div class="{% if section.settings.padding == 'top and buttom' %}py-6{% elsif section.settings.padding == 'top only' %}pt-6{% elsif section.settings.padding == 'buttom only' %}pb-6{% elsif section.settings.padding == 'none' %}p-0{% endif %} {% if section.settings.contentwidth == 'Custom' %}custom-section{% elsif section.settings.contentwidth == 'Full width' %}w-full{% endif %}">
+  <div class="{% if section.settings.Alignment == 'left' %}text-left{% elsif section.settings.Alignment == 'center' %}text-center{% endif %}">
+    <div class="font-bold font-twentieth-century {% if section.settings.headingsize == 'small' %}text-xl{% elsif section.settings.headingsize == 'meduim' %}text-2xl{% elsif section.settings.headingsize == 'large' %}text-3xl{% endif %}">
       {{ section.settings.heading }}
     </div>
     <div class="mt-3 font-twentieth-century">{{ section.settings.subheading }}</div>
@@ -11,421 +8,438 @@
   <div class="mt-8">
     {%- form 'contact', article: section, class: 'flex flex-wrap', action: '/contact', method: 'post' -%}
 
-
-    {% comment %} {%- if form.posted_successfully? -%}
-    <h2 class="">
-      posted_successfully
-    </h2>
-    {%- elsif form.errors -%}
-    <h2 class="">
-      error
-    </h2>
-    {%- endif -%} {% endcomment %}
-    {%- for block in section.blocks -%}
-    {% case block.type %}
-    {%- when 'Name' -%}
-    <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4">
-      <label for="firstName" class="block mb-2  font-twentieth-century">{{ block.settings.name }}*</label>
-      <input type="text" id="firstName" name="contact[{{ 'templates.contact.form.name' | t }}]"
-        class="w-full p-2 border-2 border-gray-300" {% if block.settings.required %} required{% endif %}>
-    </div>
-    {%- when 'Email' -%}
-    <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4">
-      <label for="email" class="block mb-2  font-twentieth-century">{{ block.settings.email }}*</label>
-      <input type="email" id="email" name="contact[email]" class="w-full p-2 border-2 border-gray-300" required>
-    </div>
-    {%- when 'PhoneNumber' -%}
-    <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4">
-      <label for="phone" class="block mb-2 font-twentieth-century">{{ block.settings.phone }}</label>
-      <input type="tel" id="phone" name="contact[{{ 'templates.contact.form.phone' | t }}]"
-        class="w-full p-2 border-2 border-gray-300 " {% if block.settings.required %} required{% endif %}>
-    </div>
-    {%- when 'Textarea' -%}
-    <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4">
-      <label for="{{ block.settings.textarea }}" class="block mb-2  font-twentieth-century">{{ block.settings.message
-        }}*</label>
-      <textarea id="{{ block.settings.textarea }}" name="contact[{{ 'templates.contact.form.comment' | t }}]"
-        rows="{{ block.settings.height }}" class="w-full p-2 border-2 border-gray-300 font-twentieth-century"
-        placeholder="{{ block.settings.placeholder }}" {% if block.settings.required %} required{% endif
-        %}>{{ block.settings.textarea }}</textarea>
-    </div>
-    {% when 'checkbox' %}
-    <div
-      class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4 flex items-center">
-      <input type="checkbox" id="checkbox" name="contact[{{ 'templates.contact.form.checkbox' | t }}]" class="w-4 h-4"
-        {% if block.settings.required %} required{% endif %}>
-      <label for="checkbox" class="ml-2 font-twentieth-century">{{ block.settings.checkbox }}*</label>
-
-    </div>
-
-    {%- when 'Submit' -%}
-    <div class="{% if block.settings.fullwidth %}w-[91%]{% else %} mr-2{% endif %} mb-4">
-      <button type="submit"
-        class="w-full{% if block.settings.buttonsize == 'meduim' %} py-3 px-3 text-sm{% elsif block.settings.buttonsize == 'large' %} py-5 px-5 text-md{% endif %} bg-black text-white font-twentieth-century">
-        {{ block.settings.submit }}
-      </button>
-    </div>
-    {%- endcase -%}
-    {%- endfor -%}
-
+      
+      {% comment %} {%- if form.posted_successfully? -%}
+        <h2 class="">
+          posted_successfully
+        </h2>
+      {%- elsif form.errors -%}
+        <h2 class="">
+          error
+        </h2>
+      {%- endif -%} {% endcomment %}
+      {%- for block in section.blocks -%}
+        {% case block.type %}
+          {%- when 'Name' -%}
+            <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4">
+              <label for="firstName" class="block mb-2  font-twentieth-century">{{ block.settings.name }}*</label>
+              <input
+                type="text"
+                id="firstName"
+                name="contact[{{ 'templates.contact.form.name' | t }}]"
+                class="w-full p-2 border-2 border-gray-300"
+                {% if block.settings.required %}
+                required{% endif %}>
+            </div>
+          {%- when 'Email' -%}
+            <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4">
+              <label for="email" class="block mb-2  font-twentieth-century">{{ block.settings.email }}*</label>
+              <input
+                type="email"
+                id="email"
+                name="contact[email]"
+                class="w-full p-2 border-2 border-gray-300"
+                required>
+            </div>
+          {%- when 'PhoneNumber' -%}
+            <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4">
+              <label for="phone" class="block mb-2 font-twentieth-century">{{ block.settings.phone }}</label>
+              <input
+                type="tel"
+                id="phone"
+                name="contact[{{ 'templates.contact.form.phone' | t }}]"
+                class="w-full p-2 border-2 border-gray-300 "
+                {% if block.settings.required %}
+                required{% endif %}>
+            </div>
+          {%- when 'Textarea' -%}
+            <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4">
+              <label for="{{ block.settings.textarea }}" class="block mb-2  font-twentieth-century">{{ block.settings.message }}*</label>
+              <textarea
+                id="{{ block.settings.textarea }}"
+                name="contact[{{ 'templates.contact.form.comment' | t }}]"
+                rows="{{ block.settings.height }}"
+                class="w-full p-2 border-2 border-gray-300 font-twentieth-century"
+                placeholder="{{ block.settings.placeholder }}"
+                {% if block.settings.required %}
+                required{% endif %}>{{ block.settings.textarea }}</textarea>
+            </div>
+            {% when 'checkbox' %}
+            <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4 flex items-center">
+              <input
+              type="checkbox"
+              id="checkbox"
+              name="contact[{{ 'templates.contact.form.checkbox' | t }}]"
+              class="w-4 h-4"
+              {% if block.settings.required %}
+              required{% endif %}>
+              <label for="checkbox" class="ml-2 font-twentieth-century">{{ block.settings.checkbox }}*</label>
+             
+            </div>
+            
+            {%- when 'Submit' -%}
+            <div class="{% if block.settings.fullwidth %}w-[91%]{% else %} mr-2{% endif %} mb-4">
+              <button
+                type="submit"
+                class="w-full{% if block.settings.buttonsize == 'meduim' %} py-3 px-3 text-sm{% elsif block.settings.buttonsize == 'large' %} py-5 px-5 text-md{% endif %} bg-black text-white font-twentieth-century"
+              >
+                {{ block.settings.submit }}
+              </button>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+      
     {%- endform -%}
   </div>
 </div>
 <style>
   .custom-section {
-    max-width: {
-        {
-        section.settings.Customwidth
-      }
-    }
-
-    px;
+    max-width: {{ section.settings.Customwidth }}px;
     margin: 0 auto;
   }
 </style>
 
 
 {% schema %}
-{
-"name": "Contact-Us",
-"settings": [
-{
-"type": "select",
-"id": "Alignment",
-"label": "Alignment",
-"options": [
-{
-"value": "center",
-"label": "Heading and text center"
-}, {
-"value": "left",
-"label": "Heading and text left"
-}
+  {
+    "name": "Contact-Us",
+    "settings": [
+      {
+        "type": "select",
+        "id": "Alignment",
+        "label": "Alignment",
+        "options": [
+          {
+            "value": "center",
+            "label": "Heading and text center"
+          }, {
+            "value": "left",
+            "label": "Heading and text left"
+          }
 
-],
-"default": "center"
-},
-{
-"type": "text",
-"id": "heading",
-"label": "Heading",
-"default": "Contact us"
-},
-{
-"type": "select",
-"id": "headingsize",
-"label": "Heading Size",
-"options": [
-{
-"value": "small",
-"label": "small"
-}, {
-"value": "meduim",
-"label": "Medium"
-}, {
-"value": "large",
-"label": "large"
-}
-],
-"default": "meduim"
-},
-{
-"type": "richtext",
-"id": "subheading",
-"label": "Subheading"
-}, {
-"type": "select",
-"id": "padding",
-"label": "Padding",
-"options": [
-{
-"value": "none",
-"label": "none"
-}, {
-"value": "top and buttom",
-"label": "Top and Buttom"
-}, {
-"value": "top only",
-"label": "Top Only"
-}, {
-"value": "buttom only",
-"label": "Buttom Only"
-}
+        ],
+        "default": "center"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Contact us"
+      },
+      {
+        "type": "select",
+        "id": "headingsize",
+        "label": "Heading Size",
+        "options": [
+          {
+            "value": "small",
+            "label": "small"
+          }, {
+            "value": "meduim",
+            "label": "Medium"
+          }, {
+            "value": "large",
+            "label": "large"
+          }
+        ],
+        "default": "meduim"
+      },
+      {
+        "type": "richtext",
+        "id": "subheading",
+        "label": "Subheading"
+      }, {
+        "type": "select",
+        "id": "padding",
+        "label": "Padding",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          }, {
+            "value": "top and buttom",
+            "label": "Top and Buttom"
+          }, {
+            "value": "top only",
+            "label": "Top Only"
+          }, {
+            "value": "buttom only",
+            "label": "Buttom Only"
+          }
 
-],
-"default": "none"
-}, {
-"type": "radio",
-"id": "contentwidth",
-"label": "Content width",
-"options": [
-{
-"value": "Full width",
-"label": "Full width"
-}, {
-"value": "Custom",
-"label": "Custom"
-}
-],
-"default": "Custom"
-}, {
-"type": "range",
-"id": "Customwidth",
-"min": 400,
-"max": 1000,
-"step": 50,
-"unit": "px",
-"label": "Custom content width",
-"default": 700
-}
-
-
-],
-
-"blocks": [
-{
-"type": "Email",
-"name": "Email",
-"limit": 1,
-"settings": [
-
-{
-"type": "text",
-"id": "email",
-"label": "Email",
-"default": "Email"
-}, {
-"type": "checkbox",
-"id": "required",
-"label": "Required"
-
-}, {
-"type": "radio",
-"id": "Blockwidth",
-"label": "Block width",
-"options": [
-{
-"value": "Full width",
-"label": "Full width"
-}, {
-"value": "Halfwidth",
-"label": "Half width"
-}
-],
-"default": "Halfwidth"
-}
-
-]
-},
-{
-"type": "Name",
-"name": "Name",
-"limit": 1,
-"settings": [
-
-{
-"type": "text",
-"id": "name",
-"label": "Label",
-"default": "Name"
-}, {
-"type": "radio",
-"id": "Blockwidth",
-"label": "Block width",
-"options": [
-{
-"value": "Full width",
-"label": "Full width"
-}, {
-"value": "Halfwidth",
-"label": "Half width"
-}
-],
-"default": "Halfwidth"
-}
-
-]
-},
-{
-"type": "PhoneNumber",
-"name": "PhoneNumber",
-"limit": 1,
-"settings": [
-
-{
-"type": "text",
-"id": "phone",
-"label": "Phone",
-"default": "Phone Number"
-}, {
-"type": "checkbox",
-"id": "required",
-"label": "Required"
-
-}, {
-"type": "radio",
-"id": "Blockwidth",
-"label": "Block width",
-"options": [
-{
-"value": "Full width",
-"label": "Full width"
-}, {
-"value": "Halfwidth",
-"label": "Half width"
-}
-],
-"default": "Halfwidth"
-}
-
-]
-},
-{
-"type": "Textarea",
-"name": "Textarea",
-"limit": 1,
-"settings": [
-
-{
-"type": "text",
-"id": "message",
-"label": "Label",
-"default": "Message"
-},
-{
-"type": "textarea",
-"id": "textarea",
-"label": "Placeholder",
-"placeholder": "Your message",
-"default": "Your message"
-},
-{
-"type": "checkbox",
-"id": "required",
-"label": "Required"
-
-},
-{
-"type": "range",
-"id": "height",
-"min": 3,
-"max": 15,
-"step": 1,
-"unit": "px",
-"label": "Height",
-"default": 5
-}, {
-"type": "radio",
-"id": "Blockwidth",
-"label": "Block width",
-"options": [
-{
-"value": "Full width",
-"label": "Full width"
-}, {
-"value": "Halfwidth",
-"label": "Half width"
-}
-],
-"default": "Halfwidth"
-}
-
-]
-}, {
-"type": "Submit",
-"name": "submit",
-"limit": 1,
-"settings": [
-
-{
-"type": "text",
-"id": "submit",
-"label": "Label",
-"default": "Submit"
-}, {
-"type": "select",
-"id": "buttonsize",
-"label": "Button Size",
-"options": [
-{
-"value": "meduim",
-"label": "Medium"
-}, {
-"value": "large",
-"label": "large"
-}
-],
-"default": "large"
-}, {
-"type": "checkbox",
-"id": "fullwidth",
-"label": "Fullwidth"
-
-}
+        ],
+        "default": "none"
+      }, {
+        "type": "radio",
+        "id": "contentwidth",
+        "label": "Content width",
+        "options": [
+          {
+            "value": "Full width",
+            "label": "Full width"
+          }, {
+            "value": "Custom",
+            "label": "Custom"
+          }
+        ],
+        "default": "Custom"
+      }, {
+        "type": "range",
+        "id": "Customwidth",
+        "min": 400,
+        "max": 1000,
+        "step": 50,
+        "unit": "px",
+        "label": "Custom content width",
+        "default": 700
+      }
 
 
-]
-} ,
-{
-"type": "checkbox",
-"name": "CheckBox",
-"limit": 1,
-"settings": [
+    ],
 
-{
-"type": "text",
-"id": "checkbox",
-"label": "Label",
-"default": "Check Box"
-}, {
-"type": "checkbox",
-"id": "required",
-"label": "Required",
-"default": false
+    "blocks": [
+      {
+        "type": "Email",
+        "name": "Email",
+        "limit": 1,
+        "settings": [
 
-}, {
-"type": "radio",
-"id": "Blockwidth",
-"label": "Block width",
-"options": [
-{
-"value": "Full width",
-"label": "Full width"
-}, {
-"value": "Halfwidth",
-"label": "Half width"
-}
-],
-"default": "Halfwidth"
-}
+          {
+            "type": "text",
+            "id": "email",
+            "label": "Email",
+            "default": "Email"
+          }, {
+            "type": "checkbox",
+            "id": "required",
+            "label": "Required"
 
-]
-}
+          }, {
+            "type": "radio",
+            "id": "Blockwidth",
+            "label": "Block width",
+            "options": [
+              {
+                "value": "Full width",
+                "label": "Full width"
+              }, {
+                "value": "Halfwidth",
+                "label": "Half width"
+              }
+            ],
+            "default": "Halfwidth"
+          }
+
+        ]
+      },
+      {
+        "type": "Name",
+        "name": "Name",
+        "limit": 1,
+        "settings": [
+
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Label",
+            "default": "Name"
+          }, {
+            "type": "radio",
+            "id": "Blockwidth",
+            "label": "Block width",
+            "options": [
+              {
+                "value": "Full width",
+                "label": "Full width"
+              }, {
+                "value": "Halfwidth",
+                "label": "Half width"
+              }
+            ],
+            "default": "Halfwidth"
+          }
+
+        ]
+      },
+      {
+        "type": "PhoneNumber",
+        "name": "PhoneNumber",
+        "limit": 1,
+        "settings": [
+
+          {
+            "type": "text",
+            "id": "phone",
+            "label": "Phone",
+            "default": "Phone Number"
+          }, {
+            "type": "checkbox",
+            "id": "required",
+            "label": "Required"
+
+          }, {
+            "type": "radio",
+            "id": "Blockwidth",
+            "label": "Block width",
+            "options": [
+              {
+                "value": "Full width",
+                "label": "Full width"
+              }, {
+                "value": "Halfwidth",
+                "label": "Half width"
+              }
+            ],
+            "default": "Halfwidth"
+          }
+
+        ]
+      },
+      {
+        "type": "Textarea",
+        "name": "Textarea",
+        "limit": 1,
+        "settings": [
+
+          {
+            "type": "text",
+            "id": "message",
+            "label": "Label",
+            "default": "Message"
+          },
+          {
+            "type": "textarea",
+            "id": "textarea",
+            "label": "Placeholder",
+            "placeholder": "Your message",
+            "default": "Your message"
+          },
+          {
+            "type": "checkbox",
+            "id": "required",
+            "label": "Required"
+
+          },
+          {
+            "type": "range",
+            "id": "height",
+            "min": 3,
+            "max": 15,
+            "step": 1,
+            "unit": "px",
+            "label": "Height",
+            "default": 5
+          }, {
+            "type": "radio",
+            "id": "Blockwidth",
+            "label": "Block width",
+            "options": [
+              {
+                "value": "Full width",
+                "label": "Full width"
+              }, {
+                "value": "Halfwidth",
+                "label": "Half width"
+              }
+            ],
+            "default": "Halfwidth"
+          }
+
+        ]
+      }, {
+        "type": "Submit",
+        "name": "submit",
+        "limit": 1,
+        "settings": [
+
+          {
+            "type": "text",
+            "id": "submit",
+            "label": "Label",
+            "default": "Submit"
+          }, {
+            "type": "select",
+            "id": "buttonsize",
+            "label": "Button Size",
+            "options": [
+               {
+                "value": "meduim",
+                "label": "Medium"
+              }, {
+                "value": "large",
+                "label": "large"
+              }
+            ],
+            "default": "large"
+          }, {
+            "type": "checkbox",
+            "id": "fullwidth",
+            "label": "Fullwidth"
+
+          }
 
 
-],
+        ]
+      } ,
+      {
+        "type": "checkbox",
+        "name": "CheckBox",
+        "limit": 1,
+        "settings": [
+
+          {
+            "type": "text",
+            "id": "checkbox",
+            "label": "Label",
+            "default": "Check Box"
+          }, {
+            "type": "checkbox",
+            "id": "required",
+            "label": "Required",
+            "default": false
+
+          }, {
+            "type": "radio",
+            "id": "Blockwidth",
+            "label": "Block width",
+            "options": [
+              {
+                "value": "Full width",
+                "label": "Full width"
+              }, {
+                "value": "Halfwidth",
+                "label": "Half width"
+              }
+            ],
+            "default": "Halfwidth"
+          }
+
+        ]
+      }
+
+    ],
 
 
-"presets": [
-{
-"name": "Contact-us",
-"blocks": [
-{
-"type": "Name"
-},
-{
-"type": "Email"
-},
-{
-"type": "PhoneNumber"
-},
-{
-"type": "Textarea"
-}, {
-"type": "Submit"
-}
-]
-}
-]
-}
+    "presets": [
+      {
+        "name": "Contact-us",
+        "blocks": [
+          {
+            "type": "Name"
+          },
+          {
+            "type": "Email"
+          },
+          {
+            "type": "PhoneNumber"
+          },
+          {
+            "type": "Textarea"
+          }, {
+            "type": "Submit"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
