@@ -47,8 +47,8 @@
             "message": "Message",
             "textarea": "Your message",
             "required": false,
-            "height": 5,
-            "Blockwidth": "Halfwidth"
+            "height": 7,
+            "Blockwidth": "Full width"
           }
         },
         "submit_CdNc3t": {
@@ -56,7 +56,7 @@
           "settings": {
             "submit": "Submit",
             "buttonsize": "large",
-            "fullwidth": false
+            "fullwidth": true
           }
         }
       },
