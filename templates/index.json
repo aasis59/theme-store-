@@ -17,14 +17,64 @@
     },
     "contact_us_feVDbp": {
       "type": "Contact-us",
+      "blocks": {
+        "name_c7JJtN": {
+          "type": "Name",
+          "settings": {
+            "name": "Name",
+            "Blockwidth": "Halfwidth"
+          }
+        },
+        "email_3QrKUh": {
+          "type": "Email",
+          "settings": {
+            "email": "Email",
+            "required": false,
+            "Blockwidth": "Halfwidth"
+          }
+        },
+        "phone_number_HpKdtH": {
+          "type": "PhoneNumber",
+          "settings": {
+            "phone": "Phone Number",
+            "required": false,
+            "Blockwidth": "Full width"
+          }
+        },
+        "textarea_VPLyJp": {
+          "type": "Textarea",
+          "settings": {
+            "message": "Message",
+            "textarea": "Your message",
+            "required": false,
+            "height": 7,
+            "Blockwidth": "Full width"
+          }
+        },
+        "submit_CdNc3t": {
+          "type": "Submit",
+          "settings": {
+            "submit": "Submit",
+            "buttonsize": "large",
+            "fullwidth": true
+          }
+        }
+      },
+      "block_order": [
+        "name_c7JJtN",
+        "email_3QrKUh",
+        "phone_number_HpKdtH",
+        "textarea_VPLyJp",
+        "submit_CdNc3t"
+      ],
       "settings": {
-        "Alignment": "center",
+        "Alignment": "left",
         "heading": "Contact us",
         "headingsize": "middle",
         "subheading": "",
         "padding": "top and buttom",
-        "contentwidth": "Full width",
-        "Customwidth": 600
+        "contentwidth": "Custom",
+        "Customwidth": 650
       }
     }
   },
