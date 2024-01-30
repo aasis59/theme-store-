@@ -14,10 +14,23 @@
 
         ]
       }
+    },
+    "contact_us_feVDbp": {
+      "type": "Contact-us",
+      "settings": {
+        "Alignment": "center",
+        "heading": "Contact us",
+        "headingsize": "middle",
+        "subheading": "",
+        "padding": "top and buttom",
+        "contentwidth": "Full width",
+        "Customwidth": 600
+      }
     }
   },
   "order": [
     "hello",
-    "collection_list_rgzncX"
+    "collection_list_rgzncX",
+    "contact_us_feVDbp"
   ]
 }
