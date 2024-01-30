@@ -68,13 +68,13 @@
         "submit_CdNc3t"
       ],
       "settings": {
-        "Alignment": "center",
+        "Alignment": "left",
         "heading": "Contact us",
         "headingsize": "middle",
         "subheading": "",
         "padding": "top and buttom",
         "contentwidth": "Custom",
-        "Customwidth": 600
+        "Customwidth": 650
       }
     }
   },
