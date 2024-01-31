@@ -41,6 +41,16 @@
             "Blockwidth": "Full width"
           }
         },
+        "textarea_VPLyJp": {
+          "type": "Textarea",
+          "settings": {
+            "message": "Message",
+            "textarea": "Your message",
+            "required": true,
+            "height": 7,
+            "Blockwidth": "Full width"
+          }
+        },
         "singlecheckbox_HBnrqx": {
           "type": "singlecheckbox",
           "settings": {
@@ -61,16 +71,6 @@
             "option5": "Option 5"
           }
         },
-        "textarea_VPLyJp": {
-          "type": "Textarea",
-          "settings": {
-            "message": "Message",
-            "textarea": "Your message",
-            "required": true,
-            "height": 7,
-            "Blockwidth": "Full width"
-          }
-        },
         "submit_CdNc3t": {
           "type": "Submit",
           "settings": {
@@ -84,9 +84,9 @@
         "name_c7JJtN",
         "email_3QrKUh",
         "phone_number_HpKdtH",
+        "textarea_VPLyJp",
         "singlecheckbox_HBnrqx",
         "multiplecheckbox_NqywPc",
-        "textarea_VPLyJp",
         "submit_CdNc3t"
       ],
       "settings": {
