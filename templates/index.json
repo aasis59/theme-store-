@@ -41,6 +41,26 @@
             "Blockwidth": "Full width"
           }
         },
+        "singlecheckbox_HBnrqx": {
+          "type": "singlecheckbox",
+          "settings": {
+            "checkbox": "Check Box",
+            "required": false,
+            "Blockwidth": "Full width"
+          }
+        },
+        "multiplecheckbox_NqywPc": {
+          "type": "multiplecheckbox",
+          "settings": {
+            "checkbox": "Select options",
+            "Blockwidth": "Full width",
+            "option1": "Option 1",
+            "option2": "Option 2",
+            "option3": "Option 3",
+            "option4": "Option 4",
+            "option5": "Option 5"
+          }
+        },
         "textarea_VPLyJp": {
           "type": "Textarea",
           "settings": {
@@ -58,23 +78,16 @@
             "buttonsize": "large",
             "fullwidth": true
           }
-        },
-        "checkbox_wn7e3a": {
-          "type": "checkbox",
-          "settings": {
-            "checkbox": "Check Box",
-            "required": true,
-            "Blockwidth": "Halfwidth"
-          }
         }
       },
       "block_order": [
         "name_c7JJtN",
         "email_3QrKUh",
         "phone_number_HpKdtH",
+        "singlecheckbox_HBnrqx",
+        "multiplecheckbox_NqywPc",
         "textarea_VPLyJp",
-        "submit_CdNc3t",
-        "checkbox_wn7e3a"
+        "submit_CdNc3t"
       ],
       "settings": {
         "Alignment": "left",
