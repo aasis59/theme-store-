@@ -64,7 +64,7 @@
                 {% if block.settings.required %}
                 required{% endif %}>{{ block.settings.textarea }}</textarea>
             </div>
-            {% when 'checkbox' %}
+            {% when 'singlecheckbox' %}
             <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4 flex items-center">
               <input
               type="checkbox"
@@ -86,9 +86,31 @@
                 {{ block.settings.submit }}
               </button>
             </div>
+            {% when 'multiplecheckbox' %}
+            <div class="{% if block.settings.Blockwidth == 'Full width' %}w-[91%]{% else %}w-[45%] mr-2 {% endif %} mb-4">
+              <label for="{{ block.settings.checkbox }}" class="block mb-2 font-twentieth-century">{{ block.settings.checkbox }}*</label>
+          
+              {% for i in (1..5) %}
+                {% assign option_id = 'option' | append: i %}
+                {% assign option_label = block.settings[option_id] %}
+                {% if option_label != blank %}
+                  <div class="flex items-center mb-2">
+                    <input
+                      type="checkbox"
+                      id="{{ option_id }}"
+                      name="contact[{{ 'templates.contact.form.' | append: option_id | t }}]"
+                      class="w-4 h-4"
+                      {% if block.settings.required %}
+                      required{% endif %}
+                    >
+                    <label for="{{ option_id }}" class="ml-2 font-twentieth-century">{{ option_label }}</label>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            
         {%- endcase -%}
       {%- endfor -%}
-      
     {%- endform -%}
   </div>
 </div>
@@ -346,7 +368,45 @@
           }
 
         ]
-      }, {
+      },
+      
+      {
+        "type": "singlecheckbox",
+        "name": "Single CheckBox",
+        "limit": 1,
+        "settings": [
+
+          {
+            "type": "text",
+            "id": "checkbox",
+            "label": "Label",
+            "default": "Check Box"
+          }, {
+            "type": "checkbox",
+            "id": "required",
+            "label": "Required",
+            "default": false
+
+          }, {
+            "type": "radio",
+            "id": "Blockwidth",
+            "label": "Block width",
+            "options": [
+              {
+                "value": "Full width",
+                "label": "Full width"
+              }, {
+                "value": "Halfwidth",
+                "label": "Half width"
+              }
+            ],
+            "default": "Halfwidth"
+          }
+
+        ]
+      },
+      
+      {
         "type": "Submit",
         "name": "submit",
         "limit": 1,
@@ -380,42 +440,67 @@
 
 
         ]
-      } ,
-      {
-        "type": "checkbox",
-        "name": "CheckBox",
-        "limit": 1,
-        "settings": [
+      } ,{
+  "type": "multiplecheckbox",
+  "name": "Multiple CheckBox",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "checkbox",
+      "label": "Label",
+      "default": "Select options"
+    },
+    {
+      "type": "radio",
+      "id": "Blockwidth",
+      "label": "Block width",
+      "options": [
+        {
+          "value": "Full width",
+          "label": "Full width"
+        },
+        {
+          "value": "Halfwidth",
+          "label": "Half width"
+        }
+      ],
+      "default": "Halfwidth"
+    },
+    {
+      "type": "text",
+      "id": "option1",
+      "label": "Option 1",
+      "default": "Option 1"
+    },
+    {
+      "type": "text",
+      "id": "option2",
+      "label": "Option 2",
+      "default": "Option 2"
+    },
+    {
+      "type": "text",
+      "id": "option3",
+      "label": "Option 3",
+      "default": "Option 3"
+    },
+    {
+      "type": "text",
+      "id": "option4",
+      "label": "Option 4",
+      "default": "Option 4"
+    },
+    {
+      "type": "text",
+      "id": "option5",
+      "label": "Option 5",
+      "default": "Option 5"
+    }
+    
+  ]
+}
 
-          {
-            "type": "text",
-            "id": "checkbox",
-            "label": "Label",
-            "default": "Check Box"
-          }, {
-            "type": "checkbox",
-            "id": "required",
-            "label": "Required",
-            "default": false
-
-          }, {
-            "type": "radio",
-            "id": "Blockwidth",
-            "label": "Block width",
-            "options": [
-              {
-                "value": "Full width",
-                "label": "Full width"
-              }, {
-                "value": "Halfwidth",
-                "label": "Half width"
-              }
-            ],
-            "default": "Halfwidth"
-          }
-
-        ]
-      }
 
     ],
 
