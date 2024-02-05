@@ -87,7 +87,7 @@
     "hotspots": {
       "type": "image-hotspots",
       "settings": {
-        "hotspot_color": "#952E31",
+        "hotspot_color": "#952e31",
         "padding_top": 25,
         "padding_bottom": 25
       }
@@ -132,12 +132,28 @@
         "padding_bottom": 25,
         "color_scheme": ""
       }
+    },
+    "collection_list_HM9Rtm": {
+      "type": "collection-list",
+      "settings": {
+        "heading": "Collection List",
+        "heading_size": "h2",
+        "vertical_alignment": "left",
+        "number_of_products_per_page": 4,
+        "collection": [
+
+        ],
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "color_scheme": ""
+      }
     }
   },
   "order": [
     "slideshow",
     "featured_collection",
     "hotspots",
-    "newsletter_NmbjzG"
+    "newsletter_NmbjzG",
+    "collection_list_HM9Rtm"
   ]
 }
