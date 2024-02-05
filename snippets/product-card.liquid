@@ -1,52 +1,162 @@
+{% comment %}
+  usage:
+  render 'product-card',
+  card_product: product,
+  blocks: section.blocks,
+  quick_add: true,
+  color_scheme: background-1,
+  card_style: standard (Optional, default: card)
+{% endcomment %}
 
-<div class="w-full py-2 px-2  ">
-    <div class="relative group ">
-        <a href="{{ product_product.url }}">
-            {% if product_product.featured_image %}
-                <div class="h-auto">
-                    <img class="w-full h-full object-cover transition duration-1000 ease-in-out hover:scale-105 transform" src="{{ product_product.featured_image | img_url: 'medium' }}" alt="{{ product_product.featured_image.alt }}">
-                </div>
-                
-            {% else %}
-                {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100  transition duration-1000 ease-in-out hover:scale-105 transform' }}
+{% style %}
+  .en-product-image--padding {
+    padding: var(--product-card-image-padding);
+  }
+{% endstyle %}
+
+{% unless color_scheme %}
+  {% assign color_scheme = 'background-1' %}
+{% endunless %}
+
+{% liquid
+  assign imageclass = 'h-full w-full object-cover absolute left-1/2 top-0 -translate-x-1/2 transition duration-700 ease-in-out transform hover:scale-105'
+
+  if quick_add
+    assign imageclass = 'h-full w-full object-cover absolute left-1/2 top-0 -translate-x-1/2 transition duration-700 ease-in-out transform hover:scale-105 '
+  endif
+%}
+<div
+  class="{% if settings.reveal_on_scroll %} reveal {% endif %} {% unless card_style == 'standard' %} color-{{ color_scheme }} border {% endunless %} {% if settings.corners == "rounded" %} rounded-lg {% endif %} w-full my-4 overflow-hidden duration-300 hover:shadow-md "
+>
+  <div class="relative w-full overflow-hidden  group {% if type == 'list' %} flex{% endif %}">
+    <div class="en-product-image--padding relative w-full {% if type == 'list' %} max-w-[200px]{% endif %}">
+      <a href="{{ card_product.url }}">
+        {% if card_product.featured_image %}
+          <div class=" group w-full overflow-hidden relative before:content-[''] before:block before:pt-[100%]">
+            {{ card_product.featured_image | image_url: width: 700 | image_tag: class: imageclass, loading: 'lazy' }}
+          </div>
+
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover ' }}
+        {% endif %}
+
+        {% if swatches %}
+          {% for option in card_product.options_with_values %}
+            {% if option.name == 'Color' %}
+              <div class="my-2 flex gap-2 flex-wrap absolute left-2 bottom-0">
+                {% for value in option.values %}
+                  <div
+                    class="h-4 w-4"
+                    style="background-color: {{- value -}};"
+                  ></div>
+                {% endfor %}
+              </div>
             {% endif %}
-        </a>
-        
-        <div class="flex flex-col p-4 absolute bottom-0 left-[-30px]  ">
-            <p class="text-gray-500 text-lg mb-1 ">{{ product_product.products_count }} products</p>
-            <a href="{{ product_product.url }}"  class=" text-3xl font-bold we ">{{ product_product.title }}</a>
-          
+          {% endfor %}
+        {% endif %}
+      </a>
+
+      {% comment %} For quick add  {% endcomment %}
+      {% if quick_add %}
+        {%- liquid
+          assign product_form_id = 'product-form-' | append: card_product.id
+          assign qty_rules = false
+          if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
+            assign qty_rules = true
+          endif
+        -%}
+
+        <div class="transition-all ease duration-500 absolute bottom-1 right-1 grid grid-cols-[0fr] overflow-hidden group-hover:grid-cols-[1fr]">
+          <div class="overflow-hidden">
+            {%- if card_product.variants.size > 1 or qty_rules -%}
+              <quick-add-opener
+                target-quickadd-id="QuickAdd-{{ card_product.id }}"
+                data-product-url="{{ card_product.url }}"
+                data-id="{{ card_product.id }}"
+                data-section-id="{{ section.id }}"
+              >
+                <div class="flex items-center justify-center p-2 cursor-pointer bg-[rgba(var(--primary-button-background))] text-[rgba(var(--primary-button-text))]">
+                  <span class="cursor-pointer flex overflow-hidden">
+                    <span class="icon-link">
+                      {% render 'icon-plus' %}
+                    </span>
+                    {% render 'spinner' %}
+                  </span>
+                </div>
+              </quick-add-opener>
+
+            {% else %}
+              <product-form data-type="quick-add">
+                <quick-add-opener
+                  target-quickadd-id="QuickAdd-{{ card_product.id }}"
+                  data-product-url="{{ card_product.url }}"
+                  data-id="{{ card_product.id }}"
+                  data-section-id="{{ section.id }}"
+                >
+                  <div class="flex items-center justify-center p-2 cursor-pointer bg-[rgba(var(--primary-button-background))] text-[rgba(var(--primary-button-text))]">
+                    <span class="cursor-pointer flex overflow-hidden">
+                      <span class="icon-link">
+                        {% render 'icon-plus' %}
+                      </span>
+                      {% render 'spinner' %}
+                    </span>
+                  </div>
+                </quick-add-opener>
+              </product-form>
+            {% endif %}
+          </div>
         </div>
-        
+      {% endif %}
+
+      {% comment %} For card badges {% endcomment %}
+
+      {% liquid
+        assign badge_classes = 'top-1 right-1'
+        if settings.badge_position == 'top_left'
+          assign badge_classes = 'top-1 left-1'
+        elsif settings.badge_position == 'bottom_left'
+          assign badge_classes = 'bottom-1 left-1'
+        elsif settings.badge_position == 'bottom_right'
+          assign badge_classes = 'bottom-1 right-1'
+        endif
+      %}
+
+      <div class="absolute flex items-center justify-center text-xs font-bold uppercase overflow-hidden {{ badge_classes }} {% if settings.corners == "rounded" %} rounded-sm {% endif %}">
+        {% render 'badges', product: card_product %}
+      </div>
     </div>
+
+    <div class=" flex flex-col gap-1 py-3 px-3">
+      {% for block in blocks %}
+        {% case block.type %}
+          {% when 'vendor' %}
+            <span class="text-sm text-[rgba(var(--primary-text),.9)]">{{ card_product.vendor }}</span>
+
+          {% when 'title' %}
+            <a href="{{ card_product.url }}" class="">
+              <h3 class="h4">{{ card_product.title }}</h3>
+            </a>
+
+          {% when 'price' %}
+            {% render 'price', product: card_product %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
 </div>
-<style>
 
-    .we {
-      text-decoration: none;
-      position: relative;
-      transition: color 0.7s;
-    }
+<quick-add-modal
+  quickadd-id="QuickAdd-{{ card_product.id }}"
+  class="hidden"
+>
+  <div class="fixed w-full h-full top-0 left-0 bg-black opacity-40 z-[10]"></div>
+  <div
+    class="page-width fixed z-[11] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] md:w-[80%] lg:w-[70%] max-h-[90%] overflow-scroll bg-[rgba(var(--primary-background))]"
+  >
+    <div class="absolute top-2 right-2 z-[12] cursor-pointer">
+      {% render 'icon-close', class: 'close-modal' %}
+    </div>
 
-    .we::after {
-        
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      height: 1px;
-      width: 0;
-      background-color:black;
-      transition: width 0.7s;
-    }
-
-    .group:hover .we::after {
-        
-      width: 100%;
-    }
-
-  .group:hover .we {
-      color:black;
-       
-    }
-  </style>
+    <div id="QuickAddInfo-{{ card_product.id }}" class=""></div>
+  </div>
+</quick-add-modal>

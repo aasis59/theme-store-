@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center h-screen">
+<div class="h-full w-full flex flex-col justify-center items-center">
   <div class="flex flex-col items-center">
     <div class=" font-bold text-7xl">
       <p class="mb-1">
@@ -10,10 +10,27 @@
       {{ 'templates.404.title' | t }}
     </div>
     <div class="mt-6">
-      <a href="{{ routes.all_products_collection_url }}"> <button
-          class="w-full text-black py-3 px-5 border-2  font-semibold  mt-6"> {{ 'general.continue_shopping' | t
-          }}</button> </a>
-
+      <a href="{{ routes.all_products_collection_url }}">
+        <button
+          class="w-full button button-outline"
+        >
+          {{ 'general.continue_shopping' | t }}
+        </button>
+      </a>
     </div>
   </div>
 </div>
+{% schema %}
+{
+  "name": "Login",
+  "class": "h-full flex flex-col justify-center",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    }
+  ]
+}
+{% endschema %}
