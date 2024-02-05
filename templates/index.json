@@ -92,21 +92,6 @@
         "padding_bottom": 25
       }
     },
-    "collection_list_e4eLJj": {
-      "type": "collection-list",
-      "settings": {
-        "heading": "gfh",
-        "heading_size": "h1",
-        "vertical_alignment": "left",
-        "number_of_products_per_page": 4,
-        "collection": [
-
-        ],
-        "padding_top": 32,
-        "padding_bottom": 25,
-        "color_scheme": "accent-2"
-      }
-    },
     "newsletter_NmbjzG": {
       "type": "newsletter",
       "blocks": {
@@ -153,7 +138,6 @@
     "slideshow",
     "featured_collection",
     "hotspots",
-    "collection_list_e4eLJj",
     "newsletter_NmbjzG"
   ]
 }
