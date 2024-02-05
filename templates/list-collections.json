@@ -1,8 +1,12 @@
 {
-    "sections": {
-        "template": {
-            "type": "template-list-collections"
-        }
-    },
-    "order": ["template"]
+  "sections": {
+    "main_list_collections": {
+      "type": "template-list-collections",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main_list_collections"
+  ]
 }

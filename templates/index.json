@@ -1,108 +1,69 @@
 {
   "sections": {
-    "hello": {
-      "type": "hello",
-      "disabled": true,
-      "settings": {
-      }
-    },
-    "collection_list_rgzncX": {
-      "type": "collection-list",
-      "settings": {
-        "number_of_products_per_page": 4,
-        "collection": [
-
-        ]
-      }
-    },
-    "contact_us_feVDbp": {
-      "type": "Contact-us",
+    "slideshow": {
+      "type": "slideshow",
       "blocks": {
-        "name_c7JJtN": {
-          "type": "Name",
+        "slide1": {
+          "type": "slide",
           "settings": {
-            "name": "Name",
-            "Blockwidth": "Halfwidth"
+            "image_opacity": 0.7,
+            "container": false,
+            "content_position": "bottom_center",
+            "color_scheme": "background-2"
           }
         },
-        "email_3QrKUh": {
-          "type": "Email",
+        "slide2": {
+          "type": "slide",
           "settings": {
-            "email": "Email",
-            "required": true,
-            "Blockwidth": "Halfwidth"
-          }
-        },
-        "phone_number_HpKdtH": {
-          "type": "PhoneNumber",
-          "settings": {
-            "phone": "Phone Number",
-            "required": true,
-            "Blockwidth": "Full width"
-          }
-        },
-        "textarea_VPLyJp": {
-          "type": "Textarea",
-          "settings": {
-            "message": "Message",
-            "textarea": "Your message",
-            "required": true,
-            "height": 7,
-            "Blockwidth": "Full width"
-          }
-        },
-        "singlecheckbox_HBnrqx": {
-          "type": "singlecheckbox",
-          "settings": {
-            "checkbox": "Check Box",
-            "required": false,
-            "Blockwidth": "Full width"
-          }
-        },
-        "multiplecheckbox_NqywPc": {
-          "type": "multiplecheckbox",
-          "settings": {
-            "checkbox": "Select options",
-            "Blockwidth": "Full width",
-            "option1": "Option 1",
-            "option2": "Option 2",
-            "option3": "Option 3",
-            "option4": "Option 4",
-            "option5": "Option 5"
-          }
-        },
-        "submit_CdNc3t": {
-          "type": "Submit",
-          "settings": {
-            "submit": "Submit",
-            "buttonsize": "large",
-            "fullwidth": true
+            "content_position": "left",
+            "alignment": "left",
+            "color_scheme": "background-1"
           }
         }
       },
       "block_order": [
-        "name_c7JJtN",
-        "email_3QrKUh",
-        "phone_number_HpKdtH",
-        "textarea_VPLyJp",
-        "singlecheckbox_HBnrqx",
-        "multiplecheckbox_NqywPc",
-        "submit_CdNc3t"
+        "slide1",
+        "slide2"
       ],
       "settings": {
-        "Alignment": "left",
-        "heading": "Contact us",
-        "headingsize": "middle",
-        "subheading": "",
-        "padding": "top and buttom",
-        "contentwidth": "Custom",
-        "Customwidth": 650
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "settings": {
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price"
+      ],
+      "settings": {
+      }
+    },
+    "hotspots": {
+      "type": "image-hotspots",
+      "settings": {
       }
     }
   },
   "order": [
-    "hello",
-    "collection_list_rgzncX",
-    "contact_us_feVDbp"
+    "slideshow",
+    "featured_collection",
+    "hotspots"
   ]
 }

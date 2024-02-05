@@ -1,94 +1,47 @@
 {
+  "wrapper": "div.collection.flex.flex-wrap",
   "sections": {
-    "template": {
-      "type": "template-collection",
+    "banner": {
+      "type": "template-collection-banner",
       "settings": {
       }
     },
-    "collection_list_VTXMz9": {
-      "type": "collection-list",
+    "filters": {
+      "type": "filters",
       "settings": {
-        "number_of_products_per_page": 4,
-        "collection": [
-
-        ]
       }
     },
-    "contact_us_Vhit7n": {
-      "type": "Contact-us",
+    "product_grid": {
+      "type": "template-collection-products-grid",
       "blocks": {
-        "name_eULUQD": {
-          "type": "Name",
+        "title": {
+          "type": "title",
           "settings": {
-            "name": "Name",
-            "Blockwidth": "Full width"
           }
         },
-        "email_CD7xLy": {
-          "type": "Email",
+        "vendor": {
+          "type": "vendor",
           "settings": {
-            "email": "Email",
-            "required": false,
-            "Blockwidth": "Halfwidth"
           }
         },
-        "phone_number_Xr8Xpy": {
-          "type": "PhoneNumber",
+        "price": {
+          "type": "price",
           "settings": {
-            "phone": "Phone Number",
-            "required": false,
-            "Blockwidth": "Halfwidth"
-          }
-        },
-        "textarea_r88pee": {
-          "type": "Textarea",
-          "settings": {
-            "message": "Message",
-            "textarea": "Your message",
-            "required": false,
-            "height": 5,
-            "Blockwidth": "Full width"
-          }
-        },
-        "submit_rQEFki": {
-          "type": "Submit",
-          "settings": {
-            "submit": "Submit",
-            "buttonsize": "large",
-            "fullwidth": true
-          }
-        },
-        "checkbox_DP7fCx": {
-          "type": "checkbox",
-          "settings": {
-            "checkbox": "Check Box",
-            "required": false,
-            "Blockwidth": "Halfwidth"
           }
         }
       },
       "block_order": [
-        "name_eULUQD",
-        "email_CD7xLy",
-        "phone_number_Xr8Xpy",
-        "textarea_r88pee",
-        "submit_rQEFki",
-        "checkbox_DP7fCx"
+        "vendor",
+        "title",
+        "price"
       ],
       "settings": {
-        "Alignment": "center",
-        "heading": "Contact us",
-        "headingsize": "meduim",
-        "subheading": "",
-        "padding": "none",
-        "contentwidth": "Custom",
-        "Customwidth": 700
       }
     }
   },
   "order": [
-    "template",
-    "collection_list_VTXMz9",
-    "contact_us_Vhit7n"
+    "banner",
+    "filters",
+    "product_grid"
   ]
 }

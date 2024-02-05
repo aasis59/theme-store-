@@ -467,14 +467,15 @@
       "last_name": "Last name",
       "email": "Email",
       "password": "Password",
-      "submit": "Register"
+      "submit": "Create"
     },
     "reset_password": {
       "title": "Reset account password",
       "subtext": "Enter a new password",
       "password": "Password",
       "password_confirm": "Confirm password",
-      "submit": "Reset password"
+      "submit": "Reset password",
+      "cancel": "Cancel"
     }
   },
   "gift_cards": {
