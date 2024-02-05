@@ -57,7 +57,7 @@
         "settings": {
           "background": "#ffffff",
           "background_gradient": "",
-          "heading": "#ffffff",
+          "heading": "#333333",
           "text": "#38a69d",
           "button": "#ffffff",
           "button_label": "#334fb4",
