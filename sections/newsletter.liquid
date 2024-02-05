@@ -17,7 +17,7 @@
 
 
 {% comment %} 
-                  "md:grid-cols-1 md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 " 
+                      "md:grid-cols-1 md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 " 
 {% endcomment %}
 
 
@@ -152,7 +152,7 @@
                   {% endif %}
                   {{ image | image_url: width: image.width | image_tag: class: image_class01 }}
                 {% else %}
-                  {{ 'image' | placeholder_svg_tag: 'custom-section object-cover bg-gray-100' }}
+                  {{ 'image' | placeholder_svg_tag: 'custom-section object-cover bg-white' }}
                 {% endif %}
               </div>
               <style>
@@ -321,7 +321,7 @@
             "type": "richtext",
             "id": "footer_text",
             "label": "Footer text",
-            "default": "<h2>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.</h2>"
+            "default": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.</p>"
           }
 
         ]

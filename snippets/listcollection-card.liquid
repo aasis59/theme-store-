@@ -1,0 +1,54 @@
+<div class="w-full py-2 px-2  ">
+  <div class="relative group ">
+    <a href="{{ product_product.url }}">
+      {% if product_product.featured_image %}
+        <div class="h-auto w-full overflow-hidden inline-block">
+          <img
+            class="w-full h-full object-cover  hover:scale-150 duration-1000 transition-transfrom"
+            src="{{ product_product.featured_image | img_url: 'medium' }}"
+            alt="{{ product_product.featured_image.alt }}">
+        </div>
+
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100 hover:scale-110 duration-500 transition-transfrom ' }}
+      {% endif %}
+    </a>
+
+    <div class="flex flex-col p-4 absolute bottom-0 left-[-30px]  ">
+      <p class="text-gray-500 text-lg mb-1 ">{{ product_product.products_count }} products</p>
+      <a href="{{ product_product.url }}" class=" text-3xl font-bold we ">{{ product_product.title }}</a>
+
+    </div>
+
+  </div>
+</div>
+<style>
+
+  .we {
+    text-decoration: none;
+    position: relative;
+    transition: color 0.7s;
+  }
+
+  .we::after {
+
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 0;
+    background-color: black;
+    transition: width 0.7s;
+  }
+
+  .group:hover .we::after {
+
+    width: 100%;
+  }
+
+  .group:hover .we {
+    color: black;
+
+  }
+</style>

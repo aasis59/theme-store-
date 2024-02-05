@@ -32,16 +32,16 @@
  method: 'post'
       -%}
         {% comment %} 
-                              {%- if form.posted_successfully? -%} 
-                              <h2 class=""> 
-                              posted_successfully 
-                              </h2>
-                              {%- elsif form.errors -%} 
-                              <h2 class=""> 
-                              error 
-                              </h2>
-                              {%- endif -%} 
-                        {% endcomment %}
+                                                            {%- if form.posted_successfully? -%} 
+                                                            <h2 class=""> 
+                                                            posted_successfully 
+                                                            </h2>
+                                                            {%- elsif form.errors -%} 
+                                                            <h2 class=""> 
+                                                            error 
+                                                            </h2>
+                                                            {%- endif -%} 
+                                                {% endcomment %}
         {%- for block in section.blocks -%}
           {% case block.type %}
             {%- when 'name' -%}
