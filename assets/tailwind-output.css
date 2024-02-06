@@ -1019,6 +1019,10 @@ p,
   left: 0.5rem;
 }
 
+.left-\[-30px\] {
+  left: -30px;
+}
+
 .right-0 {
   right: 0px;
 }
@@ -1061,26 +1065,6 @@ p,
 
 .top-full {
   top: 100%;
-}
-
-.left-\[-30px\] {
-  left: -30px;
-}
-
-.left-\[-20px\] {
-  left: -20px;
-}
-
-.left-\[-25px\] {
-  left: -25px;
-}
-
-.left-\[-15px\] {
-  left: -15px;
-}
-
-.left-\[-10px\] {
-  left: -10px;
 }
 
 .z-0 {
@@ -1289,10 +1273,6 @@ p,
   margin-top: auto;
 }
 
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
 .block {
   display: block;
 }
@@ -1497,14 +1477,6 @@ p,
   width: 100%;
 }
 
-.w-\[45\%\] {
-  width: 45%;
-}
-
-.w-\[91\%\] {
-  width: 91%;
-}
-
 .min-w-\[40px\] {
   min-width: 40px;
 }
@@ -1657,8 +1629,16 @@ p,
   grid-template-rows: repeat(5, minmax(0, 1fr));
 }
 
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
 .flex-col {
   flex-direction: column;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
 }
 
 .flex-wrap {
@@ -1675,6 +1655,10 @@ p,
 
 .items-center {
   align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
 }
 
 .justify-end {
@@ -2059,11 +2043,6 @@ p,
   padding-bottom: 2rem;
 }
 
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -2090,18 +2069,6 @@ p,
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pr-2 {
-  padding-right: 0.5rem;
-}
-
-.pr-3 {
-  padding-right: 0.75rem;
-}
-
-.pt-6 {
-  padding-top: 1.5rem;
 }
 
 .text-left {
@@ -2367,6 +2334,10 @@ p,
   transition-duration: 150ms;
 }
 
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
 .duration-300 {
   transition-duration: 300ms;
 }
@@ -2379,20 +2350,12 @@ p,
   transition-duration: 700ms;
 }
 
-.duration-1000 {
-  transition-duration: 1000ms;
-}
-
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .\!\[clip\:rect\(0\2c 0\2c 0\2c 0\)\] {
   clip: rect(0,0,0,0) !important;
-}
-
-.\[font-size\:_clamp\(2em\2c 5vw\2c 10em\)\] {
-  font-size: clamp(2em,5vw,10em);
 }
 
 .before\:block::before {
@@ -2751,6 +2714,10 @@ p,
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:flex-row-reverse {
+    flex-direction: row-reverse;
   }
 
   .md\:flex-wrap {
