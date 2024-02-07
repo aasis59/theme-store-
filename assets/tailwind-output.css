@@ -1477,6 +1477,10 @@ p,
   width: 100%;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .min-w-\[40px\] {
   min-width: 40px;
 }
@@ -1627,10 +1631,6 @@ p,
 
 .grid-rows-5 {
   grid-template-rows: repeat(5, minmax(0, 1fr));
-}
-
-.flex-row-reverse {
-  flex-direction: row-reverse;
 }
 
 .flex-col {
