@@ -1,0 +1,191 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="color-{{ section.settings.color_scheme }}">
+  <div class="page-width section-{{ section.id }}-padding text-{{ section.settings.vertical_alignment }} ">
+    <h2 class="{{ section.settings.heading_size }}" style="font-size: 45px;">{{ section.settings.heading }}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-2 sm:gap-4">
+
+      {% for collection in section.settings.collection limit: section.settings.number_of_products_per_page %}
+        {% render 'listcollection-card'
+          , product_product: collection %}
+
+      {% else %}
+        <div class="relative group ml-3">
+          <div class="w-full  overflow-hidden inline-block ">
+            {{ 'collection-apparel-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100   hover:scale-110 duration-1000 transition-transfrom' }}
+            <div class="flex flex-col p-4 absolute bottom-0 left-[-30px]  ">
+              <div class="text-gray-500 text-md  ">
+                Products Number</div>
+              <div class=" text-lg font-bold we ">Product Title</div>
+            </div>
+          </div>
+        </div>
+        <div class="relative group ml-3">
+          <div class="w-full  overflow-hidden inline-block ">
+            {{ 'collection-apparel-2' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100   hover:scale-110 duration-1000 transition-transfrom' }}
+            <div class="flex flex-col p-4 absolute bottom-0 left-[-30px]  ">
+              <div class="text-gray-500 text-md  ">
+                Products Number</div>
+              <div class=" text-lg font-bold we ">Product Title</div>
+            </div>
+          </div>
+        </div>
+        <div class="relative group ml-3">
+          <div class="w-full  overflow-hidden inline-block ">
+            {{ 'collection-apparel-3' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100   hover:scale-110 duration-1000 transition-transfrom' }}
+            <div class="flex flex-col p-4 absolute bottom-0 left-[-30px]  ">
+              <div class="text-gray-500 text-md  ">
+                Products Number</div>
+              <div class=" text-lg font-bold we ">Product Title</div>
+            </div>
+          </div>
+        </div>
+        <div class="relative group ml-3">
+          <div class="w-full overflow-hidden inline-block ">
+            {{ 'collection-apparel-4' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100   hover:scale-110 duration-1000 transition-transfrom' }}
+            <div class="flex flex-col p-4 absolute bottom-0 left-[-30px]  ">
+              <div class="text-gray-500 text-md  ">
+                Products Number</div>
+              <div class=" text-lg font-bold we ">Product Title</div>
+            </div>
+          </div>
+        </div>
+
+
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+<style>
+
+  .we {
+    text-decoration: none;
+    position: relative;
+    transition: color 0.7s;
+  }
+
+  .we::after {
+
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 0;
+    background-color: black;
+    transition: width 0.7s;
+  }
+
+  .group:hover .we::after {
+
+    width: 100%;
+  }
+
+  .group:hover .we {
+    color: black;
+
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Collection-List",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Collection List"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "label": "Heading Size",
+        "options": [
+          {
+            "value": "h3",
+            "label": "Small"
+          }, {
+            "value": "h2",
+            "label": "Medium"
+          }, {
+            "value": "h1",
+            "label": "Large"
+          }
+        ],
+        "default": "h2"
+      },
+      {
+        "type": "select",
+        "id": "vertical_alignment",
+        "label": "Text alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "number",
+        "id": "number_of_products_per_page",
+        "default": 4,
+        "label": "Number of collection"
+      }, {
+        "type": "collection_list",
+        "label": "Collection",
+        "id": "collection"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Padding Top",
+        "min": 0,
+        "max": 100,
+        "default": 25,
+        "step": 1,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Padding Bottom",
+        "min": 0,
+        "max": 100,
+        "default": 25,
+        "step": 1,
+        "unit": "px"
+      }, {
+        "type": "color_scheme",
+        "label": "Color Scheme",
+        "id": "color_scheme",
+        "default": "background-1"
+      }
+
+    ],
+
+
+    "presets": [
+      {
+        "name": "Collection-list"
+      }
+    ]
+  }
+{% endschema %}
