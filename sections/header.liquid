@@ -55,7 +55,7 @@
 
 <en-header
   data-headertype="hideonscroll"
-  class="block top-0 sticky transition-all duration-500 z-[10] gradient py-3 color-{{ section.settings.color_scheme }} "
+  class="block top-0 sticky transition-all duration-500 z-[10] gradient color-{{ section.settings.color_scheme }} "
 >
   <div class="en-container relative ">
     <div class="page-width  flex flex-col gap-8 lg:py-6">
@@ -184,7 +184,7 @@
   </div>
   <collapsible-content
     data-id="header-search"
-    class="absolute top-full w-full bg-[rgba(var(--primary-background))]"
+    class="absolute top-full w-full bg-[rgba(var(--color-bg))]"
   >
     <div class="collapsible-inner w-full">
       <form action="{{ routes.search_url }}" class="">
@@ -194,7 +194,7 @@
             placeholder="Search"
             name="q"
             value="{{ search.terms | escape }}"
-            class="input w-full bg-[rgba(var(--primary-background))] border-none"
+            class="input w-full bg-[rgba(var(--color-bg))] border-none"
             autofocus
           >
 

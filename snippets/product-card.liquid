@@ -36,8 +36,15 @@
             {{ card_product.featured_image | image_url: width: 700 | image_tag: class: imageclass, loading: 'lazy' }}
           </div>
 
+        {% elsif card_product.featured_media %}
+          <div class=" group w-full overflow-hidden relative before:content-[''] before:block before:pt-[100%]">
+            {{ card_product.featured_media | image_url: width: 700 | image_tag: class: imageclass, loading: 'lazy' }}
+          </div>
         {% else %}
-          {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover ' }}
+          {{ 'product-apparel-1' | placeholder_svg_tag: 'w-full h-full object-cover ' }}
+          <div class="absolute bottom-2 flex w-full text-center">
+            <h4 class="h2 w-full">No product image</h4>
+          </div>
         {% endif %}
 
         {% if swatches %}
@@ -75,7 +82,7 @@
                 data-id="{{ card_product.id }}"
                 data-section-id="{{ section.id }}"
               >
-                <div class="flex items-center justify-center p-2 cursor-pointer bg-[rgba(var(--primary-button-background))] text-[rgba(var(--primary-button-text))]">
+                <div class="flex items-center justify-center p-2 cursor-pointer bg-[rgba(var(--color-btn))] text-[rgba(var(--color-btn-text))]">
                   <span class="cursor-pointer flex overflow-hidden">
                     <span class="icon-link">
                       {% render 'icon-plus' %}
@@ -93,7 +100,7 @@
                   data-id="{{ card_product.id }}"
                   data-section-id="{{ section.id }}"
                 >
-                  <div class="flex items-center justify-center p-2 cursor-pointer bg-[rgba(var(--primary-button-background))] text-[rgba(var(--primary-button-text))]">
+                  <div class="flex items-center justify-center p-2 cursor-pointer bg-[rgba(var(--color-btn))] text-[rgba(var(--color-btn-text))]">
                     <span class="cursor-pointer flex overflow-hidden">
                       <span class="icon-link">
                         {% render 'icon-plus' %}
@@ -130,7 +137,7 @@
       {% for block in blocks %}
         {% case block.type %}
           {% when 'vendor' %}
-            <span class="text-sm text-[rgba(var(--primary-text),.9)]">{{ card_product.vendor }}</span>
+            <span class="text-sm text-[rgba(var(--color-text),.9)]">{{ card_product.vendor }}</span>
 
           {% when 'title' %}
             <a href="{{ card_product.url }}" class="">
@@ -151,7 +158,7 @@
 >
   <div class="fixed w-full h-full top-0 left-0 bg-black opacity-40 z-[10]"></div>
   <div
-    class="page-width fixed z-[11] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] md:w-[80%] lg:w-[70%] max-h-[90%] overflow-scroll bg-[rgba(var(--primary-background))]"
+    class="page-width fixed z-[11] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] md:w-[80%] lg:w-[70%] max-h-[90%] overflow-scroll bg-[rgba(var(--color-bg))]"
   >
     <div class="absolute top-2 right-2 z-[12] cursor-pointer">
       {% render 'icon-close', class: 'close-modal' %}

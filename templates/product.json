@@ -37,6 +37,11 @@
           "type": "checkout_buttons",
           "settings": {
           }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -46,7 +51,8 @@
         "variant_selector",
         "quantity",
         "sku",
-        "checkout_buttons"
+        "checkout_buttons",
+        "description"
       ],
       "settings": {
       }

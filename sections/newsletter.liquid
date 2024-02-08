@@ -12,109 +12,70 @@
   }
 {%- endstyle -%}
 
-
 {%- assign block_column_count = section.blocks.size -%}
 
-
-{% comment %} 
-                      "md:grid-cols-1 md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 " 
+{% comment %}
+  "md:grid-cols-1 md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 "
 {% endcomment %}
-
 
 <div class="color-{{ section.settings.color_scheme }}  relative">
   {% assign bg_image = section.settings.background_image %}
   {% if bg_image %}
     {% assign image_class = 'absolute inset-0 w-full h-full object-cover z-[0]' %}
     {% if settings.corners == 'rounded' %}
-      {% comment %} {% assign image_class = image_class | append: ' rounded-md' %} {% endcomment %}
     {% endif %}
     {{ bg_image | image_url: width: bg_image.width | image_tag: class: image_class }}
   {% endif %}
   <div class="page-width section-{{ section.id }}-padding text-{{ section.settings.vertical_alignment }} relative z-[1]">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-{{ block_column_count }} gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ block_column_count }} gap-4 lg:gap-8 items-center">
       {%- for block in section.blocks -%}
-        <div class="">
+        <div class="lg:max-w-screen-sm">
           {% case block.type %}
             {%- when 'newsletter' -%}
-              <div class="flex flex-col justify-center items-center h-full">
+              <div class="flex flex-col">
                 <h2 class="{{ block.settings.heading_size }}">{{ block.settings.heading }}</h2>
                 {% if block.settings.sub_heading != blank %}
                   <h2 class="{{ block.settings.sub_heading_size }}">{{ block.settings.sub_heading }}</h2>
                 {% endif %}
-                <div class="rte {{ block.settings.text_area_size }}">{{ block.settings.text_area }}</div>
+                <div class="rte">{{ block.settings.text_area }}</div>
               </div>
 
             {%- when 'newsletter_signup' -%}
-              <div class="flex justify-center items-center h-full">
+              <div class="flex justify-center items-center h-full ">
                 {%- liquid
-                  assign placeholder_name = 'Name'
-                  assign input_group_inline = true
                   assign btn_width = false
-
-                  if extra_fields != blank or button_text != blank
-                    assign button_class = 'input-group__btn btn'
-                    assign input_group_inline = false
-                    assign btn_width = true
-
-                    if extra_fields == blank
-                      assign btn_width = false
-                    endif
-                  endif
-
-                  capture form_id
-                    echo 'NewsletterForm--' | append: unique
-                  endcapture
-
-                  assign fields_class = 'input-group__fields'
-                  unless extra_fields == blank
-                    assign fields_class = fields_class | append: ' ' | append: fields_class | append: '--' | append: extra_fields
-                  endunless
+                  assign unique = 'newsletter-' | append: section.id
                 -%}
 
-                {%- form 'customer'
-                  , id: form_id
-                  , data-newsletter-form: ''
-                  , class: 'newsletter-form' -%}
+                {%- form 'customer', class: 'newsletter-form' -%}
                   <input
                     type="hidden"
                     name="contact[accepts_marketing]"
-                    value="true">
+                    value="true"
+                  >
 
                   <div class="flex gap-2">
-                    <div class="{{ fields_class }} flex-grow ">
-                      {%- case extra_fields -%}
-                        {%- when 'name' -%}
-                          <div class="input-group__item input-group__item--name">
-                            <input
-                              type="text"
-                              id="Name--{{ unique }}"
-                              class="input"
-                              value="{% if customer %}{{ customer.name }}{% endif %}"
-                              placeholder="{{ placeholder_name }}"
-                              name="contact[first_name]"
-                              autocorrect="off"
-                              autocapitalize="off"
-                              aria-label="{{ placeholder_name }}"
-                              {% if form.errors contains 'name' %}
-                              aria-invalid="true"
-                              {% endif %}>
-                          </div>
-                      {%- endcase -%}
-
-                      <div class="input-group__item input-group__item--email ">
-                        <input
-                          type="email"
-                          id="Email--{{ unique }}"
-                          class="input w-full"
-                          value="{% if customer %}{{ customer.email }}{% endif %}"
-                          placeholder="Email"
-                          name="contact[email]"
-                          autocorrect="off"
-                          autocapitalize="off"
-                          {% if form.errors contains 'email' %}
+                    <div class="flex-grow ">
+                      <input
+                        id="NewsletterForm--{{ section.id }}"
+                        type="email"
+                        name="contact[email]"
+                        class="input w-full"
+                        value="{{ form.email }}"
+                        aria-required="true"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        autocomplete="email"
+                        {% if form.errors %}
+                          autofocus
                           aria-invalid="true"
-                          {% endif %}>
-                      </div>
+                          aria-describedby="Newsletter-error--{{ section.id }}"
+                        {% elsif form.posted_successfully? %}
+                          aria-describedby="Newsletter-success--{{ section.id }}"
+                        {% endif %}
+                        placeholder="{{ 'newsletter.label' | t }}"
+                        required
+                      >
                     </div>
 
                     <div class="input-group__item input-group__item--btn{% if btn_width %} input-group__item--btn-width{% endif %} w-35 ">
@@ -123,23 +84,35 @@
                         name="subscribe"
                         class="button button-primary w-full"
                         id="SubscribeSubmit--{{ unique }}"
-                        {% if is_popup %}
-                        data-newsletter-submit
-                        {% endif %}>
+                      >
                         <span class="">{{ block.settings.button_text }}</span>
                       </button>
                     </div>
                   </div>
-                  <div class="rte">{{ block.settings.footer_text }}</div>
 
-                  {%- if form.posted_successfully? -%}
-                    <div class="note form-success">Newsletter Success</div>
+                  {%- if form.errors -%}
+                    <h3 class="flex gap-3 items-center h4" id="Newsletter-error--{{ section.id }}">
+                      {%- render 'icon-error', class: 'w-4 h-4' -%}
+                      <span>
+                        {{- form.errors.translated_fields.email | capitalize }}
+                        {{ form.errors.messages.email -}}
+                      </span>
+                    </h3>
                   {%- endif -%}
-                  {% if form.errors %}
-                    <div class="errors">Newsletter Error</div>
-                  {% endif %}
-                {%- endform -%}
+                  {%- if form.posted_successfully? -%}
+                    <h3
+                      class="flex items-center gap-3 h4"
+                      id="Newsletter-success--{{ section.id }}"
+                      tabindex="-1"
+                      autofocus
+                    >
+                      {% render 'icon-success', class: 'w-4 h-4' -%}
+                      {{- 'newsletter.success' | t }}
+                    </h3>
+                  {%- endif -%}
 
+                  <div class="rte">{{ block.settings.footer_text }}</div>
+                {%- endform -%}
               </div>
 
             {%- when 'image' -%}
@@ -150,9 +123,9 @@
                   {% if settings.corners == 'rounded' %}
                     {% assign image_class01 = image_class01 | append: ' rounded-md' %}
                   {% endif %}
-                  {{ image | image_url: width: image.width | image_tag: class: image_class01 }}
+                  {{ image | image_url: width: block.settings.image_size | image_tag: class: image_class01 }}
                 {% else %}
-                  {{ 'image' | placeholder_svg_tag: 'custom-section object-cover bg-white' }}
+                  {{ 'image' | placeholder_svg_tag: 'custom-section object-cover bg-gray-400' }}
                 {% endif %}
               </div>
               <style>
@@ -168,7 +141,6 @@
                   }
                 }
               </style>
-
           {%- endcase -%}
         </div>
       {%- endfor -%}
@@ -176,191 +148,194 @@
   </div>
 </div>
 
-
 {% schema %}
-  {
-    "name": "Newsletter compact",
-    "settings": [
-      {
-        "type": "select",
-        "id": "vertical_alignment",
-        "label": "Text alignment",
-        "options": [
-          {
-            "value": "left",
-            "label": "Left"
-          }, {
-            "value": "center",
-            "label": "Center"
-          }, {
-            "value": "right",
-            "label": "Right"
-          }
-        ],
-        "default": "left"
-      },
-      {
-        "type": "image_picker",
-        "id": "background_image",
-        "label": "Background Image"
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "label": "Padding Top",
-        "min": 0,
-        "max": 100,
-        "default": 25,
-        "step": 1,
-        "unit": "px"
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "label": "Padding Bottom",
-        "min": 0,
-        "max": 100,
-        "default": 25,
-        "step": 1,
-        "unit": "px"
-      }, {
-        "type": "color_scheme",
-        "label": "Color Scheme",
-        "id": "color_scheme",
-        "default": "background-1"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "newsletter",
-        "name": "Newsletter Subscription",
-        "limit": 2,
-        "settings": [
-          {
-            "type": "inline_richtext",
-            "id": "heading",
-            "label": "Heading",
-            "default": "Subscribe to our newsletter"
-          },
-          {
-            "type": "select",
-            "id": "heading_size",
-            "label": "Heading Size",
-            "options": [
-              {
-                "value": "h3",
-                "label": "Small"
-              }, {
-                "value": "h2",
-                "label": "Medium"
-              }, {
-                "value": "h1",
-                "label": "Large"
-              }
-            ],
-            "default": "h2"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "sub_heading",
-            "label": "Sub heading"
-          },
-          {
-            "type": "select",
-            "id": "sub_heading_size",
-            "label": "Sub Heading Size",
-            "options": [
-              {
-                "value": "h3",
-                "label": "Small"
-              }, {
-                "value": "h2",
-                "label": "Medium"
-              }, {
-                "value": "h1",
-                "label": "Large"
-              }
-            ],
-            "default": "h2"
-          }, {
-            "type": "richtext",
-            "id": "text_area",
-            "label": "Text Area",
-            "default": "<p>Include a short sentence describing what someone can expect from your newsletter</p>"
-          }, {
-            "type": "select",
-            "id": "text_area_size",
-            "label": "Text Size",
-            "options": [
-              {
-                "value": "p",
-                "label": "Small"
-              }, {
-                "value": "h4",
-                "label": "Regular"
-              }, {
-                "value": "h3",
-                "label": "Large"
-              }
-            ],
-            "default": "h4"
-          }
-        ]
-      }, {
-        "type": "newsletter_signup",
-        "name": "Newsletter Signup",
-        "limit": 1,
-        "settings": [
-
-          {
-            "type": "text",
-            "id": "button_text",
-            "label": "Button text",
-            "default": "Subscribe"
-          }, {
-            "type": "richtext",
-            "id": "footer_text",
-            "label": "Footer text",
-            "default": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.</p>"
-          }
-
-        ]
-      }, {
-        "type": "image",
-        "name": "Image",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image_id",
-            "label": "Image"
-          }, {
-            "type": "range",
-            "id": "image_size",
-            "unit": "px",
-            "max": 500,
-            "min": 50,
-            "label": "Image Size",
-            "step": 5,
-            "default": 100
-          }, {
-            "type": "range",
-            "id": "mobile_image_size",
-            "unit": "px",
-            "max": 300,
-            "min": 50,
-            "label": "Mobile image size",
-            "step": 5,
-            "default": 100
-          }
-        ]
-      }
-
-    ],
-    "presets": [
-      {
-        "name": "Newsletter"
-      }
-    ]
-  }
+{
+  "name": "Newsletter compact",
+  "settings": [
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "default": 25,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "default": 25,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "color_scheme",
+      "label": "Color Scheme",
+      "id": "color_scheme",
+      "default": "background-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "newsletter",
+      "name": "Newsletter Subscription",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Subscribe to our newsletter"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading Size",
+          "options": [
+            {
+              "value": "h3",
+              "label": "Small"
+            },
+            {
+              "value": "h2",
+              "label": "Medium"
+            },
+            {
+              "value": "h1",
+              "label": "Large"
+            }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "sub_heading",
+          "label": "Sub heading"
+        },
+        {
+          "type": "select",
+          "id": "sub_heading_size",
+          "label": "Sub Heading Size",
+          "options": [
+            {
+              "value": "h3",
+              "label": "Small"
+            },
+            {
+              "value": "h2",
+              "label": "Medium"
+            },
+            {
+              "value": "h1",
+              "label": "Large"
+            }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "richtext",
+          "id": "text_area",
+          "label": "Text Area",
+          "default": "<p>Include a short sentence describing what someone can expect from your newsletter</p>"
+        }
+      ]
+    },
+    {
+      "type": "newsletter_signup",
+      "name": "Newsletter Signup",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Subscribe"
+        },
+        {
+          "type": "richtext",
+          "id": "footer_text",
+          "label": "Footer text",
+          "default": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.</p>"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_id",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_size",
+          "unit": "px",
+          "max": 500,
+          "min": 50,
+          "label": "Image Size",
+          "step": 5,
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "mobile_image_size",
+          "unit": "px",
+          "max": 300,
+          "min": 50,
+          "label": "Mobile image size",
+          "step": 5,
+          "default": 100
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter",
+      "blocks": [
+        {
+          "type": "newsletter_signup"
+        },
+        {
+          "type": "newsletter"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

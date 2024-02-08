@@ -59,11 +59,33 @@
       "type": "image-hotspots",
       "settings": {
       }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+          }
+        },
+        "subscribe": {
+          "type": "newsletter_signup",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "subscribe"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "slideshow",
     "featured_collection",
-    "hotspots"
+    "hotspots",
+    "newsletter"
   ]
 }
