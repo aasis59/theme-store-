@@ -46,7 +46,7 @@
           "background": "#ffffff",
           "background_gradient": "",
           "heading": "#ffffff",
-          "text": "#e4e5e6",
+          "text": "#000000",
           "button": "#ffffff",
           "button_label": "#121212",
           "secondary_button_label": "#ffffff",
