@@ -15,7 +15,7 @@
 {%- assign block_column_count = section.blocks.size -%}
 
 {% comment %} 
-                                      "md:grid-cols-1 md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 " 
+                                                            "md:grid-cols-1 md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 " 
 {% endcomment %}
 
 <div class="color-{{ section.settings.color_scheme }}  relative">
@@ -203,7 +203,7 @@
     "blocks": [
       {
         "type": "newsletter",
-        "name": "Newsletter Subscription",
+        "name": "t:sections.newsletter.blocks.newsletter.label",
         "limit": 2,
         "settings": [
           {
@@ -261,24 +261,24 @@
         ]
       }, {
         "type": "newsletter_signup",
-        "name": "Newsletter Signup",
+        "name": "t:sections.newsletter.blocks.newsletter_signup.label",
         "limit": 1,
         "settings": [
           {
             "type": "text",
             "id": "button_text",
-            "label": "t:sections.all.button.button",
+            "label": "t:sections.all.button.label",
             "default": "Subscribe"
           }, {
             "type": "richtext",
             "id": "footer_text",
-            "label": "t:section.newsletter.settings.footer_text.label",
+            "label": "t:sections.newsletter.settings.footer_text.label",
             "default": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.</p>"
           }
         ]
       }, {
         "type": "image",
-        "name": "Image",
+        "name": "t:sections.newsletter.blocks.image.label",
         "limit": 1,
         "settings": [
           {
@@ -309,7 +309,7 @@
     ],
     "presets": [
       {
-        "name": "Newsletter",
+        "name": "t:sections.newsletter.name",
         "blocks": [
           {
             "type": "newsletter_signup"

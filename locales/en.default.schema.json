@@ -592,17 +592,17 @@
         "padding_bottom": "Bottom padding"
       },
       "image": {
-        "image": "Image"
+        "label": "Image"
       },
       "image_width": {
         "image_width_desktop": "Image Width",
         "image_width_mobile": "Mobile Image Width"
       },
       "button": {
-        "button": "Button Label"
+        "label": "Button Label"
       },
       "button_url": {
-        "button_url": "Button url"
+        "label": "Button url"
       },
       "text_alignment": {
         "label": "Text alignment",
@@ -616,16 +616,48 @@
           "label": "Right"
         }
       },
+      "text_position": {
+        "label": "Text Position",
+        "options__1": {
+          "label": "Top"
+        },
+        "options__2": {
+          "label": "Middle"
+        },
+        "options__3": {
+          "label": "Bottom"
+        }
+      },
       "text_area": {
         "label": "Text Area"
+      },
+      "page_width": {
+        "label": "Page Width"
       }
-    }
-  },
-  "image-with-text": {
-    "name": "Image with text",
-    "settings": {
-      "image": {
-        "label": "Image"
+    },
+    "image-with-text": {
+      "name": "Image with text",
+      "settings": {
+        "image": {
+          "label": "Image"
+        },
+        "image_placement": {
+          "label": "Image placement",
+          "option__1": {
+            "label": "Left"
+          },
+          "option__2": {
+            "label": "Right"
+          }
+        }
+      },
+      "blocks": {
+        "sub_heading": {
+          "label": "Pair text with an image"
+        },
+        "button": {
+          "label": "Button Label"
+        }
       }
     },
     "newsletter": {
@@ -636,6 +668,33 @@
         },
         "footer_text": {
           "label": "Footer text"
+        }
+      },
+      "blocks": {
+        "newsletter": {
+          "label": "Newsletter Subscription"
+        },
+        "newsletter_signup": {
+          "label": "Newsletter Signup"
+        },
+        "image": {
+          "label": "Image"
+        }
+      }
+    },
+    "image-and-text": {
+      "name": "Image and text",
+      "settings": {
+        "image": {
+          "label": "Image"
+        }
+      },
+      "blocks": {
+        "image": {
+          "label": "Image"
+        },
+        "text": {
+          "label": "Text"
         }
       }
     }
