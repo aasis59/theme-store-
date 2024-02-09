@@ -14,8 +14,8 @@
 
 {%- assign block_column_count = section.blocks.size -%}
 
-{% comment %}
-  "md:grid-cols-1 md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 "
+{% comment %} 
+                                      "md:grid-cols-1 md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 " 
 {% endcomment %}
 
 <div class="color-{{ section.settings.color_scheme }}  relative">
@@ -47,12 +47,12 @@
                   assign unique = 'newsletter-' | append: section.id
                 -%}
 
-                {%- form 'customer', class: 'newsletter-form' -%}
+                {%- form 'customer'
+                  , class: 'newsletter-form' -%}
                   <input
                     type="hidden"
                     name="contact[accepts_marketing]"
-                    value="true"
-                  >
+                    value="true">
 
                   <div class="flex gap-2">
                     <div class="flex-grow ">
@@ -67,15 +67,14 @@
                         autocapitalize="off"
                         autocomplete="email"
                         {% if form.errors %}
-                          autofocus
-                          aria-invalid="true"
-                          aria-describedby="Newsletter-error--{{ section.id }}"
+                        autofocus
+                        aria-invalid="true"
+                        aria-describedby="Newsletter-error--{{ section.id }}"
                         {% elsif form.posted_successfully? %}
-                          aria-describedby="Newsletter-success--{{ section.id }}"
+                        aria-describedby="Newsletter-success--{{ section.id }}"
                         {% endif %}
                         placeholder="{{ 'newsletter.label' | t }}"
-                        required
-                      >
+                        required>
                     </div>
 
                     <div class="input-group__item input-group__item--btn{% if btn_width %} input-group__item--btn-width{% endif %} w-35 ">
@@ -83,8 +82,7 @@
                         type="submit"
                         name="subscribe"
                         class="button button-primary w-full"
-                        id="SubscribeSubmit--{{ unique }}"
-                      >
+                        id="SubscribeSubmit--{{ unique }}">
                         <span class="">{{ block.settings.button_text }}</span>
                       </button>
                     </div>
@@ -92,7 +90,8 @@
 
                   {%- if form.errors -%}
                     <h3 class="flex gap-3 items-center h4" id="Newsletter-error--{{ section.id }}">
-                      {%- render 'icon-error', class: 'w-4 h-4' -%}
+                      {%- render 'icon-error'
+                        , class: 'w-4 h-4' -%}
                       <span>
                         {{- form.errors.translated_fields.email | capitalize }}
                         {{ form.errors.messages.email -}}
@@ -104,9 +103,9 @@
                       class="flex items-center gap-3 h4"
                       id="Newsletter-success--{{ section.id }}"
                       tabindex="-1"
-                      autofocus
-                    >
-                      {% render 'icon-success', class: 'w-4 h-4' -%}
+                      autofocus>
+                      {% render 'icon-success'
+                        , class: 'w-4 h-4' -%}
                       {{- 'newsletter.success' | t }}
                     </h3>
                   {%- endif -%}
@@ -149,193 +148,178 @@
 </div>
 
 {% schema %}
-{
-  "name": "Newsletter compact",
-  "settings": [
-    {
-      "type": "select",
-      "id": "vertical_alignment",
-      "label": "Text alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ],
-      "default": "left"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background Image"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "label": "Padding Top",
-      "min": 0,
-      "max": 100,
-      "default": 25,
-      "step": 1,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "label": "Padding Bottom",
-      "min": 0,
-      "max": 100,
-      "default": 25,
-      "step": 1,
-      "unit": "px"
-    },
-    {
-      "type": "color_scheme",
-      "label": "Color Scheme",
-      "id": "color_scheme",
-      "default": "background-1"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "newsletter",
-      "name": "Newsletter Subscription",
-      "limit": 2,
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Subscribe to our newsletter"
-        },
-        {
-          "type": "select",
-          "id": "heading_size",
-          "label": "Heading Size",
-          "options": [
-            {
-              "value": "h3",
-              "label": "Small"
-            },
-            {
-              "value": "h2",
-              "label": "Medium"
-            },
-            {
-              "value": "h1",
-              "label": "Large"
-            }
-          ],
-          "default": "h2"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "sub_heading",
-          "label": "Sub heading"
-        },
-        {
-          "type": "select",
-          "id": "sub_heading_size",
-          "label": "Sub Heading Size",
-          "options": [
-            {
-              "value": "h3",
-              "label": "Small"
-            },
-            {
-              "value": "h2",
-              "label": "Medium"
-            },
-            {
-              "value": "h1",
-              "label": "Large"
-            }
-          ],
-          "default": "h2"
-        },
-        {
-          "type": "richtext",
-          "id": "text_area",
-          "label": "Text Area",
-          "default": "<p>Include a short sentence describing what someone can expect from your newsletter</p>"
-        }
-      ]
-    },
-    {
-      "type": "newsletter_signup",
-      "name": "Newsletter Signup",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button text",
-          "default": "Subscribe"
-        },
-        {
-          "type": "richtext",
-          "id": "footer_text",
-          "label": "Footer text",
-          "default": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.</p>"
-        }
-      ]
-    },
-    {
-      "type": "image",
-      "name": "Image",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image_id",
-          "label": "Image"
-        },
-        {
-          "type": "range",
-          "id": "image_size",
-          "unit": "px",
-          "max": 500,
-          "min": 50,
-          "label": "Image Size",
-          "step": 5,
-          "default": 100
-        },
-        {
-          "type": "range",
-          "id": "mobile_image_size",
-          "unit": "px",
-          "max": 300,
-          "min": 50,
-          "label": "Mobile image size",
-          "step": 5,
-          "default": 100
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Newsletter",
-      "blocks": [
-        {
-          "type": "newsletter_signup"
-        },
-        {
-          "type": "newsletter"
-        },
-        {
-          "type": "image"
-        }
-      ]
-    }
-  ]
-}
+  {
+    "name": "t:sections.newsletter.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "vertical_alignment",
+        "label": "t:sections.all.text_alignment.label",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:sections.all.text_alignment.options__1.label"
+          }, {
+            "value": "center",
+            "label": "t:sections.all.text_alignment.options__2.label"
+          }, {
+            "value": "right",
+            "label": "t:sections.all.text_alignment.options__3.label"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "t:sections.newsletter.settings.background_image.label"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "t:sections.all.padding.padding_top",
+        "min": 0,
+        "max": 100,
+        "default": 25,
+        "step": 1,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "t:sections.all.padding.padding_bottom",
+        "min": 0,
+        "max": 100,
+        "default": 25,
+        "step": 1,
+        "unit": "px"
+      }, {
+        "type": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "id": "color_scheme",
+        "default": "background-1"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "newsletter",
+        "name": "Newsletter Subscription",
+        "limit": 2,
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "heading",
+            "label": "t:sections.all.heading.heading",
+            "default": "Subscribe to our newsletter"
+          },
+          {
+            "type": "select",
+            "id": "heading_size",
+            "label": "t:sections.all.heading_size.label",
+            "options": [
+              {
+                "value": "h3",
+                "label": "t:sections.all.heading_size.options__1.label"
+              }, {
+                "value": "h2",
+                "label": "t:sections.all.heading_size.options__2.label"
+              }, {
+                "value": "h1",
+                "label": "t:sections.all.heading_size.options__3.label"
+              }
+            ],
+            "default": "h2"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "sub_heading",
+            "label": "t:sections.all.heading.sub_heading"
+          },
+          {
+            "type": "select",
+            "id": "sub_heading_size",
+            "label": "t:sections.all.sub_heading_size.label",
+            "options": [
+              {
+                "value": "h3",
+                "label": "t:sections.all.sub_heading_size.options__1.label"
+              }, {
+                "value": "h2",
+                "label": "t:sections.all.sub_heading_size.options__2.label"
+              }, {
+                "value": "h1",
+                "label": "t:sections.all.sub_heading_size.options__3.label"
+              }
+            ],
+            "default": "h2"
+          }, {
+            "type": "richtext",
+            "id": "text_area",
+            "label": "t:sections.all.text_area.label",
+            "default": "<p>Include a short sentence describing what someone can expect from your newsletter</p>"
+          }
+        ]
+      }, {
+        "type": "newsletter_signup",
+        "name": "Newsletter Signup",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "t:sections.all.button.button",
+            "default": "Subscribe"
+          }, {
+            "type": "richtext",
+            "id": "footer_text",
+            "label": "t:section.newsletter.settings.footer_text.label",
+            "default": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.</p>"
+          }
+        ]
+      }, {
+        "type": "image",
+        "name": "Image",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image_id",
+            "label": "t:sections.all.image"
+          }, {
+            "type": "range",
+            "id": "image_size",
+            "unit": "px",
+            "max": 500,
+            "min": 50,
+            "label": "t:sections.all.image_width.image_width_desktop",
+            "step": 5,
+            "default": 100
+          }, {
+            "type": "range",
+            "id": "mobile_image_size",
+            "unit": "px",
+            "max": 300,
+            "min": 50,
+            "label": "t:sections.all.image_width.image_width_mobile",
+            "step": 5,
+            "default": 100
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Newsletter",
+        "blocks": [
+          {
+            "type": "newsletter_signup"
+          }, {
+            "type": "newsletter"
+          }, {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}

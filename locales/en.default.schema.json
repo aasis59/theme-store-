@@ -537,8 +537,27 @@
       "colors": {
         "label": "Color scheme"
       },
+      "heading": {
+        "heading": "Heading",
+        "sub_heading": "Sub Heading"
+      },
       "heading_size": {
         "label": "Heading size",
+        "options__1": {
+          "label": "Small"
+        },
+        "options__2": {
+          "label": "Medium"
+        },
+        "options__3": {
+          "label": "Large"
+        },
+        "options__4": {
+          "label": "Extra large"
+        }
+      },
+      "sub_heading_size": {
+        "label": "Sub Heading size",
         "options__1": {
           "label": "Small"
         },
@@ -571,13 +590,52 @@
         "section_padding_heading": "Section padding",
         "padding_top": "Top padding",
         "padding_bottom": "Bottom padding"
+      },
+      "image": {
+        "image": "Image"
+      },
+      "image_width": {
+        "image_width_desktop": "Image Width",
+        "image_width_mobile": "Mobile Image Width"
+      },
+      "button": {
+        "button": "Button Label"
+      },
+      "button_url": {
+        "button_url": "Button url"
+      },
+      "text_alignment": {
+        "label": "Text alignment",
+        "options__1": {
+          "label": "Left"
+        },
+        "options__2": {
+          "label": "Center"
+        },
+        "options__3": {
+          "label": "Right"
+        }
+      },
+      "text_area": {
+        "label": "Text Area"
+      }
+    }
+  },
+  "image-with-text": {
+    "name": "Image with text",
+    "settings": {
+      "image": {
+        "label": "Image"
       }
     },
-    "image-with-text": {
-      "name": "Image with text",
+    "newsletter": {
+      "name": "Newsletter Compact",
       "settings": {
-        "image": {
-          "label": "Image"
+        "background_image": {
+          "label": "Background Image"
+        },
+        "footer_text": {
+          "label": "Footer text"
         }
       }
     }

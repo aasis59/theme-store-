@@ -57,15 +57,13 @@
           {{ 'detailed-apparel-1' | placeholder_svg_tag: ' w-full h-full object-cover ' }}
         {% endif %}
       </div>
-      <div
-        class="
+      <div class="
           flex
           flex-col
           {{ section.settings.content_position }}
           color-{{ section.settings.color_scheme }}
           p-4
-        "
-      >
+        ">
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'heading' %}
@@ -85,239 +83,214 @@
   </div>
 </div>
 {% schema %}
-{
-  "name": "t:sections.image-with-text.name",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "t:sections.image-with-text.settings.image.label"
-    },
+  {
+    "name": "t:sections.image-with-text.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "t:sections.image-with-text.settings.image.label"
+      },
 
-    {
-      "type": "select",
-      "id": "height",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.all.image_height.option__1.label"
-        },
-        {
-          "value": "small",
-          "label": "t:sections.all.image_height.option__2.label"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.all.image_height.option__3.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.all.image_height.option__4.label"
-        }
-      ],
-      "default": "adapt",
-      "label": "t:sections.all.image_height.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "page_width",
-      "label": "Page Width",
-      "default": true
-    },
-    {
-      "type": "select",
-      "id": "image_placement",
-      "label": "Image Placement",
-      "options": [
-        {
-          "value": "flex",
-          "label": "Left"
-        },
-        {
-          "value": "flex flex-col-reverse md:flex-row-reverse",
-          "label": "Right"
-        }
-      ],
-      "default": "flex"
-    },
-    {
-      "type": "range",
-      "id": "image_width",
-      "label": "Image Width",
-      "min": 20,
-      "max": 80,
-      "default": 50,
-      "step": 5,
-      "unit": "%"
-    },
-    {
-      "type": "select",
-      "id": "content_position",
-      "label": "Content position",
-      "options": [
-        {
-          "value": "justify-start",
-          "label": "Top"
-        },
-        {
-          "value": "justify-center",
-          "label": "Middle"
-        },
-        {
-          "value": "justify-end",
-          "label": "Bottom"
-        }
-      ],
-      "default": "justify-center"
-    },
-    {
-      "type": "select",
-      "id": "vertical_alignment",
-      "label": "Content alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ],
-      "default": "left"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "label": "Padding Top",
-      "min": 0,
-      "max": 100,
-      "default": 25,
-      "step": 1,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "label": "Padding Bottom",
-      "min": 0,
-      "max": 100,
-      "default": 25,
-      "step": 1,
-      "unit": "px"
-    },
-    {
-      "type": "color_scheme",
-      "label": "Color Scheme",
-      "id": "color_scheme",
-      "default": "background-1"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "heading",
-      "name": "Image with text",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Image with text"
-        },
-        {
-          "type": "select",
-          "id": "heading_size",
-          "label": "Heading Size",
-          "options": [
-            {
-              "value": "h3",
-              "label": "Small"
-            },
-            {
-              "value": "h2",
-              "label": "Medium"
-            },
-            {
-              "value": "h1",
-              "label": "Large"
-            }
-          ],
-          "default": "h2"
-        }
-      ]
-    },
-    {
-      "type": "sub_heading",
-      "name": "Pair text with an image",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "sub_heading",
-          "label": "Sub heading",
-          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
-        },
-        {
-          "type": "select",
-          "id": "sub_heading_size",
-          "label": "Sub Heading Size",
-          "options": [
-            {
-              "value": "p",
-              "label": "Small"
-            },
-            {
-              "value": "h4",
-              "label": "Medium"
-            },
-            {
-              "value": "h3",
-              "label": "Large"
-            }
-          ],
-          "default": "h4"
-        }
-      ]
-    },
-    {
-      "type": "button",
-      "name": "Button",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "button",
-          "label": "Label",
-          "default": "Shop Now"
-        },
-        {
-          "type": "url",
-          "id": "button_url",
-          "label": "Button URL"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Image with text",
-      "blocks": [
-        {
-          "type": "heading"
-        },
-        {
-          "type": "sub_heading"
-        },
-        {
-          "type": "button"
-        }
-      ]
-    }
-  ]
-}
+      {
+        "type": "select",
+        "id": "height",
+        "options": [
+          {
+            "value": "adapt",
+            "label": "t:sections.all.image_height.option__1.label"
+          }, {
+            "value": "small",
+            "label": "t:sections.all.image_height.option__2.label"
+          }, {
+            "value": "medium",
+            "label": "t:sections.all.image_height.option__3.label"
+          }, {
+            "value": "large",
+            "label": "t:sections.all.image_height.option__4.label"
+          }
+        ],
+        "default": "adapt",
+        "label": "t:sections.all.image_height.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "page_width",
+        "label": "Page Width",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "image_placement",
+        "label": "Image Placement",
+        "options": [
+          {
+            "value": "flex",
+            "label": "Left"
+          }, {
+            "value": "flex flex-col-reverse md:flex-row-reverse",
+            "label": "Right"
+          }
+        ],
+        "default": "flex"
+      }, {
+        "type": "range",
+        "id": "image_width",
+        "label": "Image Width",
+        "min": 20,
+        "max": 80,
+        "default": 50,
+        "step": 5,
+        "unit": "%"
+      }, {
+        "type": "select",
+        "id": "content_position",
+        "label": "Content position",
+        "options": [
+          {
+            "value": "justify-start",
+            "label": "Top"
+          }, {
+            "value": "justify-center",
+            "label": "Middle"
+          }, {
+            "value": "justify-end",
+            "label": "Bottom"
+          }
+        ],
+        "default": "justify-center"
+      }, {
+        "type": "select",
+        "id": "vertical_alignment",
+        "label": "Content alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "label": "t:sections.all.padding.padding_top",
+        "min": 0,
+        "max": 100,
+        "default": 25,
+        "step": 1,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "t:sections.all.padding.padding_bottom",
+        "min": 0,
+        "max": 100,
+        "default": 25,
+        "step": 1,
+        "unit": "px"
+      }, {
+        "type": "color_scheme",
+        "label": "Color Scheme",
+        "id": "color_scheme",
+        "default": "background-1"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "heading",
+        "name": "Image with text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Image with text"
+          }, {
+            "type": "select",
+            "id": "heading_size",
+            "label": "Heading Size",
+            "options": [
+              {
+                "value": "h3",
+                "label": "Small"
+              }, {
+                "value": "h2",
+                "label": "Medium"
+              }, {
+                "value": "h1",
+                "label": "Large"
+              }
+            ],
+            "default": "h2"
+          }
+        ]
+      }, {
+        "type": "sub_heading",
+        "name": "Pair text with an image",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "sub_heading",
+            "label": "Sub heading",
+            "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+          }, {
+            "type": "select",
+            "id": "sub_heading_size",
+            "label": "Sub Heading Size",
+            "options": [
+              {
+                "value": "p",
+                "label": "Small"
+              }, {
+                "value": "h4",
+                "label": "Medium"
+              }, {
+                "value": "h3",
+                "label": "Large"
+              }
+            ],
+            "default": "h4"
+          }
+        ]
+      }, {
+        "type": "button",
+        "name": "Button",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "button",
+            "label": "Label",
+            "default": "Shop Now"
+          }, {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text",
+        "blocks": [
+          {
+            "type": "heading"
+          }, {
+            "type": "sub_heading"
+          }, {
+            "type": "button"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
