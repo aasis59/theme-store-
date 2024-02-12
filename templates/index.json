@@ -195,11 +195,11 @@
       ],
       "settings": {
         "height": "small",
-        "image_width": 50,
+        "image_width": 30,
         "page_width": true,
         "image_layout": "alternate-left",
         "content_position": "justify-center",
-        "vertical_alignment": "left",
+        "vertical_alignment": "center",
         "padding_top": 25,
         "padding_bottom": 25,
         "t:sections.colors.label": ""
