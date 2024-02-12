@@ -87,7 +87,7 @@
     "hotspots": {
       "type": "image-hotspots",
       "settings": {
-        "hotspot_color": "#952E31",
+        "hotspot_color": "#952e31",
         "padding_top": 25,
         "padding_bottom": 25
       }
@@ -179,7 +179,7 @@
         "row_T4rXPN"
       ],
       "settings": {
-        "height": "adapt",
+        "height": "small",
         "image_width": 50,
         "page_width": true,
         "image_layout": "alternate-left",
