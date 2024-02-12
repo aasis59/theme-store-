@@ -1651,6 +1651,10 @@ p,
   grid-template-columns: 0fr;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
 }
