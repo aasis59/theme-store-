@@ -7,27 +7,14 @@
           "type": "slide",
           "settings": {
             "image_opacity": 0.7,
-            "heading": "Slider Heding",
-            "heading_size": "h1",
-            "text": "<p> Give customers details about the banner image(s) or content on the template.<\/p>",
-            "button_label": "Shop now",
-            "button_link": "",
             "container": false,
             "content_position": "bottom_center",
-            "alignment": "center",
             "color_scheme": "background-2"
           }
         },
         "slide2": {
           "type": "slide",
           "settings": {
-            "image_opacity": 0.9,
-            "heading": "Slider Heding",
-            "heading_size": "h1",
-            "text": "<p> Give customers details about the banner image(s) or content on the template.<\/p>",
-            "button_label": "Shop now",
-            "button_link": "",
-            "container": true,
             "content_position": "left",
             "alignment": "left",
             "color_scheme": "background-1"
@@ -39,11 +26,6 @@
         "slide2"
       ],
       "settings": {
-        "slide_duration": 7,
-        "slide_style": "fade",
-        "full_width": false,
-        "image_height": "medium",
-        "color_scheme": ""
       }
     },
     "featured_collection": {
@@ -71,40 +53,11 @@
         "price"
       ],
       "settings": {
-        "heading": "Featured Collection",
-        "collection": "",
-        "columns_desktop": 3,
-        "columns_mobile": 1,
-        "display_type": "slider",
-        "enable_quick_add": true,
-        "max_products_to_show": 8,
-        "padding_top": 25,
-        "padding_bottom": 25,
-        "color_scheme": "",
-        "card_color_scheme": ""
-      }
-    },
-    "collection_list_kiWteB": {
-      "type": "collection-list",
-      "settings": {
-        "heading": "Collection List",
-        "heading_size": "h2",
-        "vertical_alignment": "left",
-        "number_of_products_per_page": 4,
-        "collection": [
-
-        ],
-        "padding_top": 25,
-        "padding_bottom": 25,
-        "color_scheme": ""
       }
     },
     "hotspots": {
       "type": "image-hotspots",
       "settings": {
-        "hotspot_color": "#952e31",
-        "padding_top": 25,
-        "padding_bottom": 25
       }
     },
     "newsletter": {
@@ -113,18 +66,11 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "heading": "Subscribe to our newsletter",
-            "heading_size": "h2",
-            "sub_heading": "",
-            "sub_heading_size": "h2",
-            "text_area": "<p>Include a short sentence describing what someone can expect from your newsletter<\/p>"
           }
         },
         "subscribe": {
           "type": "newsletter_signup",
           "settings": {
-            "button_text": "Subscribe",
-            "footer_text": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.<\/p>"
           }
         }
       },
@@ -133,85 +79,13 @@
         "subscribe"
       ],
       "settings": {
-        "vertical_alignment": "left",
-        "padding_top": 25,
-        "padding_bottom": 25,
-        "color_scheme": ""
-      }
-    },
-    "multi_row_KVMVaA": {
-      "type": "multi-row",
-      "blocks": {
-        "row_EA3f6W": {
-          "type": "row",
-          "settings": {
-            "heading": "Row",
-            "heading_size": "h2",
-            "sub_heading": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "sub_heading_size": "h4",
-            "button": "Button label",
-            "button_url": ""
-          }
-        },
-        "row_EtDCaz": {
-          "type": "row",
-          "settings": {
-            "heading": "Row",
-            "heading_size": "h2",
-            "sub_heading": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "sub_heading_size": "h4",
-            "button": "Button label",
-            "button_url": ""
-          }
-        },
-        "row_gmgQEX": {
-          "type": "row",
-          "settings": {
-            "heading": "Row",
-            "heading_size": "h2",
-            "sub_heading": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "sub_heading_size": "h4",
-            "button": "Button label",
-            "button_url": ""
-          }
-        },
-        "row_T4rXPN": {
-          "type": "row",
-          "settings": {
-            "heading": "Row",
-            "heading_size": "h2",
-            "sub_heading": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "sub_heading_size": "h4",
-            "button": "Button label",
-            "button_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "row_EA3f6W",
-        "row_EtDCaz",
-        "row_gmgQEX",
-        "row_T4rXPN"
-      ],
-      "settings": {
-        "height": "small",
-        "image_width": 30,
-        "page_width": true,
-        "image_layout": "alternate-left",
-        "content_position": "justify-center",
-        "vertical_alignment": "center",
-        "padding_top": 25,
-        "padding_bottom": 25,
-        "t:sections.colors.label": ""
       }
     }
   },
   "order": [
     "slideshow",
     "featured_collection",
-    "collection_list_kiWteB",
     "hotspots",
-    "newsletter",
-    "multi_row_KVMVaA"
+    "newsletter"
   ]
 }
