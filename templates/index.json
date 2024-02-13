@@ -130,6 +130,7 @@
         "column_QTU4if": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/tokyo-at-night.jpg",
             "heading": "Column",
             "heading_size": "h2",
             "sub_heading": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
@@ -170,11 +171,11 @@
         "col_heading": "Column",
         "col_heading_size": "h2",
         "col_vertical_alignment": "left",
-        "image_width": "w-full",
+        "image_width": "w-1\/2",
         "image_ratio": "h-auto",
         "columns_desktop": 4,
         "page_width": true,
-        "vertical_alignment": "justify-items-start",
+        "vertical_alignment": "justify-items-center",
         "padding_top": 17,
         "padding_bottom": 25,
         "t:sections.colors.label": "",
