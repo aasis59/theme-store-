@@ -173,7 +173,7 @@
         "col_vertical_alignment": "left",
         "image_width": "w-1\/2",
         "image_ratio": "h-auto",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "page_width": true,
         "vertical_alignment": "justify-items-center",
         "padding_top": 17,
