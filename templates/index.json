@@ -87,7 +87,7 @@
     "hotspots": {
       "type": "image-hotspots",
       "settings": {
-        "hotspot_color": "#952E31",
+        "hotspot_color": "#952e31",
         "padding_top": 25,
         "padding_bottom": 25
       }
@@ -159,12 +159,48 @@
             "button": "Button label",
             "button_url": ""
           }
+        },
+        "row_gL9xhB": {
+          "type": "row",
+          "settings": {
+            "heading": "Row",
+            "heading_size": "h2",
+            "sub_heading": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "sub_heading_size": "h4",
+            "button": "Button label",
+            "button_url": ""
+          }
+        },
+        "row_NUtrWR": {
+          "type": "row",
+          "settings": {
+            "heading": "Row",
+            "heading_size": "h2",
+            "sub_heading": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "sub_heading_size": "h4",
+            "button": "Button label",
+            "button_url": ""
+          }
+        },
+        "row_CXqBFR": {
+          "type": "row",
+          "settings": {
+            "heading": "Row",
+            "heading_size": "h2",
+            "sub_heading": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "sub_heading_size": "h4",
+            "button": "Button label",
+            "button_url": ""
+          }
         }
       },
       "block_order": [
         "row_R3xP3R",
         "row_R3GrYq",
-        "row_gVnNA7"
+        "row_gVnNA7",
+        "row_gL9xhB",
+        "row_NUtrWR",
+        "row_CXqBFR"
       ],
       "settings": {
         "height": "adapt",
