@@ -1,11 +1,63 @@
 {
   "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide1": {
+          "type": "slide",
+          "settings": {
+            "image_opacity": 0.7,
+            "container": false,
+            "content_position": "bottom_center",
+            "color_scheme": "background-2"
+          }
+        },
+        "slide2": {
+          "type": "slide",
+          "settings": {
+            "content_position": "left",
+            "alignment": "left",
+            "color_scheme": "background-1"
+          }
+        }
+      },
+      "block_order": [
+        "slide1",
+        "slide2"
+      ],
+      "settings": {
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "settings": {
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price"
+      ],
+      "settings": {
+      }
+    },
     "hotspots": {
       "type": "image-hotspots",
       "settings": {
-        "hotspot_color": "#952E31",
-        "padding_top": 25,
-        "padding_bottom": 25
       }
     },
     "newsletter": {
@@ -14,18 +66,11 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "heading": "Subscribe to our newsletter",
-            "heading_size": "h2",
-            "sub_heading": "",
-            "sub_heading_size": "h2",
-            "text_area": "<p>Include a short sentence describing what someone can expect from your newsletter<\/p>"
           }
         },
         "subscribe": {
           "type": "newsletter_signup",
           "settings": {
-            "button_text": "Subscribe",
-            "footer_text": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.<\/p>"
           }
         }
       },
@@ -34,32 +79,13 @@
         "subscribe"
       ],
       "settings": {
-        "vertical_alignment": "left",
-        "padding_top": 25,
-        "padding_bottom": 25,
-        "color_scheme": ""
-      }
-    },
-    "countdown_FfbqbL": {
-      "type": "countdown",
-      "settings": {
-        "heading": "LIMITED OFFER",
-        "heading_size": "h2",
-        "sub_heading": "<p>Share something about a limited offer or temporary promotion<\/p>",
-        "counter": "15-05-2024",
-        "expiry_hours": 0,
-        "expiry_minutes": 0,
-        "color_scheme": "accent-2",
-        "button": "Option link",
-        "button_url": "",
-        "padding_top": 50,
-        "padding_bottom": 50
       }
     }
   },
   "order": [
+    "slideshow",
+    "featured_collection",
     "hotspots",
-    "newsletter",
-    "countdown_FfbqbL"
+    "newsletter"
   ]
 }

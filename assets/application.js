@@ -1384,9 +1384,9 @@ class CountdownComponent extends HTMLElement {
         const x = setInterval(function () {
             const now = Date.now(); // Current UTC timestamp
             const distance = countDownTimestamp - now;
-            const days = Math.floor(distance / (1000  60  60 * 24));
-            const hours = Math.floor((distance % (1000  60  60  24)) / (1000  60 * 60));
-            const minutes = Math.floor((distance % (1000  60  60)) / (1000 * 60));
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 *  60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             element.render(days, hours, minutes, seconds);
             console.log(distance)
@@ -1409,7 +1409,6 @@ class CountdownComponent extends HTMLElement {
 if (!customElements.get("countdown-component")) {
     customElements.define("countdown-component", CountdownComponent);
 }
-
 
 const inputs = document.querySelectorAll('.form-control input');
 const labels = document.querySelectorAll('.form-control label');
