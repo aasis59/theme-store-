@@ -7,18 +7,27 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     {%- if settings.favicon != blank -%}
-      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+      <link
+        rel="icon"
+        type="image/png"
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
-      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+      <link
+        rel="preconnect"
+        href="https://fonts.shopifycdn.com"
+        crossorigin>
     {%- endunless -%}
 
     <title>
       {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- if current_tags %}
+        &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %}
+        &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %}
+        &ndash; {{ shop.name }}{% endunless -%}
     </title>
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
@@ -39,17 +48,19 @@
       {% for scheme in settings.color_schemes -%}
         {%- assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
         {% if forloop.index == 1 -%}
-          :root,
+          :root, 
         {%- endif -%}
         .color-{{ scheme.id }} {
-          --color-bg: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
-        {%- if scheme.settings.background_gradient != empty %}
-          --gradient-background: {{ scheme.settings.background_gradient }};
-        {% else %}
-          --gradient-background: {{ scheme.settings.background }};
-        {% endif -%}
+          --color-bg: {{ scheme.settings.background.red }}, 
+          {{ scheme.settings.background.green }}, 
+          {{ scheme.settings.background.blue }};
+          {%- if scheme.settings.background_gradient != empty %}
+            --gradient-background: {{ scheme.settings.background_gradient }};
+          {% else %}
+            --gradient-background: {{ scheme.settings.background }};
+          {% endif -%}
 
-        {%- liquid
+          {%- liquid
           assign background_color = scheme.settings.background
           assign background_color_brightness = background_color | color_brightness
           if background_color_brightness <= 26
@@ -59,17 +70,35 @@
           else
             assign background_color_contrast = background_color | color_darken: 25
           endif
-        -%}
-        --color-heading: {{ scheme.settings.heading.red }},{{ scheme.settings.heading.green }},{{ scheme.settings.heading.blue }};
-        --color-text: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
-        --color-bg-contrast: {{ background_color_contrast.red }}, {{ background_color_contrast.green }}, {{ background_color_contrast.blue }};
-        --color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
-        --color-btn: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
-        --color-btn-text: {{ scheme.settings.button_label.red }},{{ scheme.settings.button_label.green }},{{ scheme.settings.button_label.blue }};
-        --color-sec-btn: {{ scheme.settings.secondary_button.red }},{{ scheme.settings.secondary_button.green }},{{ scheme.settings.secondary_button.blue }};
-        --color-sec-btn-text: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
-        --color-icons: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
-      }
+-%}
+          --color-heading: {{ scheme.settings.heading.red }}, 
+          {{ scheme.settings.heading.green }}, 
+          {{ scheme.settings.heading.blue }};
+          --color-text: {{ scheme.settings.text.red }}, 
+          {{ scheme.settings.text.green }}, 
+          {{ scheme.settings.text.blue }};
+          --color-bg-contrast: {{ background_color_contrast.red }}, 
+          {{ background_color_contrast.green }}, 
+          {{ background_color_contrast.blue }};
+          --color-shadow: {{ scheme.settings.shadow.red }}, 
+          {{ scheme.settings.shadow.green }}, 
+          {{ scheme.settings.shadow.blue }};
+          --color-btn: {{ scheme.settings.button.red }}, 
+          {{ scheme.settings.button.green }}, 
+          {{ scheme.settings.button.blue }};
+          --color-btn-text: {{ scheme.settings.button_label.red }}, 
+          {{ scheme.settings.button_label.green }}, 
+          {{ scheme.settings.button_label.blue }};
+          --color-sec-btn: {{ scheme.settings.secondary_button.red }}, 
+          {{ scheme.settings.secondary_button.green }}, 
+          {{ scheme.settings.secondary_button.blue }};
+          --color-sec-btn-text: {{ scheme.settings.secondary_button_label.red }}, 
+          {{ scheme.settings.secondary_button_label.green }}, 
+          {{ scheme.settings.secondary_button_label.blue }};
+          --color-icons: {{ scheme.settings.text.red }}, 
+          {{ scheme.settings.text.green }}, 
+          {{ scheme.settings.text.blue }};
+        }
       {% endfor %}
 
       {{ scheme_classes | prepend: 'body' }} {
@@ -78,13 +107,15 @@
       }
 
 
-      :root{
-        --body-font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+      :root {
+        --body-font-family: {{ settings.type_body_font.family }}, 
+        {{ settings.type_body_font.fallback_families }};
         --body-font-style: {{ settings.type_body_font.style }};
         --body-font-weight: {{ settings.type_body_font.weight }};
         --body-font-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-        --heading-font-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        --heading-font-family: {{ settings.type_header_font.family }}, 
+        {{ settings.type_header_font.fallback_families }};
         --heading-font-style: {{ settings.type_header_font.style }};
         --heading-font-weight: {{ settings.type_header_font.weight }};
 
@@ -109,10 +140,9 @@
         --sm-button-padding-y: {{ settings.button_vertical_offset | times: 0.75 }}px;
 
 
-
         {% if settings.corners == 'rounded' %}
-        --input-border-radius: {{ settings.input_border_radius }}px;
-        --button-border-radius: {{ settings.button_border_radius }}px;
+          --input-border-radius: {{ settings.input_border_radius }}px;
+          --button-border-radius: {{ settings.button_border_radius }}px;
         {% endif %}
 
 
@@ -120,19 +150,35 @@
         --card-text: {{ settings.card_text_color }};
 
         --product-cart-image-padding: {{ settings.product_card_image_padding }}px;
-        --product-card-background : {{ settings.product_card_background.red }}, {{ settings.product_card_background.green }}, {{ settings.product_card_background.blue }};
-        --product-card-text : {{ settings.product_card_text.red }}, {{ settings.product_card_text.green }}, {{ settings.product_card_text.blue }};
+        --product-card-background: {{ settings.product_card_background.red }}, 
+        {{ settings.product_card_background.green }}, 
+        {{ settings.product_card_background.blue }};
+        --product-card-text: {{ settings.product_card_text.red }}, 
+        {{ settings.product_card_text.green }}, 
+        {{ settings.product_card_text.blue }};
         --product-card-image-padding: {{ settings.product_card_image_padding }}px;
 
 
         --badge-border-radius: {{ settings.badge_corner_radius }}px;
-        --color-soldout-bg: {{ settings.sold_out_background.red }}, {{ settings.sold_out_background.green }}, {{ settings.sold_out_background.blue }};
-        --color-soldout-text: {{ settings.sold_out_text.red }}, {{ settings.sold_out_text.green }}, {{ settings.sold_out_text.blue }};
-        --color-sale-bg: {{ settings.sale_background.red }}, {{ settings.sale_background.green }}, {{ settings.sale_background.blue }};
-        --color-sale-text: {{ settings.sale_text.red }}, {{ settings.sale_text.green }}, {{ settings.sale_text.blue }};
+        --color-soldout-bg: {{ settings.sold_out_background.red }}, 
+        {{ settings.sold_out_background.green }}, 
+        {{ settings.sold_out_background.blue }};
+        --color-soldout-text: {{ settings.sold_out_text.red }}, 
+        {{ settings.sold_out_text.green }}, 
+        {{ settings.sold_out_text.blue }};
+        --color-sale-bg: {{ settings.sale_background.red }}, 
+        {{ settings.sale_background.green }}, 
+        {{ settings.sale_background.blue }};
+        --color-sale-text: {{ settings.sale_text.red }}, 
+        {{ settings.sale_text.green }}, 
+        {{ settings.sale_text.blue }};
 
-        --color-error: {{ settings.error_color.red }}, {{ settings.error_color.green }}, {{ settings.error_color.blue }};
-        --color-success: {{ settings.success_color.red }}, {{ settings.success_color.green }}, {{ settings.success_color.blue }};
+        --color-error: {{ settings.error_color.red }}, 
+        {{ settings.error_color.green }}, 
+        {{ settings.error_color.blue }};
+        --color-success: {{ settings.success_color.red }}, 
+        {{ settings.success_color.green }}, 
+        {{ settings.success_color.blue }};
 
       }
     {% endstyle %}
@@ -144,10 +190,15 @@
     <script src="{{ 'localization.js' | asset_url }}" defer></script>
     {{ 'tailwind-output.css' | asset_url | stylesheet_tag }}
     {{ 'application.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'countdown.js' | asset_url }}" defer></script>
   </head>
   <body>
     {% sections 'header-group' %}
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main
+      id="MainContent"
+      class="content-for-layout focus-none"
+      role="main"
+      tabindex="-1">
       {{ content_for_layout }}
     </main>
 
