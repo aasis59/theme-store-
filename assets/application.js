@@ -1363,46 +1363,38 @@ if (!customElements.get('product-form')) {
 class CountdownComponent extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.innerHTML = `
-          <slot></slot>
-        `;
+
         this.timerValue = this.getAttribute("data-timervalue");
-        this.hrsValue = this.getAttribute("data-hrsvalue");
-        this.minValue = this.getAttribute("data-minvalue");
-        console.log(this.minValue)
-        this.calculateTime()
+        this.hrsValue = parseInt(this.getAttribute("data-hrsvalue"));
+        this.minValue = parseInt(this.getAttribute("data-minvalue"));
+
+        const [day, month, year] = this.timerValue.split("-").map(Number);
+        this.timerDate = new Date(year, month - 1, day);
+
+        this.calculateTime();
     }
 
-
-
-
     calculateTime() {
-        var parts = this.timerValue.split("-");
-        var formattedDate = parts[2] + "-" + parts[1] + "-" + parts[0];
-        var countDownDate = new Date(formattedDate);
-        countDownDate.setHours(countDownDate.getHours() + this.hrsValue);
-        countDownDate.setMinutes(countDownDate.getMinutes() + this.minValue);
-        var countDownTimestamp = countDownDate.getTime();
-        console.log(countDownDate)
-        var element = this;
-        var x = setInterval(function () {
-            var now = new Date().getTime();
-            var distance = countDownTimestamp - now;
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor(
-                (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-            );
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            this.seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            element.render(days, hours, minutes, seconds)
+        const countDownDate = new Date(this.timerDate);
+        countDownDate.setUTCHours(countDownDate.getUTCHours() + this.hrsValue);
+        countDownDate.setUTCMinutes(countDownDate.getUTCMinutes() + this.minValue);
+        const countDownTimestamp = countDownDate.getTime();
 
+        const element = this;
+        const x = setInterval(function () {
+            const now = Date.now(); // Current UTC timestamp
+            const distance = countDownTimestamp - now;
+            const days = Math.floor(distance / (1000  60  60 * 24));
+            const hours = Math.floor((distance % (1000  60  60  24)) / (1000  60 * 60));
+            const minutes = Math.floor((distance % (1000  60  60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            element.render(days, hours, minutes, seconds);
+            console.log(distance)
             if (distance < 0) {
                 clearInterval(x);
-                element.querySelector("#demo").classList.add("hidden");
+                element.closest('.shopify-section').classList.add('hidden')
             }
         }, 1000);
-
     }
 
     render(days, hours, minutes, seconds) {
@@ -1410,7 +1402,6 @@ class CountdownComponent extends HTMLElement {
         this.querySelector(".hours").innerHTML = hours;
         this.querySelector(".minutes").innerHTML = minutes;
         this.querySelector(".seconds").innerHTML = seconds;
-
     }
 
 
