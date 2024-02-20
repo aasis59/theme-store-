@@ -11,8 +11,8 @@
     }
   }
 {%- endstyle -%}
-<div class="color-{{ section.settings.color_scheme }} ">
-  <div class="page-width  relative overflow-hidden {% if settings.corners == 'rounded' %} rounded-lg {% endif %}">
+<div class="color-{{ section.settings.color_scheme }} page-width ">
+  <div class="  relative overflow-hidden {% if settings.corners == 'rounded' %} rounded-lg {% endif %}">
     {% assign bg_image = section.settings.background_image %}
     {% if bg_image %}
       {% assign image_class = 'absolute inset-0 w-full h-full object-cover z-[0]' %}

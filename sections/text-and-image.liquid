@@ -16,7 +16,7 @@
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'image' %}
-          <div class="w-1/2">
+          <div class=" w-full md:w-1/2">
             {% assign image = block.settings.image %}
             {% if image %}
               {% assign image_class = 'w-full h-full object-cover' %}
@@ -36,7 +36,7 @@
               color-{{ section.settings.color_scheme }}
 
               grid-gap
-              p-4 w-1/2
+              p-4 w-full md:w-1/2
             ">
             <h2 class="{{ block.settings.heading_size }}">{{ block.settings.heading }}</h2>
             <div class="rte {{ block.settings.sub_heading_size }}">{{ block.settings.sub_heading }}</div>

@@ -2706,6 +2706,10 @@ p,
     width: auto;
   }
 
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
   .md\:max-w-\[25rem\] {
     max-width: 25rem;
   }
