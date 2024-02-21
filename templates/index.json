@@ -7,14 +7,27 @@
           "type": "slide",
           "settings": {
             "image_opacity": 0.7,
+            "heading": "Slider Heding",
+            "heading_size": "h1",
+            "text": "<p> Give customers details about the banner image(s) or content on the template.<\/p>",
+            "button_label": "Shop now",
+            "button_link": "",
             "container": false,
             "content_position": "bottom_center",
+            "alignment": "center",
             "color_scheme": "background-2"
           }
         },
         "slide2": {
           "type": "slide",
           "settings": {
+            "image_opacity": 0.9,
+            "heading": "Slider Heding",
+            "heading_size": "h1",
+            "text": "<p> Give customers details about the banner image(s) or content on the template.<\/p>",
+            "button_label": "Shop now",
+            "button_link": "",
+            "container": true,
             "content_position": "left",
             "alignment": "left",
             "color_scheme": "background-1"
@@ -26,6 +39,11 @@
         "slide2"
       ],
       "settings": {
+        "slide_duration": 7,
+        "slide_style": "fade",
+        "full_width": false,
+        "image_height": "medium",
+        "color_scheme": ""
       }
     },
     "featured_collection": {
@@ -53,11 +71,25 @@
         "price"
       ],
       "settings": {
+        "heading": "Featured Collection",
+        "collection": "",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "display_type": "slider",
+        "enable_quick_add": true,
+        "max_products_to_show": 8,
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "color_scheme": "",
+        "card_color_scheme": ""
       }
     },
     "hotspots": {
       "type": "image-hotspots",
       "settings": {
+        "hotspot_color": "#952E31",
+        "padding_top": 25,
+        "padding_bottom": 25
       }
     },
     "newsletter": {
@@ -66,11 +98,18 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
+            "heading": "Subscribe to our newsletter",
+            "heading_size": "h2",
+            "sub_heading": "",
+            "sub_heading_size": "h2",
+            "text_area": "<p>Include a short sentence describing what someone can expect from your newsletter<\/p>"
           }
         },
         "subscribe": {
           "type": "newsletter_signup",
           "settings": {
+            "button_text": "Subscribe",
+            "footer_text": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.<\/p>"
           }
         }
       },
@@ -79,6 +118,27 @@
         "subscribe"
       ],
       "settings": {
+        "vertical_alignment": "left",
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "color_scheme": ""
+      }
+    },
+    "grid_blog_wJxixP": {
+      "type": "grid-blog",
+      "settings": {
+        "heading": "Blog Post",
+        "heading_size": "h2",
+        "page_width": true,
+        "vertical_alignment": "left",
+        "blog": "",
+        "post_limit": 5,
+        "show_date": true,
+        "show_author": true,
+        "comments_enabled": true,
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "color_scheme": ""
       }
     }
   },
@@ -86,6 +146,7 @@
     "slideshow",
     "featured_collection",
     "hotspots",
-    "newsletter"
+    "newsletter",
+    "grid_blog_wJxixP"
   ]
 }
