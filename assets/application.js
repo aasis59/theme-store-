@@ -1382,14 +1382,14 @@ class CountdownComponent extends HTMLElement {
 
         const element = this;
         const x = setInterval(function () {
-            const now = Date.now(); // Current UTC timestamp
+            const now = Date.now();     
             const distance = countDownTimestamp - now;
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 *  60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             element.render(days, hours, minutes, seconds);
-            console.log(distance)
+
             if (distance < 0) {
                 clearInterval(x);
                 element.closest('.shopify-section').classList.add('hidden')

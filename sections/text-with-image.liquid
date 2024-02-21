@@ -34,11 +34,11 @@
 {%- endstyle -%}
 
 <div>
-  <div class="image-with-text {% if section.settings.page_width %}page-width{% endif %} section-{{ section.id }}-padding text-{{ section.settings.vertical_alignment }}    ">
+  <div class=" image-with-text {% if section.settings.page_width %} page-width {% endif %} section-{{ section.id }}-padding text-{{ section.settings.vertical_alignment }}    ">
     <div class="grid-gap flex flex-col md:flex-row {{ section.settings.image_placement}} ">
       <div class="image shrink-0 ">
         {% assign image = section.settings.image %}
-        {% if image %}
+        {% if image %}x
           {% assign image_height = 'h-full' %}
           {% case section.settings.height %}
             {% when 'small' %}

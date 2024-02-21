@@ -1801,6 +1801,12 @@ p,
   overflow-y: scroll;
 }
 
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .\!whitespace-nowrap {
   white-space: nowrap !important;
 }
@@ -2658,6 +2664,10 @@ p,
     max-height: 100%;
   }
 
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
   .md\:w-32 {
     width: 8rem;
   }
@@ -2704,10 +2714,6 @@ p,
 
   .md\:w-auto {
     width: auto;
-  }
-
-  .md\:w-1\/2 {
-    width: 50%;
   }
 
   .md\:max-w-\[25rem\] {

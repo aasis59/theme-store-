@@ -1,0 +1,322 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+ 
+  .card-display {
+    position: absolute;
+    bottom: 0;
+    padding: 0 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+  }
+
+  .blog-post1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-areas: "one";
+
+  }
+  .blog-post1 .blog-1-1 {
+    grid-area: one;
+  }
+  
+
+  .blog-post2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: 5px;
+    grid-template-areas: "one two";
+  }
+  .blog-post2 .blog-2-1 {
+    grid-area: one;
+  }
+  .blog-post2 .blog-2-2 {
+    grid-area: two;
+  }
+  .blog-post {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: 10px;
+   grid-template-areas: "one two" "one three";
+  }
+  .blog-post .blog-3-1 {
+    grid-area: one;
+  }
+ 
+  .blog-post .blog-3-2 {
+    grid-area: two;
+  }
+  .blog-post .blog-3-3 {
+    grid-area: three;
+  }
+
+  .blog-post4 {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: 5px;
+    grid-template-areas: "one two three" "one four four";
+  }
+  .blog-post4 .blog-4-1 {
+    grid-area: one;
+  }
+  .blog-post4 .blog-4-2 {
+    grid-area: two;
+
+  }
+  .blog-post4 .blog-4-3 {
+    grid-area: three;
+  }
+  .blog-post4 .blog-4-4 {
+    grid-area: four;
+  }
+  .blog-post5 {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: 5px;
+    grid-template-areas: "one two three" "one four five";
+  }
+  .blog-post5 .blog-5-1 {
+    grid-area: one;
+  } 
+  .blog-post5 .blog-5-2 {
+    grid-area: two;
+  }
+  .blog-post5 .blog-5-3 {
+    grid-area: three;
+  }
+  .blog-post5 .blog-5-4 {
+    grid-area: four;
+  }
+  .blog-post5 .blog-5-5 {
+    grid-area: five;
+  }
+  .blog-post6 {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: 5px;
+    grid-template-areas: "one two three" "one four five" "six six six";
+  }
+  .blog-post6 .blog-6-1 {
+    grid-area: one;
+  }
+  .blog-post6 .blog-6-2 {
+    grid-area: two;
+  }
+  .blog-post6 .blog-6-3 {
+    grid-area: three;
+  }
+  .blog-post6 .blog-6-4 {
+    grid-area: four;
+  }
+  .blog-post6 .blog-6-5 {
+    grid-area: five;
+  }
+  .blog-post6 .blog-6-6 {
+    grid-area: six;
+  }
+{%- endstyle -%}
+{%- liquid
+  assign posts_displayed = section.settings.post_limit
+  assign posts_display = section.settings.blog.articles_count
+  if section.settings.post_limit <= section.settings.blog.articles_count 
+    
+  assign posts_display = section.settings.post_limit
+endif
+-%}
+<div class="color-{{ section.settings.color_scheme }}">
+<div class="{% if section.settings.page_width %} page-width {% endif %} section-{{ section.id }}-padding text-{{ section.settings.vertical_alignment }}    ">
+    <h2 class="{{section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+    <div>
+      {%- if section.settings.blog != blank  -%}
+        
+        <ul class="{% if posts_display == 3 %} blog-post{% elsif posts_display == 2 %} blog-post2 {% elsif posts_display  == 4 %} blog-post4 {% elsif posts_display  == 5 %} blog-post5 {% elsif posts_display == 6 %} blog-post6 {% else %} blog-post1{% endif %}">
+          {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+            <li class=" {% if posts_display == 3 %}blog-3-{{ forloop.index }}{% elsif posts_display  == 2 %}blog-2-{{ forloop.index }} {% elsif posts_display  == 4 %}blog-4-{{ forloop.index }} {% elsif posts_display  == 5 %}blog-5-{{ forloop.index }} {% elsif posts_display == 6 %}blog-6-{{ forloop.index }} {% else %} blog-1-{{ forloop.index }}{% endif %}">
+                <div class="relative">
+                    {% assign image_class = 'max-w-full h-auto object-cover ' %}
+                      {% if settings.corners == 'rounded' %}
+                      {% assign image_class = image_class | append: ' rounded-md' %}
+                      {% endif %}
+                     {{ article.image | image_url: width: image.width | image_tag: class: image_class }}
+                <div class="card-display">
+                  <h3>
+                    <a href="{{ article.url }}" class="">
+                      {{ article.title | truncate: 30 | escape }}
+                    </a>
+                  </h3>
+                  <div>
+                    {%- if section.settings.show_date -%}
+                      <span>{{ article.published_at | time_tag: format: 'date' }}</span>
+                    {%- endif -%}
+                    {%- if section.settings.show_author -%}
+                      <div>{{ article.author }}</div>
+                    {%- endif -%}
+                  </div>
+                  <div>
+                    {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                      <p>
+                        {%- if article.excerpt.size > 0 -%}
+                          {{ article.excerpt | strip_html | truncatewords: 30 }}
+                        {%- else -%}
+                          {{ article.content | strip_html | truncatewords: 30 }}
+                        {%- endif -%}
+                      </p>
+                    {%- endif -%}
+                  </div>
+                  <div>
+                    {%- if article.comments_count > 0 and section.settings.comments_enabled -%}
+                      <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
+                    {%- endif -%}
+                  </div>
+                </div>
+                </div>
+              
+            </li>
+          {%- endfor -%}
+        </ul>
+        {% else %}
+      <ul class="{% if posts_displayed == 3 %} blog-post{% elsif posts_displayed  == 2 %} blog-post2 {% elsif posts_displayed  == 4 %} blog-post4 {% elsif posts_displayed  == 5 %} blog-post5 {% elsif posts_displayed  == 6 %} blog-post6 {% else %} blog-post1{% endif %}">
+          {% for i in (1..posts_displayed) %}
+              {%- assign placeholder_image_index = forloop.index0 | modulo: 3 | plus: 1 -%}
+            {%- assign placeholder_image = 'blog-apparel-' | append: placeholder_image_index -%}
+          <li class=" relative {% if posts_displayed  == 3 %}blog-3-{{ forloop.index }}{% elsif posts_displayed  == 2 %}blog-2-{{ forloop.index }} {% elsif posts_displayed  == 4 %}blog-4-{{ forloop.index }} {% elsif posts_displayed  == 5 %}blog-5-{{ forloop.index }} {% elsif posts_displayed  == 6 %}blog-6-{{ forloop.index }} {% else %} blog-1-{{ forloop.index }}{% endif %}">
+            {{ placeholder_image | placeholder_svg_tag: ' w-full h-full object-cover' }}
+            <div class="card-display">
+                <h2 class=" h4 mt-2 "> Blog post  </h2>
+                <p class="p">
+                    Give your customers a summary of your blog post 
+                </p>
+            </div>
+          </li>
+          {%endfor%} 
+          </ul>
+      {% endif %}
+    </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Grid Blog",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "label": "t:sections.all.heading.heading",
+        "default": "Blog Post"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "label": "t:sections.all.heading_size.label",
+        "options": [
+          {
+            "value": "h3",
+            "label": "t:sections.all.heading_size.options__1.label"
+          }, {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__2.label"
+          }, {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__3.label"
+          }
+        ],
+        "default": "h2"
+      },
+      {
+        "type": "checkbox",
+        "id": "page_width",
+        "label": "t:sections.all.page_width.label",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "vertical_alignment",
+        "label": "t:sections.all.text_alignment.label",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:sections.all.text_alignment.options__1.label"
+          }, {
+            "value": "center",
+            "label": "t:sections.all.text_alignment.options__2.label"
+          }, {
+            "value": "right",
+            "label": "t:sections.all.text_alignment.options__3.label"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "blog",
+        "id": "blog",
+        "label": "Blog Post"
+      }, {
+        "type": "range",
+        "id": "post_limit",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 3,
+        "label": "Number of blog posts to show"
+      }, {
+        "type": "checkbox",
+        "id": "show_date",
+        "default": true,
+        "label": "Show Date"
+      }, {
+        "type": "checkbox",
+        "id": "show_author",
+        "default": true,
+        "label": "Show Author"
+      }, {
+        "type": "checkbox",
+        "id": "comments_enabled",
+        "default": true,
+        "label": "Show Comment"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "label": "t:sections.all.padding.padding_top",
+        "min": 0,
+        "max": 100,
+        "default": 25,
+        "step": 1,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "t:sections.all.padding.padding_bottom",
+        "min": 0,
+        "max": 100,
+        "default": 25,
+        "step": 1,
+        "unit": "px"
+      }, {
+        "type": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "id": "color_scheme",
+        "default": "background-1"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Grid Blogs Post"
+      }
+    ]
+  }
+{% endschema %}
