@@ -87,7 +87,7 @@
     "hotspots": {
       "type": "image-hotspots",
       "settings": {
-        "hotspot_color": "#952E31",
+        "hotspot_color": "#952e31",
         "padding_top": 25,
         "padding_bottom": 25
       }
@@ -133,6 +133,8 @@
         "enable_video_looping": true,
         "page_width": true,
         "video": "shopify:\/\/files\/videos\/Screen Recording 2024-02-14 at 19.44.03.mov",
+        "video_url": "",
+        "image": "shopify:\/\/shop_images\/tokyo-at-night.jpg",
         "padding_top": 25,
         "padding_bottom": 25,
         "color_scheme": ""
