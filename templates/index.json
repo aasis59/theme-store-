@@ -133,6 +133,7 @@
         "enable_video_looping": false,
         "page_width": true,
         "video": "shopify:\/\/files\/videos\/Screen Recording 2024-02-14 at 19.44.03.mov",
+        "image": "shopify:\/\/shop_images\/lazy.png",
         "padding_top": 25,
         "padding_bottom": 25,
         "color_scheme": ""
