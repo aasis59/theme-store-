@@ -92,9 +92,11 @@
     
     const playButton = document.getElementById('play-video');
     const videoContainer = document.getElementById('video-container');
+    const videoElement = document.querySelector('#video-container video');
     playButton.addEventListener('click', function() {
         playButton.style.display = 'none'; 
         videoContainer.style.display = 'block'; 
+        videoElement.play();  
     });
 </script>
 {% schema %}
