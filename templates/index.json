@@ -84,6 +84,21 @@
         "card_color_scheme": ""
       }
     },
+    "collection_list_64ChLQ": {
+      "type": "collection-list",
+      "settings": {
+        "heading": "Collection List",
+        "heading_size": "h2",
+        "vertical_alignment": "left",
+        "number_of_products_per_page": 4,
+        "collection": [
+
+        ],
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "color_scheme": ""
+      }
+    },
     "hotspots": {
       "type": "image-hotspots",
       "settings": {
@@ -143,6 +158,7 @@
   "order": [
     "slideshow",
     "featured_collection",
+    "collection_list_64ChLQ",
     "hotspots",
     "newsletter",
     "video_V4W4pQ"
