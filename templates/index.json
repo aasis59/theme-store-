@@ -238,23 +238,6 @@
         "color_scheme": ""
       }
     },
-    "grid_blog_G9q3Ce": {
-      "type": "grid-blog",
-      "settings": {
-        "heading": "Blog Post",
-        "heading_size": "h2",
-        "page_width": true,
-        "vertical_alignment": "left",
-        "blog": "",
-        "post_limit": 5,
-        "show_date": true,
-        "show_author": true,
-        "comments_enabled": true,
-        "padding_top": 25,
-        "padding_bottom": 25,
-        "color_scheme": ""
-      }
-    },
     "newsletter": {
       "type": "newsletter",
       "blocks": {
@@ -297,7 +280,6 @@
     "multi_column_dczWjH",
     "hotspots",
     "video_V4W4pQ",
-    "grid_blog_G9q3Ce",
     "newsletter"
   ]
 }
