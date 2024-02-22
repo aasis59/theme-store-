@@ -46,22 +46,6 @@
         "color_scheme": ""
       }
     },
-    "countdown_WdGQE3": {
-      "type": "countdown",
-      "settings": {
-        "heading": "LIMITED OFFER",
-        "heading_size": "h2",
-        "sub_heading": "<p>Share something about a limited offer or temporary promotion<\/p>",
-        "counter": "15-04-2024",
-        "expiry_hours": 0,
-        "expiry_minutes": 0,
-        "color_scheme": "",
-        "button": "Option link",
-        "button_url": "",
-        "padding_top": 50,
-        "padding_bottom": 50
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "blocks": {
@@ -98,6 +82,22 @@
         "padding_bottom": 25,
         "color_scheme": "",
         "card_color_scheme": ""
+      }
+    },
+    "countdown_WdGQE3": {
+      "type": "countdown",
+      "settings": {
+        "heading": "LIMITED OFFER",
+        "heading_size": "h2",
+        "sub_heading": "<p>Share something about a limited offer or temporary promotion<\/p>",
+        "counter": "15-04-2024",
+        "expiry_hours": 0,
+        "expiry_minutes": 0,
+        "color_scheme": "",
+        "button": "Option link",
+        "button_url": "",
+        "padding_top": 50,
+        "padding_bottom": 50
       }
     },
     "collection_list_64ChLQ": {
@@ -290,8 +290,8 @@
   },
   "order": [
     "slideshow",
-    "countdown_WdGQE3",
     "featured_collection",
+    "countdown_WdGQE3",
     "collection_list_64ChLQ",
     "text_with_image_BzLPVn",
     "multi_column_dczWjH",
