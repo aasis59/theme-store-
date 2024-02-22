@@ -228,13 +228,13 @@
       "settings": {
         "heading": "Video",
         "heading_size": "h2",
-        "vertical_alignment": "left",
+        "vertical_alignment": "center",
         "enable_video_looping": true,
         "page_width": true,
         "video": "shopify:\/\/files\/videos\/Screen Recording 2024-02-14 at 19.44.03.mov",
         "video_url": "",
-        "padding_top": 25,
-        "padding_bottom": 25,
+        "padding_top": 70,
+        "padding_bottom": 76,
         "color_scheme": ""
       }
     },
