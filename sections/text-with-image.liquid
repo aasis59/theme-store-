@@ -38,7 +38,7 @@
     <div class="grid-gap flex flex-col md:flex-row {{ section.settings.image_placement}} ">
       <div class="image shrink-0 ">
         {% assign image = section.settings.image %}
-        {% if image %}x
+        {% if image %}
           {% assign image_height = 'h-full' %}
           {% case section.settings.height %}
             {% when 'small' %}
