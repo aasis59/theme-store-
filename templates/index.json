@@ -6,16 +6,16 @@
         "collection_kzF7gW": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "item2",
             "collection_heading": "Collection Heading",
             "collection_heading_size": "p",
             "collection_sub_heading": "<p>Design your own collection of highlights.<\/p>",
             "collection_sub_heading_size": "h2",
-            "container_alignment": "Bottom_left",
+            "container_alignment": "Bottom_center",
             "transparent": true,
             "collection_button": "Shop Now",
             "collection_button_url": "",
-            "collection_color_scheme": ""
+            "collection_color_scheme": "background-1"
           }
         },
         "image_L8A6Qd": {
@@ -87,11 +87,11 @@
       "settings": {
         "heading": "Grid Collection",
         "heading_size": "h2",
-        "vertical_alignment": "left",
+        "vertical_alignment": "center",
         "page_width": true,
         "padding_top": 25,
         "padding_bottom": 25,
-        "color_scheme": ""
+        "color_scheme": "background-1"
       }
     },
     "slideshow": {
