@@ -69,8 +69,8 @@
         @apply text-base;
     }
 
-    p,
-    .p {
+   .rte p,
+   .rte .p {
         @apply py-2 md:py-3;
     }
 

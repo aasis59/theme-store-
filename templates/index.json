@@ -227,7 +227,7 @@
       "type": "video",
       "settings": {
         "heading": "Video",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "vertical_alignment": "center",
         "enable_video_looping": true,
         "page_width": true,
@@ -257,22 +257,11 @@
             "button_text": "Subscribe",
             "footer_text": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.<\/p>"
           }
-        },
-        "newsletter_MqxYP9": {
-          "type": "newsletter",
-          "settings": {
-            "heading": "Subscribe to our newsletter",
-            "heading_size": "h2",
-            "sub_heading": "",
-            "sub_heading_size": "h2",
-            "text_area": "<p>Include a short sentence describing what someone can expect from your newsletter<\/p>"
-          }
         }
       },
       "block_order": [
         "newsletter",
-        "subscribe",
-        "newsletter_MqxYP9"
+        "subscribe"
       ],
       "settings": {
         "vertical_alignment": "left",
