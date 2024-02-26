@@ -1,5 +1,99 @@
 {
   "sections": {
+    "grid_collection_and_product_AxK9yx": {
+      "type": "grid-collection-and-product",
+      "blocks": {
+        "collection_kzF7gW": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "collection_heading": "Collection Heading",
+            "collection_heading_size": "p",
+            "collection_sub_heading": "<p>Design your own collection of highlights.<\/p>",
+            "collection_sub_heading_size": "h2",
+            "container_alignment": "Bottom_left",
+            "transparent": true,
+            "collection_button": "Shop Now",
+            "collection_button_url": "",
+            "collection_color_scheme": ""
+          }
+        },
+        "image_L8A6Qd": {
+          "type": "image",
+          "settings": {
+            "image_heading": "Image Heading",
+            "image_heading_size": "p",
+            "image_sub_heading": "<p>Design your own image of highlights.<\/p>",
+            "image_sub_heading_size": "h2",
+            "image_container_alignment": "Bottom_left",
+            "image_transparent": true,
+            "image_button": "Shop Now",
+            "image_button_url": "",
+            "image_color_scheme": ""
+          }
+        },
+        "product_DtppEh": {
+          "type": "product",
+          "settings": {
+            "product_id": "",
+            "product_heading": "Product Heading",
+            "product_heading_size": "p",
+            "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
+            "product_sub_heading_size": "h2",
+            "product_container_alignment": "Bottom_left",
+            "product_transparent": true,
+            "product_button": "Shop Now",
+            "product_button_url": "",
+            "product_color_scheme": ""
+          }
+        },
+        "collection_7qVfXn": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "collection_heading": "Collection Heading",
+            "collection_heading_size": "p",
+            "collection_sub_heading": "<p>Design your own collection of highlights.<\/p>",
+            "collection_sub_heading_size": "h2",
+            "container_alignment": "Bottom_left",
+            "transparent": true,
+            "collection_button": "Shop Now",
+            "collection_button_url": "",
+            "collection_color_scheme": "background-3"
+          }
+        },
+        "image_9i83cF": {
+          "type": "image",
+          "settings": {
+            "image_heading": "Image Heading",
+            "image_heading_size": "p",
+            "image_sub_heading": "<p>Design your own image of highlights.<\/p>",
+            "image_sub_heading_size": "h2",
+            "image_container_alignment": "Bottom_left",
+            "image_transparent": true,
+            "image_button": "Shop Now",
+            "image_button_url": "",
+            "image_color_scheme": "background-3"
+          }
+        }
+      },
+      "block_order": [
+        "collection_kzF7gW",
+        "image_L8A6Qd",
+        "product_DtppEh",
+        "collection_7qVfXn",
+        "image_9i83cF"
+      ],
+      "settings": {
+        "heading": "Grid Collection",
+        "heading_size": "h2",
+        "vertical_alignment": "left",
+        "page_width": true,
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "color_scheme": ""
+      }
+    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -272,6 +366,7 @@
     }
   },
   "order": [
+    "grid_collection_and_product_AxK9yx",
     "slideshow",
     "featured_collection",
     "countdown_WdGQE3",
