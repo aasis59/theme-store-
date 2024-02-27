@@ -92,7 +92,7 @@
               {% endif %}
               <div
                 class="
-                  absolute  rounded-lg flex flex-col  items-center m-4 {% if block.settings.image_transparent %} bg-transparent {% endif %} color-{{ block.settings.image_color_scheme }} w-[50%]  {% case block.settings.image_container_alignment %}
+                  absolute  rounded-lg flex flex-col  items-center m-4 {% if block.settings.image_transparent %} bg-transparent {% endif %} color-{{ block.settings.image_color_scheme }} max-w-[350px] w-full  {% case block.settings.image_container_alignment %}
                   {%- when 'Top_left' -%}
                        top-0 left-0
                   {%- when 'Top_center' -%}
