@@ -218,6 +218,36 @@
     "grid_collection_and_product_4bRLmU": {
       "type": "grid-collection-and-product",
       "blocks": {
+        "product_yHcNcr": {
+          "type": "product",
+          "settings": {
+            "product_id": "image-aspect-ratio",
+            "product_heading": "Product Heading",
+            "product_heading_size": "p",
+            "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
+            "product_sub_heading_size": "h2",
+            "product_container_alignment": "Bottom_left",
+            "product_transparent": true,
+            "product_button": "Shop Now",
+            "product_button_url": "",
+            "product_color_scheme": ""
+          }
+        },
+        "image_pytfty": {
+          "type": "image",
+          "settings": {
+            "image_id": "shopify:\/\/shop_images\/london-uk.jpg",
+            "image_heading": "Image Heading",
+            "image_heading_size": "p",
+            "image_sub_heading": "<p>Design your own image of highlights.<\/p>",
+            "image_sub_heading_size": "h2",
+            "image_container_alignment": "Bottom_left",
+            "image_transparent": false,
+            "image_button": "Shop Now",
+            "image_button_url": "",
+            "image_color_scheme": ""
+          }
+        },
         "collection_k67wiU": {
           "type": "collection",
           "settings": {
@@ -232,41 +262,12 @@
             "collection_button_url": "",
             "collection_color_scheme": ""
           }
-        },
-        "image_pytfty": {
-          "type": "image",
-          "settings": {
-            "image_heading": "Image Heading",
-            "image_heading_size": "p",
-            "image_sub_heading": "<p>Design your own image of highlights.<\/p>",
-            "image_sub_heading_size": "h2",
-            "image_container_alignment": "Bottom_left",
-            "image_transparent": true,
-            "image_button": "Shop Now",
-            "image_button_url": "",
-            "image_color_scheme": ""
-          }
-        },
-        "product_yHcNcr": {
-          "type": "product",
-          "settings": {
-            "product_id": "",
-            "product_heading": "Product Heading",
-            "product_heading_size": "p",
-            "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
-            "product_sub_heading_size": "h2",
-            "product_container_alignment": "Bottom_left",
-            "product_transparent": true,
-            "product_button": "Shop Now",
-            "product_button_url": "",
-            "product_color_scheme": ""
-          }
         }
       },
       "block_order": [
-        "collection_k67wiU",
+        "product_yHcNcr",
         "image_pytfty",
-        "product_yHcNcr"
+        "collection_k67wiU"
       ],
       "settings": {
         "heading": "Grid Collection",
