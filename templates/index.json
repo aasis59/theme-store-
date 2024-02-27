@@ -227,7 +227,7 @@
             "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
             "product_sub_heading_size": "h2",
             "product_container_alignment": "Bottom_left",
-            "product_transparent": true,
+            "product_transparent": false,
             "product_button": "Shop Now",
             "product_button_url": "",
             "product_color_scheme": ""
@@ -262,12 +262,60 @@
             "collection_button_url": "",
             "collection_color_scheme": ""
           }
+        },
+        "product_t6byRq": {
+          "type": "product",
+          "settings": {
+            "product_id": "rte-test",
+            "product_heading": "Product Heading",
+            "product_heading_size": "p",
+            "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
+            "product_sub_heading_size": "h2",
+            "product_container_alignment": "Bottom_left",
+            "product_transparent": true,
+            "product_button": "Shop Now",
+            "product_button_url": "",
+            "product_color_scheme": "background-3"
+          }
+        },
+        "image_hbR4Dc": {
+          "type": "image",
+          "settings": {
+            "image_id": "shopify:\/\/shop_images\/tokyo-at-night.jpg",
+            "image_heading": "Image Heading",
+            "image_heading_size": "p",
+            "image_sub_heading": "<p>Design your own image of highlights.<\/p>",
+            "image_sub_heading_size": "h2",
+            "image_container_alignment": "Bottom_left",
+            "image_transparent": true,
+            "image_button": "Shop Now",
+            "image_button_url": "",
+            "image_color_scheme": "background-3"
+          }
+        },
+        "product_9pXiFb": {
+          "type": "product",
+          "settings": {
+            "product_id": "",
+            "product_heading": "Product Heading",
+            "product_heading_size": "p",
+            "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
+            "product_sub_heading_size": "h2",
+            "product_container_alignment": "Bottom_left",
+            "product_transparent": true,
+            "product_button": "Shop Now",
+            "product_button_url": "",
+            "product_color_scheme": "background-3"
+          }
         }
       },
       "block_order": [
         "product_yHcNcr",
         "image_pytfty",
-        "collection_k67wiU"
+        "collection_k67wiU",
+        "product_t6byRq",
+        "image_hbR4Dc",
+        "product_9pXiFb"
       ],
       "settings": {
         "heading": "Grid Collection",
