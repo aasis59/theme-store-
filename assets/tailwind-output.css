@@ -1603,6 +1603,10 @@ body,
   width: 100%;
 }
 
+.w-\[90\%\] {
+  width: 90%;
+}
+
 .min-w-\[40px\] {
   min-width: 40px;
 }
@@ -1645,6 +1649,10 @@ body,
 
 .max-w-xs {
   max-width: 20rem;
+}
+
+.max-w-\[300px\] {
+  max-width: 300px;
 }
 
 .flex-1 {

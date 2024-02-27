@@ -43,7 +43,7 @@
               {% endif %}
               <div
                 class="
-                  absolute  rounded-lg flex flex-col  items-center m-4 {% if block.settings.transparent %} bg-transparent {% endif %} color-{{ block.settings.collection_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.container_alignment %}
+                  absolute  rounded-lg flex flex-col  text-{{ block.settings.collection_vertical_alignment }}  m-4 {% if block.settings.transparent %} bg-transparent {% endif %} color-{{ block.settings.collection_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.container_alignment %}
                   {%- when 'Top_left' -%}
                        top-0 left-0
                   {%- when 'Top_center' -%}
@@ -92,7 +92,7 @@
               {% endif %}
               <div
                 class="
-                  absolute  rounded-lg flex flex-col  items-center m-4 {% if block.settings.image_transparent %} bg-transparent {% endif %} color-{{ block.settings.image_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.image_container_alignment %}
+                  absolute  rounded-lg flex flex-col  text-{{ block.settings.image_vertical_alignment }}  m-4 {% if block.settings.image_transparent %} bg-transparent {% endif %} color-{{ block.settings.image_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.image_container_alignment %}
                   {%- when 'Top_left' -%}
                        top-0 left-0
                   {%- when 'Top_center' -%}
@@ -141,7 +141,7 @@
               {% endif %}
               <div
                 class="
-                  absolute  rounded-lg flex flex-col  items-center m-4 {% if block.settings.product_transparent %} bg-transparent {% endif %} color-{{ block.settings.product_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.product_container_alignment %}
+                  absolute  rounded-lg flex flex-col text-{{ block.settings.product_vertical_alignment }} m-4 {% if block.settings.product_transparent %} bg-transparent {% endif %} color-{{ block.settings.product_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.product_container_alignment %}
                   {%- when 'Top_left' -%}
                        top-0 left-0
                   {%- when 'Top_center' -%}
@@ -327,6 +327,26 @@
         },
         {
           "type": "select",
+          "id": "colllection_vertical_alignment",
+          "label": "t:sections.all.text_alignment.label",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.all.text_alignment.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.all.text_alignment.options__2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.all.text_alignment.options__3.label"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
           "id": "container_alignment",
           "label": "Container Aligmnet",
           "options": [
@@ -455,7 +475,26 @@
           ],
           "default": "h2"
         },
-
+        {
+          "type": "select",
+          "id": "image_vertical_alignment",
+          "label": "t:sections.all.text_alignment.label",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.all.text_alignment.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.all.text_alignment.options__2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.all.text_alignment.options__3.label"
+            }
+          ],
+          "default": "left"
+        },
         {
           "type": "select",
           "id": "image_container_alignment",
@@ -586,7 +625,26 @@
           ],
           "default": "h2"
         },
-
+        {
+          "type": "select",
+          "id": "product_vertical_alignment",
+          "label": "t:sections.all.text_alignment.label",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.all.text_alignment.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.all.text_alignment.options__2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.all.text_alignment.options__3.label"
+            }
+          ],
+          "default": "left"
+        },
         {
           "type": "select",
           "id": "product_container_alignment",
