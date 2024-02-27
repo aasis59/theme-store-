@@ -6,39 +6,60 @@
         "name": {
           "type": "name",
           "settings": {
-          }
-        },
-        "email": {
-          "type": "email",
-          "settings": {
-            "block_width": "half_width"
+            "name": "Name",
+            "block_width": "half_width",
+            "required": true
           }
         },
         "phone": {
           "type": "phone_number",
           "settings": {
+            "phone": "Phone Number",
+            "required": false,
             "block_width": "half_width"
+          }
+        },
+        "email": {
+          "type": "email",
+          "settings": {
+            "email": "Email",
+            "required": true,
+            "block_width": "full_width"
           }
         },
         "message": {
           "type": "textarea",
           "settings": {
+            "message": "Message",
+            "textarea": "Your message",
+            "required": true,
+            "height": 7,
+            "block_width": "full_width"
           }
         },
         "submit": {
           "type": "submit",
           "settings": {
+            "submit": "SEND",
+            "full_width": false
           }
         }
       },
       "block_order": [
         "name",
-        "email",
         "phone",
+        "email",
         "message",
         "submit"
       ],
       "settings": {
+        "Alignment": "center",
+        "heading": "Contact us",
+        "heading_size": "h2",
+        "subheading": "",
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "color_scheme": ""
       }
     }
   },
