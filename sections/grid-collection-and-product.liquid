@@ -43,7 +43,7 @@
               {% endif %}
               <div
                 class="
-                  absolute  rounded-lg flex flex-col  text-{{ block.settings.collection_vertical_alignment }}  m-4 {% if block.settings.transparent %} bg-transparent {% endif %} color-{{ block.settings.collection_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.container_alignment %}
+                  absolute  rounded-lg flex flex-col  text-{{ block.settings.collection_vertical_alignment }} px-2 m-4 {% if block.settings.transparent %} bg-transparent {% endif %} color-{{ block.settings.collection_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.container_alignment %}
                   {%- when 'Top_left' -%}
                        top-0 left-0
                   {%- when 'Top_center' -%}
@@ -66,7 +66,7 @@
                 "
               >
                 <h2 class="{{ block.settings.collection_heading_size }}">{{ block.settings.collection_heading }}</h2>
-                <div class="{{- block.settings.collection_sub_heading_size }} px-2 ">
+                <div class="{{- block.settings.collection_sub_heading_size }}">
                   {{ block.settings.collection_sub_heading }}
                 </div>
                 <div class="mb-2">
@@ -92,7 +92,7 @@
               {% endif %}
               <div
                 class="
-                  absolute  rounded-lg flex flex-col  text-{{ block.settings.image_vertical_alignment }}  m-4 {% if block.settings.image_transparent %} bg-transparent {% endif %} color-{{ block.settings.image_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.image_container_alignment %}
+                  absolute  rounded-lg flex flex-col  text-{{ block.settings.image_vertical_alignment }} px-2 m-4 {% if block.settings.image_transparent %} bg-transparent {% endif %} color-{{ block.settings.image_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.image_container_alignment %}
                   {%- when 'Top_left' -%}
                        top-0 left-0
                   {%- when 'Top_center' -%}
@@ -115,7 +115,7 @@
                 "
               >
                 <h2 class="{{ block.settings.image_heading_size }}">{{ block.settings.image_heading }}</h2>
-                <div class="{{ block.settings.image_sub_heading_size }} px-2 ">
+                <div class="{{ block.settings.image_sub_heading_size }}">
                   {{ block.settings.image_sub_heading }}
                 </div>
                 <div class="mb-2">
@@ -141,7 +141,7 @@
               {% endif %}
               <div
                 class="
-                  absolute  rounded-lg flex flex-col text-{{ block.settings.product_vertical_alignment }} m-4 {% if block.settings.product_transparent %} bg-transparent {% endif %} color-{{ block.settings.product_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.product_container_alignment %}
+                  absolute  rounded-lg flex flex-col text-{{ block.settings.product_vertical_alignment }} px-2 m-4 {% if block.settings.product_transparent %} bg-transparent {% endif %} color-{{ block.settings.product_color_scheme }} max-w-[300px] w-[90%]  {% case block.settings.product_container_alignment %}
                   {%- when 'Top_left' -%}
                        top-0 left-0
                   {%- when 'Top_center' -%}
@@ -164,7 +164,7 @@
                 "
               >
                 <h2 class="{{ block.settings.product_heading_size }}">{{ block.settings.product_heading }}</h2>
-                <div class="{{ block.settings.product_sub_heading_size }} px-2">
+                <div class="{{ block.settings.product_sub_heading_size }}">
                   {{ block.settings.product_sub_heading }}
                 </div>
                 <div class="mb-2">
@@ -327,7 +327,7 @@
         },
         {
           "type": "select",
-          "id": "colllection_vertical_alignment",
+          "id": "collection_vertical_alignment",
           "label": "t:sections.all.text_alignment.label",
           "options": [
             {
