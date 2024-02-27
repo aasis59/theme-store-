@@ -241,7 +241,7 @@
             "image_heading_size": "p",
             "image_sub_heading": "<p>Design your own image of highlights.<\/p>",
             "image_sub_heading_size": "h2",
-            "image_container_alignment": "Top_left",
+            "image_container_alignment": "Middle_left",
             "image_transparent": false,
             "image_button": "Shop Now",
             "image_button_url": "",
