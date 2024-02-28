@@ -271,9 +271,9 @@
           "settings": {
             "product_id": "rte-test",
             "product_heading": "Product Heading",
-            "product_heading_size": "p",
+            "product_heading_size": "h6",
             "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
-            "product_sub_heading_size": "h2",
+            "product_sub_heading_size": "h3",
             "product_vertical_alignment": "left",
             "product_container_alignment": "Bottom_left",
             "product_transparent": true,
