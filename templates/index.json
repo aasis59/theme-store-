@@ -100,21 +100,6 @@
         "padding_bottom": 50
       }
     },
-    "collection_list_64ChLQ": {
-      "type": "collection-list",
-      "settings": {
-        "heading": "Collection List",
-        "heading_size": "h2",
-        "vertical_alignment": "left",
-        "number_of_products_per_page": 4,
-        "collection": [
-
-        ],
-        "padding_top": 25,
-        "padding_bottom": 25,
-        "color_scheme": ""
-      }
-    },
     "text_with_image_BzLPVn": {
       "type": "text-with-image",
       "blocks": {
@@ -249,11 +234,44 @@
             "product_button_url": "shopify:\/\/products\/image-aspect-ratio-portrait",
             "product_color_scheme": "background-3"
           }
+        },
+        "image_bXNj3e": {
+          "type": "image",
+          "settings": {
+            "image_heading": "Image Heading",
+            "image_heading_size": "h6",
+            "image_sub_heading": "<p>Design your own image of highlights.<\/p>",
+            "image_sub_heading_size": "h3",
+            "image_vertical_alignment": "left",
+            "image_container_alignment": "Bottom_left",
+            "image_transparent": true,
+            "image_button": "Shop Now",
+            "image_button_url": "",
+            "image_color_scheme": "background-3"
+          }
+        },
+        "product_LEiMgM": {
+          "type": "product",
+          "settings": {
+            "product_id": "",
+            "product_heading": "Product Heading",
+            "product_heading_size": "h6",
+            "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
+            "product_sub_heading_size": "h3",
+            "product_vertical_alignment": "left",
+            "product_container_alignment": "Bottom_left",
+            "product_transparent": true,
+            "product_button": "Shop Now",
+            "product_button_url": "",
+            "product_color_scheme": "background-3"
+          }
         }
       },
       "block_order": [
         "product_83GDib",
-        "product_U6CVQD"
+        "product_U6CVQD",
+        "image_bXNj3e",
+        "product_LEiMgM"
       ],
       "settings": {
         "heading": "Grid Collection",
@@ -426,7 +444,6 @@
     "slideshow",
     "featured_collection",
     "countdown_WdGQE3",
-    "collection_list_64ChLQ",
     "text_with_image_BzLPVn",
     "multi_column_dczWjH",
     "grid_collection_and_product_keabm6",
