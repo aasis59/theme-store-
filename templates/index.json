@@ -172,7 +172,7 @@
             "product_container_alignment": "Bottom_left",
             "product_transparent": false,
             "product_button": "Shop Now",
-            "product_button_url": "",
+            "product_button_url": "shopify:\/\/products\/image-aspect-ratio",
             "product_color_scheme": ""
           }
         },
