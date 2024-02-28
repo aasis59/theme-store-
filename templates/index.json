@@ -160,41 +160,10 @@
     "grid_collection_and_product_FxQ4Vd": {
       "type": "grid-collection-and-product",
       "blocks": {
-        "collection_kQTXTM": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "collection_heading": "Collection Heading",
-            "collection_heading_size": "h6",
-            "collection_sub_heading": "<p>Design your own collection of highlights.<\/p>",
-            "collection_sub_heading_size": "h3",
-            "collection_vertical_alignment": "left",
-            "container_alignment": "Bottom_left",
-            "transparent": true,
-            "collection_button": "Shop Now",
-            "collection_button_url": "",
-            "collection_color_scheme": ""
-          }
-        },
-        "image_zCG7h9": {
-          "type": "image",
-          "settings": {
-            "image_heading": "Image Heading",
-            "image_heading_size": "h6",
-            "image_sub_heading": "<p>Design your own image of highlights.<\/p>",
-            "image_sub_heading_size": "h3",
-            "image_vertical_alignment": "left",
-            "image_container_alignment": "Bottom_left",
-            "image_transparent": true,
-            "image_button": "Shop Now",
-            "image_button_url": "",
-            "image_color_scheme": ""
-          }
-        },
         "product_pty4Fz": {
           "type": "product",
           "settings": {
-            "product_id": "",
+            "product_id": "image-aspect-ratio",
             "product_heading": "Product Heading",
             "product_heading_size": "h6",
             "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
@@ -206,12 +175,27 @@
             "product_button_url": "",
             "product_color_scheme": ""
           }
+        },
+        "product_DGEnD8": {
+          "type": "product",
+          "settings": {
+            "product_id": "image-aspect-ratio-portrait",
+            "product_heading": "Product Heading",
+            "product_heading_size": "h6",
+            "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
+            "product_sub_heading_size": "h3",
+            "product_vertical_alignment": "left",
+            "product_container_alignment": "Bottom_left",
+            "product_transparent": true,
+            "product_button": "Shop Now",
+            "product_button_url": "",
+            "product_color_scheme": "background-3"
+          }
         }
       },
       "block_order": [
-        "collection_kQTXTM",
-        "image_zCG7h9",
-        "product_pty4Fz"
+        "product_pty4Fz",
+        "product_DGEnD8"
       ],
       "settings": {
         "heading": "Grid Collection",
