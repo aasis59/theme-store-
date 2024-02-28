@@ -215,6 +215,56 @@
         "button_link": ""
       }
     },
+    "grid_collection_and_product_keabm6": {
+      "type": "grid-collection-and-product",
+      "blocks": {
+        "product_83GDib": {
+          "type": "product",
+          "settings": {
+            "product_id": "",
+            "product_heading": "Product Heading",
+            "product_heading_size": "h6",
+            "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
+            "product_sub_heading_size": "h3",
+            "product_vertical_alignment": "left",
+            "product_container_alignment": "Bottom_left",
+            "product_transparent": true,
+            "product_button": "Shop Now",
+            "product_button_url": "",
+            "product_color_scheme": ""
+          }
+        },
+        "product_U6CVQD": {
+          "type": "product",
+          "settings": {
+            "product_id": "image-aspect-ratio-portrait",
+            "product_heading": "Product Heading",
+            "product_heading_size": "h6",
+            "product_sub_heading": "<p>Design your own product of highlights.<\/p>",
+            "product_sub_heading_size": "h3",
+            "product_vertical_alignment": "left",
+            "product_container_alignment": "Bottom_left",
+            "product_transparent": true,
+            "product_button": "Shop Now",
+            "product_button_url": "shopify:\/\/products\/image-aspect-ratio-portrait",
+            "product_color_scheme": "background-3"
+          }
+        }
+      },
+      "block_order": [
+        "product_83GDib",
+        "product_U6CVQD"
+      ],
+      "settings": {
+        "heading": "Grid Collection",
+        "heading_size": "h2",
+        "vertical_alignment": "left",
+        "page_width": true,
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "color_scheme": ""
+      }
+    },
     "grid_collection_and_product_4bRLmU": {
       "type": "grid-collection-and-product",
       "blocks": {
@@ -379,6 +429,7 @@
     "collection_list_64ChLQ",
     "text_with_image_BzLPVn",
     "multi_column_dczWjH",
+    "grid_collection_and_product_keabm6",
     "grid_collection_and_product_4bRLmU",
     "hotspots",
     "video_V4W4pQ",
