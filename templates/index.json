@@ -100,21 +100,6 @@
         "padding_bottom": 50
       }
     },
-    "collection_list_64ChLQ": {
-      "type": "collection-list",
-      "settings": {
-        "heading": "Collection List",
-        "heading_size": "h2",
-        "vertical_alignment": "left",
-        "number_of_products_per_page": 4,
-        "collection": [
-
-        ],
-        "padding_top": 25,
-        "padding_bottom": 25,
-        "color_scheme": ""
-      }
-    },
     "text_with_image_BzLPVn": {
       "type": "text-with-image",
       "blocks": {
@@ -188,7 +173,7 @@
             "product_container_alignment": "Bottom_left",
             "product_transparent": false,
             "product_button": "Shop Now",
-            "product_button_url": "",
+            "product_button_url": "shopify:\/\/products\/image-aspect-ratio-portrait",
             "product_color_scheme": "background-3"
           }
         }
@@ -426,7 +411,6 @@
     "slideshow",
     "featured_collection",
     "countdown_WdGQE3",
-    "collection_list_64ChLQ",
     "text_with_image_BzLPVn",
     "grid_collection_and_product_FxQ4Vd",
     "multi_column_dczWjH",
