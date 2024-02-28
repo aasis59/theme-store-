@@ -257,9 +257,9 @@
       ],
       "settings": {
         "heading": "Grid Collection",
-        "heading_size": "h2",
-        "vertical_alignment": "left",
-        "page_width": true,
+        "heading_size": "h1",
+        "vertical_alignment": "center",
+        "page_width": false,
         "padding_top": 25,
         "padding_bottom": 25,
         "color_scheme": ""
