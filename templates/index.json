@@ -287,9 +287,9 @@
           "settings": {
             "image_id": "shopify:\/\/shop_images\/tokyo-at-night.jpg",
             "image_heading": "Image Heading",
-            "image_heading_size": "p",
+            "image_heading_size": "h6",
             "image_sub_heading": "<p>Design your own image of highlights.<\/p>",
-            "image_sub_heading_size": "h2",
+            "image_sub_heading_size": "h3",
             "image_vertical_alignment": "left",
             "image_container_alignment": "Bottom_left",
             "image_transparent": true,
