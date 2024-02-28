@@ -170,7 +170,7 @@
             "product_sub_heading_size": "h3",
             "product_vertical_alignment": "left",
             "product_container_alignment": "Bottom_left",
-            "product_transparent": true,
+            "product_transparent": false,
             "product_button": "Shop Now",
             "product_button_url": "",
             "product_color_scheme": ""
@@ -186,7 +186,7 @@
             "product_sub_heading_size": "h3",
             "product_vertical_alignment": "left",
             "product_container_alignment": "Bottom_left",
-            "product_transparent": true,
+            "product_transparent": false,
             "product_button": "Shop Now",
             "product_button_url": "",
             "product_color_scheme": "background-3"
