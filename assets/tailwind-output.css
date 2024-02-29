@@ -2494,60 +2494,6 @@ body,
   clip: rect(0,0,0,0) !important;
 }
 
-@media (min-width: 1024px) {
-  .lg\:button {
-    display: inline-block;
-    border-radius: var(--button-border-radius);
-    padding-left: var(--sm-button-padding-x);
-    padding-right: var(--sm-button-padding-x);
-    padding-top: var(--sm-button-padding-y);
-    padding-bottom: var(--sm-button-padding-y);
-    text-align: center;
-    text-transform: uppercase;
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  @media (min-width: 1024px) {
-    .lg\:button {
-      padding-left: var(--button-padding-x);
-      padding-right: var(--button-padding-x);
-      padding-top: var(--button-padding-y);
-      padding-bottom: var(--button-padding-y);
-    }
-  }
-
-  .lg\:button-primary {
-    display: inline-block;
-    border-width: 1px;
-    border-color: rgba(var(--color-btn));
-    background-color: rgba(var(--color-btn));
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 500;
-    color: rgba(var(--color-btn-text));
-    transition-duration: 300ms;
-  }
-
-  .lg\:button-primary:hover {
-    border-color: rgba(var(--color-btn), 0.9);
-    background-color: rgba(var(--color-btn-text));
-    color: rgba(var(--color-btn));
-  }
-
-  .lg\:button-primary:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-  }
-
-  .lg\:button-primary:active {
-    color: rgba(var(--color-btn));
-  }
-}
-
 .before\:block::before {
   content: var(--tw-content);
   display: block;
@@ -2932,10 +2878,6 @@ body,
     background-color: rgba(var(--color-bg));
   }
 
-  .md\:p-1 {
-    padding: 0.25rem;
-  }
-
   .md\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
@@ -2958,18 +2900,6 @@ body,
   .md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
-  }
-
-  .md\:text-\[10px\] {
-    font-size: 10px;
-  }
-
-  .md\:text-\[5px\] {
-    font-size: 5px;
-  }
-
-  .md\:text-\[8px\] {
-    font-size: 8px;
   }
 }
 
@@ -3154,16 +3084,6 @@ body,
     padding-bottom: 1.5rem;
   }
 
-  .lg\:px-\[var\(--button-padding-x\)\] {
-    padding-left: var(--button-padding-x);
-    padding-right: var(--button-padding-x);
-  }
-
-  .lg\:py-\[var\(--button-padding-y\)\] {
-    padding-top: var(--button-padding-y);
-    padding-bottom: var(--button-padding-y);
-  }
-
   .lg\:text-left {
     text-align: left;
   }
@@ -3215,8 +3135,20 @@ body,
   grid-row: span 2 / span 2;
 }
 
-.\[\&\>\*\:nth-child\(2\)\]\:col-span-3>*:nth-child(2) {
-  grid-column: span 3 / span 3;
+@media (min-width: 768px) {
+  .md\:\[\&\>\*\:nth-child\(1\)\]\:col-span-6>*:nth-child(1) {
+    grid-column: span 6 / span 6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:\[\&\>\*\:nth-child\(1\)\]\:col-span-6>*:nth-child(1) {
+    grid-column: span 6 / span 6;
+  }
+
+  .lg\:\[\&\>\*\:nth-child\(1\)\]\:row-span-2>*:nth-child(1) {
+    grid-row: span 2 / span 2;
+  }
 }
 
 .\[\&\>\*\:nth-child\(2\)\]\:col-span-4>*:nth-child(2) {
@@ -3243,6 +3175,26 @@ body,
   grid-column-start: 8;
 }
 
+@media (min-width: 768px) {
+  .md\:\[\&\>\*\:nth-child\(2\)\]\:col-span-6>*:nth-child(2) {
+    grid-column: span 6 / span 6;
+  }
+
+  .md\:\[\&\>\*\:nth-child\(2\)\]\:col-start-7>*:nth-child(2) {
+    grid-column-start: 7;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:\[\&\>\*\:nth-child\(2\)\]\:col-span-3>*:nth-child(2) {
+    grid-column: span 3 / span 3;
+  }
+
+  .lg\:\[\&\>\*\:nth-child\(2\)\]\:col-start-7>*:nth-child(2) {
+    grid-column-start: 7;
+  }
+}
+
 .\[\&\>\*\:nth-child\(3\)\]\:col-span-3>*:nth-child(3) {
   grid-column: span 3 / span 3;
 }
@@ -3253,10 +3205,6 @@ body,
 
 .\[\&\>\*\:nth-child\(3\)\]\:col-span-5>*:nth-child(3) {
   grid-column: span 5 / span 5;
-}
-
-.\[\&\>\*\:nth-child\(3\)\]\:col-start-10>*:nth-child(3) {
-  grid-column-start: 10;
 }
 
 .\[\&\>\*\:nth-child\(3\)\]\:col-start-7>*:nth-child(3) {
@@ -3275,6 +3223,22 @@ body,
   grid-row-start: 2;
 }
 
+@media (min-width: 768px) {
+  .md\:\[\&\>\*\:nth-child\(3\)\]\:col-span-4>*:nth-child(3) {
+    grid-column: span 4 / span 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:\[\&\>\*\:nth-child\(3\)\]\:col-span-3>*:nth-child(3) {
+    grid-column: span 3 / span 3;
+  }
+
+  .lg\:\[\&\>\*\:nth-child\(3\)\]\:col-start-10>*:nth-child(3) {
+    grid-column-start: 10;
+  }
+}
+
 .\[\&\>\*\:nth-child\(4\)\]\:col-span-3>*:nth-child(4) {
   grid-column: span 3 / span 3;
 }
@@ -3287,24 +3251,40 @@ body,
   grid-column-start: 10;
 }
 
-.\[\&\>\*\:nth-child\(4\)\]\:col-start-7>*:nth-child(4) {
-  grid-column-start: 7;
-}
-
 .\[\&\>\*\:nth-child\(4\)\]\:row-start-2>*:nth-child(4) {
   grid-row-start: 2;
 }
 
-.\[\&\>\*\:nth-child\(5\)\]\:col-span-3>*:nth-child(5) {
-  grid-column: span 3 / span 3;
+@media (min-width: 768px) {
+  .md\:\[\&\>\*\:nth-child\(4\)\]\:col-span-4>*:nth-child(4) {
+    grid-column: span 4 / span 4;
+  }
+
+  .md\:\[\&\>\*\:nth-child\(4\)\]\:col-start-5>*:nth-child(4) {
+    grid-column-start: 5;
+  }
+
+  .md\:\[\&\>\*\:nth-child\(4\)\]\:row-start-2>*:nth-child(4) {
+    grid-row-start: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:\[\&\>\*\:nth-child\(4\)\]\:col-span-3>*:nth-child(4) {
+    grid-column: span 3 / span 3;
+  }
+
+  .lg\:\[\&\>\*\:nth-child\(4\)\]\:col-start-7>*:nth-child(4) {
+    grid-column-start: 7;
+  }
+
+  .lg\:\[\&\>\*\:nth-child\(4\)\]\:row-start-2>*:nth-child(4) {
+    grid-row-start: 2;
+  }
 }
 
 .\[\&\>\*\:nth-child\(5\)\]\:col-span-4>*:nth-child(5) {
   grid-column: span 4 / span 4;
-}
-
-.\[\&\>\*\:nth-child\(5\)\]\:col-start-10>*:nth-child(5) {
-  grid-column-start: 10;
 }
 
 .\[\&\>\*\:nth-child\(5\)\]\:col-start-5>*:nth-child(5) {
@@ -3313,6 +3293,34 @@ body,
 
 .\[\&\>\*\:nth-child\(5\)\]\:row-start-2>*:nth-child(5) {
   grid-row-start: 2;
+}
+
+@media (min-width: 768px) {
+  .md\:\[\&\>\*\:nth-child\(5\)\]\:col-span-4>*:nth-child(5) {
+    grid-column: span 4 / span 4;
+  }
+
+  .md\:\[\&\>\*\:nth-child\(5\)\]\:col-start-9>*:nth-child(5) {
+    grid-column-start: 9;
+  }
+
+  .md\:\[\&\>\*\:nth-child\(5\)\]\:row-start-2>*:nth-child(5) {
+    grid-row-start: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:\[\&\>\*\:nth-child\(5\)\]\:col-span-3>*:nth-child(5) {
+    grid-column: span 3 / span 3;
+  }
+
+  .lg\:\[\&\>\*\:nth-child\(5\)\]\:col-start-10>*:nth-child(5) {
+    grid-column-start: 10;
+  }
+
+  .lg\:\[\&\>\*\:nth-child\(5\)\]\:row-start-2>*:nth-child(5) {
+    grid-row-start: 2;
+  }
 }
 
 .\[\&\>\*\:nth-child\(6\)\]\:col-span-4>*:nth-child(6) {
