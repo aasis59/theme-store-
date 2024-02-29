@@ -66,13 +66,17 @@
                     {%- endcase -%}
                   "
                 >
-                  <h2 class="{{ block.settings.collection_heading_size }}">{{ block.settings.collection_heading }}</h2>
-                  <div class="{{- block.settings.collection_sub_heading_size }}">
+                  <h2 class="{{block.settings.collection_heading_size }}">
+                    {{ block.settings.collection_heading }}
+                  </h2>
+                  <div class="{{block.settings.collection_sub_heading_size }}">
                     {{ block.settings.collection_sub_heading }}
                   </div>
-                  <div class="mb-2">
+                  <div class="">
                     <a href="{{ block.settings.collection_button_url }}">
-                      <button class="button button-primary">{{ block.settings.collection_button }}</button>
+                      <button class="button button-primary md:text-5 md:p-1  lg:px-[var(--button-padding-x)] lg:py-[var(--button-padding-y)] ">
+                        {{ block.settings.collection_button }}
+                      </button>
                     </a>
                   </div>
                 </div>
@@ -115,13 +119,15 @@
                     {%- endcase -%}
                   "
                 >
-                  <h2 class="{{ block.settings.image_heading_size }}">{{ block.settings.image_heading }}</h2>
+                  <h2 class="{{block.settings.image_heading_size }}">{{ block.settings.image_heading }}</h2>
                   <div class="{{ block.settings.image_sub_heading_size }}">
                     {{ block.settings.image_sub_heading }}
                   </div>
-                  <div class="mb-2">
+                  <div class="">
                     <a href="{{ block.settings.image_button_url }}">
-                      <button class="button button-primary">{{ block.settings.image_button }}</button>
+                      <button class="button button-primary md:text-5 md:p-1 ">
+                        {{ block.settings.image_button }}
+                      </button>
                     </a>
                   </div>
                 </div>
@@ -164,13 +170,17 @@
                     {%- endcase -%}
                   "
                 >
-                  <h2 class="{{ block.settings.product_heading_size }}">{{ block.settings.product_heading }}</h2>
+                  <h2 class="{{ block.settings.product_heading_size }}">
+                    {{ block.settings.product_heading }}
+                  </h2>
                   <div class="{{ block.settings.product_sub_heading_size }}">
                     {{ block.settings.product_sub_heading }}
                   </div>
-                  <div class="mb-2">
+                  <div class="">
                     <a href="{{ block.settings.product_button_url }}">
-                      <button class="button button-primary">{{ block.settings.product_button }}</button>
+                      <button class="button button-primary md:text-5 md:p-1  ">
+                        {{ block.settings.product_button }}
+                      </button>
                     </a>
                   </div>
                 </div>
